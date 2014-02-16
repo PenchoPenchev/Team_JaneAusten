@@ -41,7 +41,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Archer.cs" />
+    <Compile Include="ArcherEnemy.cs" />
+    <Compile Include="Bullet.cs" />
+    <Compile Include="Creature.cs" />
+    <Compile Include="CreatureType.cs" />
+    <Compile Include="Enemy.cs" />
+    <Compile Include="Engine.cs" />
+    <Compile Include="FighterEnemy.cs" />
+    <Compile Include="Hero.cs" />
+    <Compile Include="IDrawable.cs" />
+    <Compile Include="IMovable.cs" />
+    <Compile Include="JaneAusten.cs" />
+    <Compile Include="Labyrinth.cs" />
+    <Compile Include="MovingObject.cs" />
+    <Compile Include="Object.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

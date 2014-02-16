@@ -5,11 +5,9 @@ using System.Text;
 
 namespace JaneAusten
 {
-    class Program
+    public enum CreatureType
     {
-        static void Main()
-        {
-            Console.WriteLine("Jane Austen");
-        }
+        Hero,
+        Enemy
     }
 }
