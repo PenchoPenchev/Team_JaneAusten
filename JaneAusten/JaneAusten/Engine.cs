@@ -17,6 +17,7 @@
             // JustTest
             Console.WriteLine();
             Console.WriteLine();
+            Console.WriteLine();
             while (true)
             {
                 //Read pressed key
