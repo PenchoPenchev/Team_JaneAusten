@@ -13,13 +13,13 @@ namespace JaneAusten
         public int PosX
         {
             get { return posX; }
-            private set { posX = value; }
+            set { posX = value; }
         }
 
         public int PosY
         {
             get { return posY; }
-            private set { posY = value; }
+            set { posY = value; }
         }
 
         public Object(int x, int y)

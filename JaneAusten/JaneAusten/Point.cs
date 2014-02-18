@@ -7,9 +7,9 @@ namespace JaneAusten
 {
     public struct Point
     {
-        public readonly int X { get; set; }
+        public int X { get; set; }
 
-        public readonly int Y { get; set; }
+        public int Y { get; set; }
 
         public Point(int x, int y)
             : this()

@@ -9,27 +9,36 @@
     public class Engine
     {
         public static void Run()
-        {            
-            string[,] labyrinth = GenerateLabyrinthLevel("1");
+        {   
+            Labyrinth labyrinth = new Labyrinth();
+            //Draw loaded labyrinth with default parameteres 0, 0
+            labyrinth.DrawObject(0, 0);
 
-            PrintLabyrinth(labyrinth);
+            Archer archer = new Archer(1, 1, false, 10, ConsoleColor.Cyan);
+            //Load hero from file
+            archer.LoadHero();
+            //Draw loaded hero on the console screen with default position row = 1, col = 1
+            archer.DrawObject(1, 1);
 
-            // JustTest
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
             while (true)
             {
-                //Read pressed key
-                ConsoleKeyInfo pressedKey = Console.ReadKey(true);
-                //Move hero (keypressed)
+                //Hero move or shoot (keypressed)
+                archer.MoveAndShoot();
+                //Read all bullets from the list and increment their positions according each shotSymbol
+                archer.MoveAllBulletsOneStepForward();
+                //Read all bullets and print them on the console
+                archer.PrintAllBullets();
+            
                 //Move enemies
                 //Check if some enemy is hitting us
                 //Console clear
-                Console.Clear();
+                //Console.Clear();
                 //Redraw playfield
                 //Redraw hero
                 //Redraw left enemies
+
+                //Slow down rendering speed
+                System.Threading.Thread.Sleep(100);
             }
         }
 
@@ -38,50 +47,6 @@
             Console.SetCursorPosition(x, y);
             Console.ForegroundColor = color;
             Console.WriteLine(chr);
-        }
-
-        public static string[,] GenerateLabyrinthLevel(string level)
-        {
-            string filePath = @"..\..\Content\lab" + level + ".txt";
-            StreamReader reader = new StreamReader(filePath);
-
-            const int labRows = 13;
-            const int labCols = 24;
-
-            string[,] labyrinth = new string[labRows, labCols];
-
-            using (reader)
-            {
-                for (int i = 0; i < labRows; i++)
-                {
-                    for (int ii = 0; ii < labCols; ii++)
-                    {
-                        labyrinth[i, ii] = ((char)reader.Read()).ToString();
-                    }
-                }
-            }
-
-            return labyrinth;
-        }
-
-        public static void PrintLabyrinth(string[,] labyrinth)
-        {
-            for (int i = 0; i < labyrinth.GetLength(0); i++)
-            {
-                for (int ii = 0; ii < labyrinth.GetLength(1); ii++)
-                {
-                    if (labyrinth[i, ii] == "X")
-                    {
-                        Console.ForegroundColor = ConsoleColor.DarkGreen;
-                    }
-                    else
-                    {
-                        Console.ForegroundColor = ConsoleColor.White;
-                    }
-                    Console.Write(labyrinth[i, ii]);
-                }
-                Console.WriteLine();
-            }
         }
     }
 }

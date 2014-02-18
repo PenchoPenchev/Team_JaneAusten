@@ -7,6 +7,8 @@ namespace JaneAusten
 {
     public interface IMovable
     {
-        void Move(string direction);
+        void Move();
+
+        //void Move(int x, int y);
     }
 }

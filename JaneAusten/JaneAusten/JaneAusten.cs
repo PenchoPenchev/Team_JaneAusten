@@ -9,14 +9,8 @@ namespace JaneAusten
     {
         static void Main()
         {
-            const int consoleWidth = 50;
-            const int consoleHeight = 30;
-
-            Console.WindowWidth = consoleWidth;
-            Console.WindowHeight = consoleHeight;
-
-            Console.BufferHeight = Console.WindowHeight;      //Remove scrollbar
-            Console.BufferWidth = Console.WindowWidth;        //Remove scrollbar
+            Console.BufferHeight = Console.WindowHeight = 35;      //Remove scrollbar
+            Console.BufferWidth = Console.WindowWidth = 100;        //Remove scrollbar
 
             Engine.Run();
         }
