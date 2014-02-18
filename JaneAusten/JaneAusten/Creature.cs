@@ -11,12 +11,10 @@ namespace JaneAusten
         private int health;
         private int lives;
         private int speed;
-        private bool isDead;
 
         public bool IsDead
         {
-            get { return isDead; }
-            set { isDead = value; }
+            get { return this.Health == 0; }
         }
 
         public int Lives
@@ -43,14 +41,13 @@ namespace JaneAusten
             set { this.speed = value; }
         }
 
-        public Creature(int x, int y, int health, int lives, int speed, ConsoleColor color, bool isDead = false)
+        public Creature(int x, int y, int health, int lives, int speed, ConsoleColor color)
             : base(x, y)
         {
             this.Health = health;
             this.Lives = lives;
             this.Speed = speed;
             this.Color = color;
-            this.IsDead = isDead;
         }
     }
 }

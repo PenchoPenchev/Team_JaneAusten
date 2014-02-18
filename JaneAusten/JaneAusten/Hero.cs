@@ -17,7 +17,7 @@ namespace JaneAusten
 
 
         public Hero(int x, int y, bool isDead, int health, int lives, int speed, ConsoleColor color)
-            : base(x, y, health, lives, speed, color, isDead)
+            : base(x, y, health, lives, speed, color)
         {
             this.Health = 100;
             this.Lives = 3;
