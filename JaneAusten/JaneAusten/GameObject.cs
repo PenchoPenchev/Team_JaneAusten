@@ -5,10 +5,11 @@ using System.Text;
 
 namespace JaneAusten
 {
-    public abstract class Object
+    public abstract class GameObject
     {
         private int posX;
         private int posY;
+        public Point Point { get; set; }
 
         public int PosX
         {
@@ -22,10 +23,15 @@ namespace JaneAusten
             set { posY = value; }
         }
 
-        public Object(int x, int y)
+        public GameObject(int x, int y)
         {
             this.PosX = x;
             this.PosY = y;
+        }
+
+        public GameObject(Point point)
+        {
+            this.Point = point; 
         }
 
     }

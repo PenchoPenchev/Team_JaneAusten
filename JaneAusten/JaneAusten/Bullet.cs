@@ -31,6 +31,8 @@
             set { range = value; }
         }
 
+    //    public char ShotDirection { get; set; }
+
         public Bullet(int x, int y, char shotSymbol, int speed = 10, int range = 5)
             : base(x, y)
         {

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace JaneAusten
 {
-    public abstract class Creature : Object
+    public abstract class Creature : GameObject
     {
         private ConsoleColor color;
         private int health;
@@ -45,6 +45,16 @@ namespace JaneAusten
 
         public Creature(int x, int y, int health, int lives, int speed, ConsoleColor color, bool isDead = false)
             : base(x, y)
+        {
+            this.Health = health;
+            this.Lives = lives;
+            this.Speed = speed;
+            this.Color = color;
+            this.IsDead = isDead;
+        }
+
+        public Creature(Point point, int health, int lives, int speed, ConsoleColor color, bool isDead = false)
+            : base(point)
         {
             this.Health = health;
             this.Lives = lives;

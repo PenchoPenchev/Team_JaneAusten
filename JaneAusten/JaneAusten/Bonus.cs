@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace JaneAusten
 {
-    public class Bonus : Object, ICollectable, IDrawable
+    public class Bonus : GameObject, ICollectable, IDrawable
     {
 
         public BonusType Type { get; set; }

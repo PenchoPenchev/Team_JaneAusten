@@ -92,11 +92,11 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="JaneAusten.Object" Collapsed="true">
+  <Class Name="JaneAusten.GameObject" Collapsed="true">
     <Position X="4" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAwAAAAAA=</HashCode>
-      <FileName>Object.cs</FileName>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAwAAAAAAAAAAAAAAAwAAAAAA=</HashCode>
+      <FileName>GameObject.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="JaneAusten.Point" Collapsed="true">

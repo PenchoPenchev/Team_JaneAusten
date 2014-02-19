@@ -59,9 +59,12 @@
     <Compile Include="JaneAusten.cs" />
     <Compile Include="Labyrinth.cs" />
     <Compile Include="MovingObject.cs" />
-    <Compile Include="Object.cs" />
+    <Compile Include="GameObject.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="JaneAusten.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

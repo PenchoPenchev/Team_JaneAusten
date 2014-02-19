@@ -5,13 +5,20 @@
     using System.Linq;
     using System.Text;
     
-    public abstract class MovingObject : Object, IMovable
+    public abstract class MovingObject : GameObject, IMovable
     {
         public MovingObject(int x, int y)
             : base(x, y)
         {
 
         }
+
+        public MovingObject(Point point)
+            : base(point)
+        {
+
+        }
+
 
         public abstract void Move();
     }
