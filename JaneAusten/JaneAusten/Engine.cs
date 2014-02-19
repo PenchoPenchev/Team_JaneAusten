@@ -9,31 +9,35 @@
     public class Engine
     {
         public static void Run()
-        {   
+        {
+            //LABYRINTH
             Labyrinth labyrinth = new Labyrinth();
             //Draw loaded labyrinth with default parameteres 0, 0
             labyrinth.DrawObject();
 
+            //HERO
             Archer archer = new Archer(1, 1, false, 10, ConsoleColor.Cyan);
             //Load hero from file
             archer.LoadHero();
             //Draw loaded hero on the console screen with default position row = 1, col = 1
             archer.DrawObject();
+            //Load hero collision
+            archer.LoadHeroCollision();
 
-            //TEST - Create first enemy 
-            FighterEnemy monster = new FighterEnemy(10, 1, false, 50, 1, 5, ConsoleColor.Red, 1);
-            monster.LoadEnemy();
-            monster.DrawObject();
+            //ENEMIES
+            //TEST - Load all enemies
+            foreach (var enemy in FirstLevel.listOfFighterEnemies)
+            {
+                enemy.LoadEnemy();
+                enemy.DrawObject();
+            }
 
             while (true)
             {
+                PrintOnPosition(70, 5, "Hero lives: " + archer.Lives);
                 //Hero move or shoot (keypressed)
                 archer.MoveAndShoot();
-                //Read all bullets from the list and increment their positions according each shotSymbol
-                archer.MoveAllBulletsOneStepForward();
-                //Read all bullets and print them on the console
-                archer.PrintAllBullets();
-            
+                archer.ResetHeroPosition();
                 //Move enemies
                 //Check if some enemy is hitting us
                 //Console clear
@@ -47,11 +51,11 @@
             }
         }
 
-        public static void PrintOnPosition(int x, int y, char chr, ConsoleColor color = ConsoleColor.Magenta)
+        public static void PrintOnPosition(int x, int y, string message)
         {
             Console.SetCursorPosition(x, y);
-            Console.ForegroundColor = color;
-            Console.WriteLine(chr);
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine(message);
         }
     }
 }

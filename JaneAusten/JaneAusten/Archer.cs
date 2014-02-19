@@ -10,78 +10,32 @@ namespace JaneAusten
         private char shotDirection = 'R';
         private char shotSybmol = '→';
 
-        public List<Bullet> listOfBullets = new List<Bullet>();
-
         public char ShotSymbol
         {
             get { return this.shotSybmol; }
             private set { this.shotSybmol = value; }
         }
 
+        public Archer()
+            : base()
+        {
+
+        }
+
         public Archer(int x, int y, bool isDead, int speed, ConsoleColor color,
-            int health = 100, int lives = 3, double damage = 10)
+            int health = 100, int lives = 3, int damage = 10)
             : base(x, y, isDead, speed, color, health, lives, damage)
         {
 
         }
 
-        public void MoveAllBulletsOneStepForward()
-        {
-            //Clear all current bullets
-            foreach (var oldBullet in listOfBullets)
-            {
-                Console.SetCursorPosition(oldBullet.PosX, oldBullet.PosY);
-                Console.Write(' ');
-            }
-            
-            List<Bullet> listOfNewBulletPositions = new List<Bullet>();
-
-            for (int i = 0; i < listOfBullets.Count; i++)
-            {
-                switch (listOfBullets[i].BulletSymbol)
-                {
-                    case '←':
-                        listOfBullets[i].PosX--;
-                        break;
-                    case '→':
-                        listOfBullets[i].PosX++;
-                        break;
-                    case '↑':
-                        listOfBullets[i].PosY--;
-                        break;
-                    case '↓':
-                        listOfBullets[i].PosY++;
-                        break;
-                }
-
-                if (!CheckShotHitWall(listOfBullets[i].PosX, listOfBullets[i].PosY))
-                {
-                    listOfNewBulletPositions.Add(listOfBullets[i]);    
-                }
-            }
-
-            listOfBullets.Clear();
-            listOfBullets = listOfNewBulletPositions;
-        }
-
-        public void PrintAllBullets()
-        {
-            foreach (var bullet in listOfBullets)
-            {
-                Console.SetCursorPosition(bullet.PosX, bullet.PosY);
-                Console.Write(bullet.BulletSymbol);
-            }
-        }
-
-        private bool CheckShotHitWall(int heroXposition, int heroYposition)
-        {
-            if (Labyrinth.maze[heroXposition, heroYposition] == 1) return true;
-
-            return false;
-        }
-
         public void MoveAndShoot()
         {
+            //Read all bullets from the list and increment their positions according each shotSymbol
+            Bullet.MoveAllBulletsOneStepForward();
+            //Read all bullets and print them on the console
+            Bullet.PrintAllBullets();
+
             if (Console.KeyAvailable)
             {
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
@@ -160,8 +114,8 @@ namespace JaneAusten
                             break;
                     }
 
-                    Bullet bullet = new Bullet(bulletPosX, bulletPosY, ShotSymbol);
-                    listOfBullets.Add(bullet);
+                    Bullet bullet = new Bullet(bulletPosX, bulletPosY, ShotSymbol, this.Damage);
+                    Bullet.listOfBullets.Add(bullet);
                 }
             }
         }
