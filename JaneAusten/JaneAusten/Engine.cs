@@ -12,13 +12,18 @@
         {   
             Labyrinth labyrinth = new Labyrinth();
             //Draw loaded labyrinth with default parameteres 0, 0
-            labyrinth.DrawObject(0, 0);
+            labyrinth.DrawObject();
 
             Archer archer = new Archer(1, 1, false, 10, ConsoleColor.Cyan);
             //Load hero from file
             archer.LoadHero();
             //Draw loaded hero on the console screen with default position row = 1, col = 1
-            archer.DrawObject(1, 1);
+            archer.DrawObject();
+
+            //TEST - Create first enemy 
+            FighterEnemy monster = new FighterEnemy(10, 1, false, 50, 1, 5, ConsoleColor.Red, 1);
+            monster.LoadEnemy();
+            monster.DrawObject();
 
             while (true)
             {

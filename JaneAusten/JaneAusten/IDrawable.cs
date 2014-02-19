@@ -7,6 +7,6 @@ namespace JaneAusten
 {
     public interface IDrawable
     {
-        void DrawObject(int x, int y);
+        void DrawObject();
     }
 }

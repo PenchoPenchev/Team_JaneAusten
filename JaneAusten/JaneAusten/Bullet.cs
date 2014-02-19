@@ -39,9 +39,9 @@
             this.Range = range;
         }
 
-        public void DrawObject(int shotXPosition, int shotYPosition)
+        public void DrawObject()
         {
-            Console.SetCursorPosition(shotXPosition, shotYPosition);
+            Console.SetCursorPosition(this.PosX, this.PosY);
             Console.Write(bulletSymbol);
         }
 

@@ -26,10 +26,10 @@ namespace JaneAusten
             this.isCollected = true;
         }
 
-        public void DrawObject(int x, int y)
+        public void DrawObject()
         {
             string item;
-            Console.SetCursorPosition(PosX, PosY); 
+            Console.SetCursorPosition(this.PosX, this.PosY); 
             switch (this.Type)
             {
                 case BonusType.gold: item = "o"; Console.ForegroundColor = ConsoleColor.Yellow; Console.WriteLine(item); break;

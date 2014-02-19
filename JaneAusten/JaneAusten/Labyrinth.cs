@@ -13,7 +13,7 @@
 
         public static int[,] maze = new int[consoleWidth, consoleHeight];
 
-        public void DrawObject(int x, int y)
+        public void DrawObject()
         {
             using (StreamReader sr = new StreamReader(@"..\..\Content\MazeLevel1.txt"))
             {

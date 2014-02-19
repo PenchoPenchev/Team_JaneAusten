@@ -10,7 +10,9 @@
         public FighterEnemy(int x, int y, bool isDead, int health, int lives, int speed, ConsoleColor color, int level = 1)
             : base(x, y, isDead, health, lives, speed, color)
         {
-            
+            this.Health = 50;
+            this.Lives = 1;
+            this.Speed = 5;
         }
 
         public void Move()

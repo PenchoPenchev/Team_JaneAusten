@@ -97,7 +97,7 @@ namespace JaneAusten
                     {
                         ClearObject(this.PosX, this.PosY);
                         this.PosX++;
-                        DrawObject(this.PosX, this.PosY);
+                        DrawObject();
                         shotDirection = 'R';
                     }
                 }
@@ -107,7 +107,7 @@ namespace JaneAusten
                     {
                         ClearObject(this.PosX, this.PosY);
                         this.PosX--;
-                        DrawObject(this.PosX, this.PosY);
+                        DrawObject();
                         shotDirection = 'L';
                     }
                 }
@@ -117,7 +117,7 @@ namespace JaneAusten
                     {
                         ClearObject(this.PosX, this.PosY);
                         this.PosY--;
-                        DrawObject(this.PosX, this.PosY);
+                        DrawObject();
                         shotDirection = 'U';
                     }
                 }
@@ -127,7 +127,7 @@ namespace JaneAusten
                     {
                         ClearObject(this.PosX, this.PosY);
                         this.PosY++;
-                        DrawObject(this.PosX, this.PosY);
+                        DrawObject();
                         shotDirection = 'D';
                     }
                 }

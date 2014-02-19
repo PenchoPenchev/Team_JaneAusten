@@ -59,7 +59,7 @@ namespace JaneAusten
             return false;
         }
 
-        public void DrawObject(int row, int col)
+        public void DrawObject()
         {
             Console.ForegroundColor = this.Color;
 
@@ -67,7 +67,7 @@ namespace JaneAusten
             {
                 for (int j = 0; j < heroFigure.GetLength(1); j++)
                 {
-                    Console.SetCursorPosition(row + i, col + j);
+                    Console.SetCursorPosition(this.PosX + i, this.PosY + j);
                     Console.Write(heroFigure[j, i]);
                 }
             }
