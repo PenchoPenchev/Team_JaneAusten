@@ -85,6 +85,7 @@
                 Console.Write(' ');
             }
 
+            //Temp list for the incremented bullet positions
             List<Bullet> listOfNewBulletPositions = new List<Bullet>();
 
             for (int i = 0; i < Bullet.listOfBullets.Count; i++)

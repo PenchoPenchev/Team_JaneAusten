@@ -21,6 +21,8 @@
             archer.LoadHero();
             //Draw loaded hero on the console screen with default position row = 1, col = 1
             archer.DrawObject();
+            //Load hero collision
+            archer.LoadHeroCollision();
 
             //ENEMIES
             //TEST - Load all enemies
@@ -32,9 +34,10 @@
 
             while (true)
             {
+                PrintOnPosition(70, 5, "Hero lives: " + archer.Lives);
                 //Hero move or shoot (keypressed)
                 archer.MoveAndShoot();
-                
+                archer.ResetHeroPosition();
                 //Move enemies
                 //Check if some enemy is hitting us
                 //Console clear
@@ -48,11 +51,11 @@
             }
         }
 
-        public static void PrintOnPosition(int x, int y, char chr, ConsoleColor color = ConsoleColor.Magenta)
+        public static void PrintOnPosition(int x, int y, string message)
         {
             Console.SetCursorPosition(x, y);
-            Console.ForegroundColor = color;
-            Console.WriteLine(chr);
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine(message);
         }
     }
 }

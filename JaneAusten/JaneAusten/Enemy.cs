@@ -47,36 +47,6 @@ namespace JaneAusten
             }
         }
 
-        //public void ChangeEnemyColor()
-        //{
-        //    ConsoleColor newColor = this.Color;
-
-        //    if (this.Health >= 30 && this.Health < 50)
-        //    {
-        //        newColor = ConsoleColor.Red;
-        //    }
-        //    else
-        //    {
-        //        if (this.Health < 30)
-        //        {
-        //            newColor = ConsoleColor.Green;
-        //        }
-        //    }
-
-        //    Console.ForegroundColor = newColor;
-
-        //    for (int col = 0; col < enemyFigure.GetLength(1); col++)
-        //    {
-        //        for (int row = 0; row < enemyFigure.GetLength(0); row++)
-        //        {
-        //            Console.SetCursorPosition(this.PosX + col, this.PosY + row);
-        //            Console.Write(enemyFigure[row, col]);
-        //        }
-        //    }
-
-        //    Console.ForegroundColor = ConsoleColor.White;
-        //}
-
         public void DrawObject()
         {   
             Console.ForegroundColor = this.Color;

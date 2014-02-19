@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
 namespace JaneAusten
 {
     public class FirstLevel
-    {
+    {   
         public static List<FighterEnemy> listOfFighterEnemies = new List<FighterEnemy>()
         {
             new FighterEnemy(10, 1, false, 50, 1, 5, ConsoleColor.DarkRed, 1),
