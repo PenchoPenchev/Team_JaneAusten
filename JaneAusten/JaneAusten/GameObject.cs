@@ -23,6 +23,10 @@ namespace JaneAusten
             set { posY = value; }
         }
 
+        public GameObject()
+        {
+        }
+
         public GameObject(int x, int y)
         {
             this.PosX = x;
