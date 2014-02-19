@@ -43,6 +43,12 @@ namespace JaneAusten
             set { this.speed = value; }
         }
 
+        public Creature() 
+            : base()
+        {
+
+        }
+
         public Creature(int x, int y, int health, int lives, int speed, ConsoleColor color, bool isDead = false)
             : base(x, y)
         {

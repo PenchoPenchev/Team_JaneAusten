@@ -22,6 +22,11 @@ namespace JaneAusten
             set { posY = value; }
         }
 
+        public Object()
+        {
+
+        }
+
         public Object(int x, int y)
         {
             this.PosX = x;

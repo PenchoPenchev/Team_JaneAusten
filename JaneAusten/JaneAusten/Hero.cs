@@ -18,6 +18,12 @@ namespace JaneAusten
             private set { this.damage = value; }
         }
 
+        public Hero()
+            : base()
+        {
+
+        }
+
         public Hero(int x, int y, bool isDead, int speed, ConsoleColor color,
             int health = 100, int lives = 3, double damage = 10)
             : base(x, y, health, lives, speed, color, isDead)

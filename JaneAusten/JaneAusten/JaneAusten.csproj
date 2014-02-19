@@ -51,6 +51,7 @@
     <Compile Include="Enemy.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="FighterEnemy.cs" />
+    <Compile Include="FirstLevel.cs" />
     <Compile Include="Hero.cs" />
     <Compile Include="ICollectable.cs" />
     <Compile Include="IDrawable.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="IMovable.cs" />
     <Compile Include="JaneAusten.cs" />
     <Compile Include="Labyrinth.cs" />
+    <Compile Include="Levels.cs" />
     <Compile Include="MovingObject.cs" />
     <Compile Include="Object.cs" />
     <Compile Include="Point.cs" />

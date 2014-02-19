@@ -8,7 +8,7 @@ namespace JaneAusten
 {
     public abstract class Enemy : Creature, IDrawable
     {
-        public char[,] enemyFigure = new char[3, 3];
+        public static readonly char[,] enemyFigure = new char[3, 3];
 
         private int level;
 
@@ -16,6 +16,12 @@ namespace JaneAusten
         {
             get { return level; }
             private set { level = value; }
+        }
+
+        public Enemy()
+            : base()
+        {
+
         }
 
         public Enemy(int x, int y, bool isDead, int health, int lives, int speed, ConsoleColor color, int level = 1)
@@ -41,8 +47,38 @@ namespace JaneAusten
             }
         }
 
+        //public void ChangeEnemyColor()
+        //{
+        //    ConsoleColor newColor = this.Color;
+
+        //    if (this.Health >= 30 && this.Health < 50)
+        //    {
+        //        newColor = ConsoleColor.Red;
+        //    }
+        //    else
+        //    {
+        //        if (this.Health < 30)
+        //        {
+        //            newColor = ConsoleColor.Green;
+        //        }
+        //    }
+
+        //    Console.ForegroundColor = newColor;
+
+        //    for (int col = 0; col < enemyFigure.GetLength(1); col++)
+        //    {
+        //        for (int row = 0; row < enemyFigure.GetLength(0); row++)
+        //        {
+        //            Console.SetCursorPosition(this.PosX + col, this.PosY + row);
+        //            Console.Write(enemyFigure[row, col]);
+        //        }
+        //    }
+
+        //    Console.ForegroundColor = ConsoleColor.White;
+        //}
+
         public void DrawObject()
-        {
+        {   
             Console.ForegroundColor = this.Color;
 
             for (int i = 0; i < enemyFigure.GetLength(0); i++)
@@ -57,13 +93,13 @@ namespace JaneAusten
             Console.ForegroundColor = ConsoleColor.White;
         }
 
-        public void ClearObject(int row, int col)
+        public void ClearObject()
         {
             for (int i = 0; i < enemyFigure.GetLength(0); i++)
             {
                 for (int j = 0; j < enemyFigure.GetLength(1); j++)
                 {
-                    Console.SetCursorPosition(row + i, col + j);
+                    Console.SetCursorPosition(this.PosX + i, this.PosY + j);
                     Console.Write(' ');
                 }
             }

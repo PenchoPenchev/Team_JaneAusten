@@ -9,31 +9,32 @@
     public class Engine
     {
         public static void Run()
-        {   
+        {
+            //LABYRINTH
             Labyrinth labyrinth = new Labyrinth();
             //Draw loaded labyrinth with default parameteres 0, 0
             labyrinth.DrawObject();
 
+            //HERO
             Archer archer = new Archer(1, 1, false, 10, ConsoleColor.Cyan);
             //Load hero from file
             archer.LoadHero();
             //Draw loaded hero on the console screen with default position row = 1, col = 1
             archer.DrawObject();
 
-            //TEST - Create first enemy 
-            FighterEnemy monster = new FighterEnemy(10, 1, false, 50, 1, 5, ConsoleColor.Red, 1);
-            monster.LoadEnemy();
-            monster.DrawObject();
+            //ENEMIES
+            //TEST - Load all enemies
+            foreach (var enemy in FirstLevel.listOfFighterEnemies)
+            {
+                enemy.LoadEnemy();
+                enemy.DrawObject();
+            }
 
             while (true)
             {
                 //Hero move or shoot (keypressed)
                 archer.MoveAndShoot();
-                //Read all bullets from the list and increment their positions according each shotSymbol
-                archer.MoveAllBulletsOneStepForward();
-                //Read all bullets and print them on the console
-                archer.PrintAllBullets();
-            
+                
                 //Move enemies
                 //Check if some enemy is hitting us
                 //Console clear
