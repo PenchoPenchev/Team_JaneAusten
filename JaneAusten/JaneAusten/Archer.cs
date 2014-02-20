@@ -31,11 +31,6 @@ namespace JaneAusten
 
         public void MoveAndShoot()
         {
-            //Read all bullets from the list and increment their positions according each shotSymbol
-            Bullet.MoveAllBulletsOneStepForward();
-            //Read all bullets and print them on the console
-            Bullet.PrintAllBullets();
-
             if (Console.KeyAvailable)
             {
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
@@ -114,8 +109,9 @@ namespace JaneAusten
                             break;
                     }
 
-                    Bullet bullet = new Bullet(bulletPosX, bulletPosY, ShotSymbol, this.Damage);
-                    Bullet.listOfBullets.Add(bullet);
+                    // Add bullet to bullet list
+                    Engine.listOfBullets.Add(
+                        new Bullet(bulletPosX, bulletPosY, ShotSymbol, this.Damage));
                 }
             }
         }

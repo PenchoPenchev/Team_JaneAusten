@@ -7,10 +7,8 @@
 
     public class Bullet : MovingObject, IDrawable
     {
-        public static List<Bullet> listOfBullets = new List<Bullet>();
-
+     
         private char bulletSymbol;
-
         public char BulletSymbol
         {
             get { return this.bulletSymbol; }
@@ -73,69 +71,50 @@
 
         public override void Move()
         {
-            throw new NotImplementedException();
-        }
+            // Clear bullet
+            Console.SetCursorPosition(this.PosX, this.PosY);
+            Console.Write(' ');
 
-        public static void MoveAllBulletsOneStepForward()
-        {
-            //Clear all current bullets
-            foreach (var oldBullet in Bullet.listOfBullets)
+            switch (this.BulletSymbol)
             {
-                Console.SetCursorPosition(oldBullet.PosX, oldBullet.PosY);
-                Console.Write(' ');
+                case '←':
+                    this.PosX--;
+                    break;
+                case '→':
+                    this.PosX++;
+                    break;
+                case '↑':
+                    this.PosY--;
+                    break;
+                case '↓':
+                    this.PosY++;
+                    break;
             }
-
-            //Temp list for the incremented bullet positions
-            List<Bullet> listOfNewBulletPositions = new List<Bullet>();
-
-            for (int i = 0; i < Bullet.listOfBullets.Count; i++)
+            // Collision check
+            if (!CheckShotHitWall(this.PosX, this.PosY))
             {
-                switch (Bullet.listOfBullets[i].BulletSymbol)
+                if (CheckShotHitEnemy(this))
                 {
-                    case '←':
-                        Bullet.listOfBullets[i].PosX--;
-                        break;
-                    case '→':
-                        Bullet.listOfBullets[i].PosX++;
-                        break;
-                    case '↑':
-                        Bullet.listOfBullets[i].PosY--;
-                        break;
-                    case '↓':
-                        Bullet.listOfBullets[i].PosY++;
-                        break;
+                    ModifyEnemy(this);
+                    Engine.listOfBullets.Remove(this);
                 }
-
-                if (!CheckShotHitWall(Bullet.listOfBullets[i].PosX, Bullet.listOfBullets[i].PosY))
+                else
                 {
-                    if (CheckShotHitEnemy(Bullet.listOfBullets[i]))
-                    {
-                        ModifyEnemy(Bullet.listOfBullets[i]);
-                    }
-                    else
-                    {
-                        listOfNewBulletPositions.Add(Bullet.listOfBullets[i]);
-                    }
+                    DrawObject();
                 }
             }
-
-            Bullet.listOfBullets.Clear();
-            Bullet.listOfBullets = listOfNewBulletPositions;
-        }
-
-        public static void PrintAllBullets()
-        {
-            foreach (var bullet in Bullet.listOfBullets)
+            else
             {
-                Console.SetCursorPosition(bullet.PosX, bullet.PosY);
-                Console.Write(bullet.BulletSymbol);
+                Engine.listOfBullets.Remove(this);
             }
         }
 
-        private static bool CheckShotHitWall(int heroXposition, int heroYposition)
+        private static bool CheckShotHitWall(int bulletXposition, int bulletYposition)
         {
-            if (Labyrinth.maze[heroXposition, heroYposition] == 1) return true;
-
+            if (Labyrinth.maze[bulletXposition, bulletYposition] == 1)
+            {
+                return true;
+            }
             return false;
         }
 

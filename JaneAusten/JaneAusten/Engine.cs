@@ -8,6 +8,7 @@
     
     public class Engine
     {
+        public static List<Bullet> listOfBullets = new List<Bullet>();
         public static void Run()
         {
             //LABYRINTH
@@ -32,12 +33,18 @@
                 enemy.DrawObject();
             }
 
+
+
             while (true)
             {
                 PrintOnPosition(70, 5, "Hero lives: " + archer.Lives);
                 //Hero move or shoot (keypressed)
                 archer.MoveAndShoot();
                 archer.ResetHeroPosition();
+
+
+                BulletsMovement();
+
                 //Move enemies
                 //Check if some enemy is hitting us
                 //Console clear
@@ -56,6 +63,16 @@
             Console.SetCursorPosition(x, y);
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine(message);
+        }
+
+        private static void BulletsMovement()
+        {
+            for (int bullet = listOfBullets.Count() - 1; bullet >= 0; bullet--)
+            {
+                Console.SetCursorPosition(listOfBullets[bullet].PosX, listOfBullets[bullet].PosY);
+                Console.Write(listOfBullets[bullet].BulletSymbol);
+                listOfBullets[bullet].Move();
+            }
         }
     }
 }
