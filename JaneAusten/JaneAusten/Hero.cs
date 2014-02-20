@@ -11,6 +11,9 @@ namespace JaneAusten
         public readonly char[,] heroFigure = new char[3, 3];
         public readonly char[,] heroCollision = new char[3, 3];
 
+        private string heroFile = @"..\..\Content\hero.txt";
+        private string heroAndEnemyCollideFile = @"..\..\Content\Collision.txt";
+        
         private double damage;
 
         public double Damage
@@ -36,18 +39,25 @@ namespace JaneAusten
 
         public void LoadHero()
         {
-            using (StreamReader sr = new StreamReader(@"..\..\Content\hero.txt"))
+            try
             {
-                string line;
-                int row = 0;
-                while ((line = sr.ReadLine()) != null)
+                using (StreamReader sr = new StreamReader(heroFile))
                 {
-                    for (int col = 0; col < line.Length; col++)
+                    string line;
+                    int row = 0;
+                    while ((line = sr.ReadLine()) != null)
                     {
-                        heroFigure[row, col] = line[col];
+                        for (int col = 0; col < line.Length; col++)
+                        {
+                            heroFigure[row, col] = line[col];
+                        }
+                        row++;
                     }
-                    row++;
                 }
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("The file {0} can not be found!", heroFile);
             }
         }
 
@@ -108,7 +118,7 @@ namespace JaneAusten
             return false;
         }
 
-        public void ResetHeroPosition()
+        public void CollisionWithEnemyCheck()
         {
             if (CollideWithEnemy() && this.Lives > 0 && this.IsDead)
             {
@@ -142,20 +152,54 @@ namespace JaneAusten
 
         public void LoadHeroCollision()
         {
-            using (StreamReader sr = new StreamReader(@"..\..\Content\Collision.txt"))
+            try
             {
-                string line;
-                int row = 0;
-                while ((line = sr.ReadLine()) != null)
+                using (StreamReader sr = new StreamReader(heroAndEnemyCollideFile))
                 {
-                    for (int col = 0; col < line.Length; col++)
+                    string line;
+                    int row = 0;
+                    while ((line = sr.ReadLine()) != null)
                     {
-                        heroCollision[row, col] = line[col];
+                        for (int col = 0; col < line.Length; col++)
+                        {
+                            heroCollision[row, col] = line[col];
+                        }
+                        row++;
                     }
-                    row++;
                 }
             }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("The file {0} can not be found!", heroAndEnemyCollideFile);
+            }
         }
+
+        //public char[,] LoadFile(string imageWithPath)
+        //{
+        //    char[,] charArray = new char[3, 3];
+        //    try
+        //    {
+        //        using (StreamReader sr = new StreamReader(imageWithPath))
+        //        {
+        //            string line;
+        //            int row = 0;
+        //            while ((line = sr.ReadLine()) != null)
+        //            {
+        //                for (int col = 0; col < line.Length; col++)
+        //                {
+        //                    charArray[row, col] = line[col];
+        //                }
+        //                row++;
+        //            }
+        //        }
+        //    }
+        //    catch (FileNotFoundException)
+        //    {
+        //        Console.WriteLine("The file {0} can not be found!");
+        //    }
+
+        //    return charArray;
+        //}
 
         private void PrintHeroCollision()
         {

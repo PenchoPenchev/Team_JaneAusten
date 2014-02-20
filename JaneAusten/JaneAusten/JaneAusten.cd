@@ -34,7 +34,7 @@
   <Class Name="JaneAusten.Engine" Collapsed="true">
     <Position X="9.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAABAAAAAAAAQAAAAAIAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <HashCode>AAQAAAABAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>Engine.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -49,7 +49,7 @@
   <Class Name="JaneAusten.Hero" Collapsed="true">
     <Position X="7.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ARABgACBAAAAgAAAAAAAAAAAAAIAAIKAAAAAAAUAAAA=</HashCode>
+      <HashCode>ARABgACBAAAAgAAAAAAAAAAAAIIAAIKAAAAAgAQAACA=</HashCode>
       <FileName>Hero.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -57,7 +57,7 @@
   <Class Name="JaneAusten.Archer" Collapsed="true">
     <Position X="7.75" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAIAgAAAAAgAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAIAAAAAAAgAAAAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Archer.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -79,7 +79,7 @@
   <Class Name="JaneAusten.Labyrinth" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="9.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAIAQAAAAgAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAABAAAAIAQAAAAgAAAAAAAAA=</HashCode>
       <FileName>Labyrinth.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -93,7 +93,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="JaneAusten.GameObject" Collapsed="true">
-    <Position X="4" Y="0.75" Width="1.5" />
+    <Position X="3.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAAAwAAAAAAAAAAAAAAAwAAAAAA=</HashCode>
       <FileName>GameObject.cs</FileName>

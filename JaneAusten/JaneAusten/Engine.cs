@@ -37,18 +37,19 @@
 
             while (true)
             {
-                PrintOnPosition(70, 5, "Hero lives: " + archer.Lives);
+                PrintOnPosition(82, 5, "Hero lives: " + archer.Lives);
+                
                 //Hero move or shoot (keypressed)
-                archer.MoveAndShoot();
-                archer.ResetHeroPosition();
-
-
+                archer.Move();
+                archer.CollisionWithEnemyCheck();
+                
+                // Move all bullets and check for collision
                 BulletsMovement();
 
                 //Move enemies
                 //Check if some enemy is hitting us
-                //Console clear
-                //Console.Clear();
+
+
                 //Redraw playfield
                 //Redraw hero
                 //Redraw left enemies

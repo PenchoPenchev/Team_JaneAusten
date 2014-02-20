@@ -29,7 +29,7 @@ namespace JaneAusten
 
         }
 
-        public void MoveAndShoot()
+        public void Move()
         {
             if (Console.KeyAvailable)
             {
@@ -116,10 +116,5 @@ namespace JaneAusten
             }
         }
 
-        //In use only because the interface IMovable
-        public void Move()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
