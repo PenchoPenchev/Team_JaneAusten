@@ -72,25 +72,29 @@
         public override void Move()
         {
             // Clear bullet
-            Console.SetCursorPosition(this.PosX, this.PosY);
-            Console.Write(' ');
-
-            switch (this.BulletSymbol)
+            if (!CheckShotHitWall(this.PosX, this.PosY))
             {
-                case '←':
-                    this.PosX--;
-                    break;
-                case '→':
-                    this.PosX++;
-                    break;
-                case '↑':
-                    this.PosY--;
-                    break;
-                case '↓':
-                    this.PosY++;
-                    break;
+                Console.SetCursorPosition(this.PosX, this.PosY);
+                Console.Write(' ');
+
+                switch (this.BulletSymbol)
+                {
+                    case '←':
+                        this.PosX--;
+                        break;
+                    case '→':
+                        this.PosX++;
+                        break;
+                    case '↑':
+                        this.PosY--;
+                        break;
+                    case '↓':
+                        this.PosY++;
+                        break;
+                }
             }
-            // Collision check
+
+            // Collision check - second !CheckShotHitWall(this.PosX, this.PosY) is NOT redundant!
             if (!CheckShotHitWall(this.PosX, this.PosY))
             {
                 if (CheckShotHitEnemy(this))
@@ -109,7 +113,7 @@
             }
         }
 
-        private static bool CheckShotHitWall(int bulletXposition, int bulletYposition)
+        public static bool CheckShotHitWall(int bulletXposition, int bulletYposition)
         {
             if (Labyrinth.maze[bulletXposition, bulletYposition] == 1)
             {
@@ -122,8 +126,15 @@
         {
             for (int enemy = 0; enemy < FirstLevel.listOfFighterEnemies.Count; enemy++)
             {
+                //"bullet.PosY - 1" because bullet always hits targets in the middle 
                 if (bullet.PosX == FirstLevel.listOfFighterEnemies[enemy].PosX &&
-                    bullet.PosY / 2 == FirstLevel.listOfFighterEnemies[enemy].PosY)
+                    bullet.PosY - 1 == FirstLevel.listOfFighterEnemies[enemy].PosY)
+                {
+                    return true;
+                }
+                //TEST
+                else if (bullet.PosX == FirstLevel.listOfFighterEnemies[enemy].PosX + Enemy.enemyFigure.GetLength(0) &&
+                    bullet.PosY - 1 == FirstLevel.listOfFighterEnemies[enemy].PosY)
                 {
                     return true;
                 }
@@ -137,7 +148,14 @@
             for (int enemy = 0; enemy < FirstLevel.listOfFighterEnemies.Count; enemy++)
             {
                 if (bullet.PosX == FirstLevel.listOfFighterEnemies[enemy].PosX &&
-                    bullet.PosY / 2 == FirstLevel.listOfFighterEnemies[enemy].PosY)
+                    bullet.PosY - 1 == FirstLevel.listOfFighterEnemies[enemy].PosY)
+                {
+                    FighterEnemy.DecreaseEnemyHealth(FirstLevel.listOfFighterEnemies[enemy], bullet);
+                    FighterEnemy.ChangeEnemyColor(FirstLevel.listOfFighterEnemies[enemy]);
+                    FirstLevel.RemoveAllDeadEnemies();
+                }
+                else if (bullet.PosX == FirstLevel.listOfFighterEnemies[enemy].PosX + Enemy.enemyFigure.GetLength(0) &&
+                    bullet.PosY - 1 == FirstLevel.listOfFighterEnemies[enemy].PosY)
                 {
                     FighterEnemy.DecreaseEnemyHealth(FirstLevel.listOfFighterEnemies[enemy], bullet);
                     FighterEnemy.ChangeEnemyColor(FirstLevel.listOfFighterEnemies[enemy]);

@@ -11,7 +11,7 @@ namespace JaneAusten
         public static List<FighterEnemy> listOfFighterEnemies = new List<FighterEnemy>()
         {
             new FighterEnemy(10, 1, false, 50, 1, 5, ConsoleColor.DarkRed, 1),
-            new FighterEnemy(17, 1, false, 50, 1, 5, ConsoleColor.DarkRed, 1),
+            new FighterEnemy(20, 1, false, 50, 1, 5, ConsoleColor.DarkRed, 1),
             new FighterEnemy(26, 5, false, 50, 1, 5, ConsoleColor.DarkRed, 1)
         };
 

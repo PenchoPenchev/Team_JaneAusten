@@ -9,6 +9,7 @@
     public class Engine
     {
         public static List<Bullet> listOfBullets = new List<Bullet>();
+
         public static void Run()
         {
             //LABYRINTH
@@ -70,8 +71,6 @@
         {
             for (int bullet = listOfBullets.Count() - 1; bullet >= 0; bullet--)
             {
-                Console.SetCursorPosition(listOfBullets[bullet].PosX, listOfBullets[bullet].PosY);
-                Console.Write(listOfBullets[bullet].BulletSymbol);
                 listOfBullets[bullet].Move();
             }
         }

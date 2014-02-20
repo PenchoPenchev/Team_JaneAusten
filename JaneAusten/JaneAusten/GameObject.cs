@@ -14,13 +14,25 @@ namespace JaneAusten
         public int PosX
         {
             get { return posX; }
-            set { posX = value; }
+            protected set 
+            {
+                if (value >= 0)
+                {
+                    posX = value;     
+                }
+            }
         }
 
         public int PosY
         {
             get { return posY; }
-            set { posY = value; }
+            protected set 
+            {
+                if (PosY >= 0)
+                {
+                    posY = value;    
+                }
+            }
         }
 
         public GameObject()

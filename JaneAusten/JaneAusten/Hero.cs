@@ -114,6 +114,12 @@ namespace JaneAusten
                     this.IsDead = true;
                     return true;     
                 }
+                else if ((this.PosX - Enemy.enemyFigure.GetLength(0) == enemy.PosX && this.PosY == enemy.PosY) ||
+                    (this.PosX == enemy.PosX && this.PosY == enemy.PosY - Enemy.enemyFigure.GetLength(1)))
+                {
+                    this.IsDead = true;
+                    return true;
+                }
             }
             return false;
         }
@@ -173,33 +179,6 @@ namespace JaneAusten
                 Console.WriteLine("The file {0} can not be found!", heroAndEnemyCollideFile);
             }
         }
-
-        //public char[,] LoadFile(string imageWithPath)
-        //{
-        //    char[,] charArray = new char[3, 3];
-        //    try
-        //    {
-        //        using (StreamReader sr = new StreamReader(imageWithPath))
-        //        {
-        //            string line;
-        //            int row = 0;
-        //            while ((line = sr.ReadLine()) != null)
-        //            {
-        //                for (int col = 0; col < line.Length; col++)
-        //                {
-        //                    charArray[row, col] = line[col];
-        //                }
-        //                row++;
-        //            }
-        //        }
-        //    }
-        //    catch (FileNotFoundException)
-        //    {
-        //        Console.WriteLine("The file {0} can not be found!");
-        //    }
-
-        //    return charArray;
-        //}
 
         private void PrintHeroCollision()
         {
