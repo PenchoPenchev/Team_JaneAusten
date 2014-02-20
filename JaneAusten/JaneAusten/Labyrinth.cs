@@ -11,7 +11,7 @@
         private const int consoleWidth = 100;
         private const int consoleHeight = 35;
 
-        private string mazeFile = @"..\..\Content\MazeLevel1.txt";
+        private string mazeFile = @"..\..\Content\MazeLevel2.txt";
 
         public static int[,] maze = new int[consoleWidth, consoleHeight];
 
