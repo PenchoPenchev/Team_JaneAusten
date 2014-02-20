@@ -5,12 +5,14 @@
     using System.IO;
     using System.Linq;
     using System.Text;
-    
+
     public class Engine
     {
+        public static int score = 0;
+
         public static List<Bullet> listOfBullets = new List<Bullet>();
         public static void Run()
-        {
+        {           
             //LABYRINTH
             Labyrinth labyrinth = new Labyrinth();
             //Draw loaded labyrinth with default parameteres 0, 0
@@ -33,19 +35,27 @@
                 enemy.DrawObject();
             }
 
+            //BNUSES
+            //TEST = Load all bonuses
+            foreach (var bonus in FirstLevel.listOfBonuses)
+            {
+                bonus.DrawObject();
+            }
 
-
+            
             while (true)
             {
                 PrintOnPosition(82, 5, "Hero lives: " + archer.Lives);
-                
+
+                PrintOnPosition(82, 9, "Score: " + score);
                 //Hero move or shoot (keypressed)
                 archer.Move();
                 archer.CollisionWithEnemyCheck();
-                
+                archer.PotentialCollideWithBonus();
+
                 // Move all bullets and check for collision
                 BulletsMovement();
-
+                
                 //Move enemies
                 //Check if some enemy is hitting us
 
