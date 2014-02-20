@@ -13,7 +13,7 @@ namespace JaneAusten
 
         private string heroFile = @"..\..\Content\hero.txt";
         private string heroAndEnemyCollideFile = @"..\..\Content\Collision.txt";
-        
+
         private double damage;
 
         public double Damage
@@ -21,6 +21,7 @@ namespace JaneAusten
             get { return this.damage; }
             private set { this.damage = value; }
         }
+
 
         public Hero()
             : base()
@@ -108,11 +109,11 @@ namespace JaneAusten
         {
             foreach (var enemy in FirstLevel.listOfFighterEnemies)
             {
-                if ((this.PosX + Enemy.enemyFigure.GetLength(0) == enemy.PosX && this.PosY == enemy.PosY) || 
+                if ((this.PosX + Enemy.enemyFigure.GetLength(0) == enemy.PosX && this.PosY == enemy.PosY) ||
                     (this.PosX == enemy.PosX && this.PosY == enemy.PosY + Enemy.enemyFigure.GetLength(1)))
                 {
                     this.IsDead = true;
-                    return true;     
+                    return true;
                 }
                 else if ((this.PosX - Enemy.enemyFigure.GetLength(0) == enemy.PosX && this.PosY == enemy.PosY) ||
                     (this.PosX == enemy.PosX && this.PosY == enemy.PosY - Enemy.enemyFigure.GetLength(1)))
@@ -129,16 +130,16 @@ namespace JaneAusten
             if (CollideWithEnemy() && this.Lives > 0 && this.IsDead)
             {
                 this.ClearObject(this.PosX, this.PosY);
-                
+
                 PrintHeroCollision();
                 System.Threading.Thread.Sleep(500);
                 ClearObject(this.PosX, this.PosY);
-                
+
                 DecreaseHeroLives();
 
                 this.PosX = 1;
                 this.PosY = 1;
-                
+
                 this.DrawObject();
             }
         }
@@ -152,7 +153,7 @@ namespace JaneAusten
             if (this.Lives == 0)
             {
                 PrintOnPosition(30, 10, "GAME OVER");
-                
+
             }
         }
 
@@ -194,6 +195,31 @@ namespace JaneAusten
             }
 
             Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        public void PotentialCollideWithBonus()
+        {
+            foreach (var bonus in FirstLevel.listOfBonuses)
+            {
+
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        if ((this.PosX + i == bonus.PosX && this.PosY + j == bonus.PosY) && !bonus.isCollected)
+                        {
+                            switch (bonus.Type)
+                            {
+                                case BonusType.gold: Engine.score += 50; break;
+                                case BonusType.diamond: Engine.score += 100; break;
+                                case BonusType.livePotion: this.Lives++; break;
+                                case BonusType.extraDamage: this.Damage++; break;
+                            }
+                            bonus.Collect();
+                        }                    
+                    }
+                }
+            }
         }
 
         public void PrintOnPosition(int x, int y, string message)
