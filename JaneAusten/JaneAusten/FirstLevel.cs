@@ -30,6 +30,7 @@ namespace JaneAusten
                 if (listOfFighterEnemies[indx].Health <= 0)
                 {
                     listOfFighterEnemies[indx].IsDead = true;
+                    Engine.score += 100;
                     for (int row = 0; row < Enemy.enemyFigure.GetLength(0); row++)
                     {
                         for (int col = 0; col < Enemy.enemyFigure.GetLength(1); col++)
