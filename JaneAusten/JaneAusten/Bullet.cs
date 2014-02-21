@@ -92,6 +92,10 @@
                     ModifyEnemy(this);
                     Engine.listOfBullets.Remove(this);
                 }
+                else if (CheckShotHitBonus(this.PosX, this.PosY))
+                {
+                    Engine.listOfBullets.Remove(this);
+                }
                 else
                 {
                     DrawObject();
@@ -109,6 +113,23 @@
             {
                 return true;
             }
+            return false;
+        }
+
+        public static bool CheckShotHitBonus(int bulletXposition, int bulletYposition)
+        {
+            foreach (var bonus in FirstLevel.listOfBonuses)
+            {
+                if (bulletXposition == bonus.PosX && bulletYposition == bonus.PosY)
+                {
+                    Console.SetCursorPosition(bonus.PosX, bonus.PosY);
+                    Console.Write(' ');
+                    FirstLevel.listOfBonuses.Remove(bonus);
+
+                    return true;
+                }
+            }
+
             return false;
         }
 
