@@ -57,8 +57,10 @@
     <Compile Include="IDrawable.cs" />
     <Compile Include="IFighter.cs" />
     <Compile Include="IMovable.cs" />
+    <Compile Include="InvalidCreatureException.cs" />
     <Compile Include="JaneAusten.cs" />
     <Compile Include="Labyrinth.cs" />
+    <Compile Include="Level.cs" />
     <Compile Include="Levels.cs" />
     <Compile Include="MovingObject.cs" />
     <Compile Include="GameObject.cs" />
