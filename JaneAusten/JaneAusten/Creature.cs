@@ -11,13 +11,6 @@ namespace JaneAusten
         private int health;
         private int lives;
         private int speed;
-        private bool isDead;
-
-        public bool IsDead
-        {
-            get { return isDead; }
-            set { isDead = value; }
-        }
 
         public int Lives
         {
@@ -49,24 +42,48 @@ namespace JaneAusten
 
         }
 
-        public Creature(int x, int y, int health, int lives, int speed, ConsoleColor color, bool isDead = false)
+        public Creature(int x, int y, int health, int speed, ConsoleColor color)
+            : base(x, y)
+        {
+            this.Health = health;
+            this.Speed = speed;
+            this.Color = color;
+        }
+
+        public Creature(int x, int y, int health, int lives, int speed, ConsoleColor color)
             : base(x, y)
         {
             this.Health = health;
             this.Lives = lives;
             this.Speed = speed;
             this.Color = color;
-            this.IsDead = isDead;
         }
 
-        public Creature(Point point, int health, int lives, int speed, ConsoleColor color, bool isDead = false)
+        public Creature(Point point, int health, int lives, int speed, ConsoleColor color)
             : base(point)
         {
             this.Health = health;
             this.Lives = lives;
             this.Speed = speed;
             this.Color = color;
-            this.IsDead = isDead;
+        }
+
+        protected bool CollideWithEnemy()
+        {
+            foreach (var enemy in FirstLevel.listOfFighterEnemies)
+            {
+                if ((this.PosX + Enemy.enemyFigure.GetLength(0) == enemy.PosX && this.PosY == enemy.PosY) ||
+                    (this.PosX == enemy.PosX && this.PosY == enemy.PosY + Enemy.enemyFigure.GetLength(1)))
+                {
+                    return true;
+                }
+                else if ((this.PosX - Enemy.enemyFigure.GetLength(0) == enemy.PosX && this.PosY == enemy.PosY) ||
+                    (this.PosX == enemy.PosX && this.PosY == enemy.PosY - Enemy.enemyFigure.GetLength(1)))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

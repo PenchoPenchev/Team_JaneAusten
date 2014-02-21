@@ -13,8 +13,8 @@
 
         }
         
-        public FighterEnemy(int x, int y, bool isDead, int health, int lives, int speed, ConsoleColor color, int level = 1)
-            : base(x, y, isDead, health, lives, speed, color)
+        public FighterEnemy(int x, int y, int health, int speed, ConsoleColor color, Levels level)
+            : base(x, y, health, speed, color, level)
         {
             this.Health = 50;
             this.Lives = 1;

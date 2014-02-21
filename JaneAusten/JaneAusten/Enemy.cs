@@ -1,18 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-
-namespace JaneAusten
+﻿namespace JaneAusten
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    
     public abstract class Enemy : Creature, IDrawable
     {
         public static readonly char[,] enemyFigure = new char[3, 3];
 
-        private int level;
+        private Levels level;
 
-        public int Level
+        public Levels Level
         {
             get { return level; }
             private set { level = value; }
@@ -24,8 +24,8 @@ namespace JaneAusten
 
         }
 
-        public Enemy(int x, int y, bool isDead, int health, int lives, int speed, ConsoleColor color, int level = 1)
-            : base(x, y, health, lives, speed, color, isDead)
+        public Enemy(int x, int y, int health, int speed, ConsoleColor color, Levels level)
+            : base(x, y, health, speed, color)
         {
             this.Level = level;
         }

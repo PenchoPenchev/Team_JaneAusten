@@ -58,6 +58,7 @@
     <Compile Include="IFighter.cs" />
     <Compile Include="IMovable.cs" />
     <Compile Include="InvalidCreatureException.cs" />
+    <Compile Include="IShootable.cs" />
     <Compile Include="JaneAusten.cs" />
     <Compile Include="Labyrinth.cs" />
     <Compile Include="Level.cs" />

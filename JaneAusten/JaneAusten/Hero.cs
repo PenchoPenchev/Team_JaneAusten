@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-
-namespace JaneAusten
+﻿namespace JaneAusten
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    
     public abstract class Hero : Creature, IDrawable
     {
         public readonly char[,] heroFigure = new char[3, 3];
@@ -29,9 +29,9 @@ namespace JaneAusten
 
         }
 
-        public Hero(int x, int y, bool isDead, int speed, ConsoleColor color,
-            int health = 100, int lives = 3, double damage = 10)
-            : base(x, y, health, lives, speed, color, isDead)
+        public Hero(int x, int y, int speed, ConsoleColor color,
+            int health, int lives, double damage)
+            : base(x, y, health, lives, speed, color)
         {
             this.Health = health;
             this.Lives = lives;
@@ -105,29 +105,27 @@ namespace JaneAusten
             }
         }
 
-        private bool CollideWithEnemy()
-        {
-            foreach (var enemy in FirstLevel.listOfFighterEnemies)
-            {
-                if ((this.PosX + Enemy.enemyFigure.GetLength(0) == enemy.PosX && this.PosY == enemy.PosY) ||
-                    (this.PosX == enemy.PosX && this.PosY == enemy.PosY + Enemy.enemyFigure.GetLength(1)))
-                {
-                    this.IsDead = true;
-                    return true;
-                }
-                else if ((this.PosX - Enemy.enemyFigure.GetLength(0) == enemy.PosX && this.PosY == enemy.PosY) ||
-                    (this.PosX == enemy.PosX && this.PosY == enemy.PosY - Enemy.enemyFigure.GetLength(1)))
-                {
-                    this.IsDead = true;
-                    return true;
-                }
-            }
-            return false;
-        }
+        //private bool CollideWithEnemy()
+        //{
+        //    foreach (var enemy in FirstLevel.listOfFighterEnemies)
+        //    {
+        //        if ((this.PosX + Enemy.enemyFigure.GetLength(0) == enemy.PosX && this.PosY == enemy.PosY) ||
+        //            (this.PosX == enemy.PosX && this.PosY == enemy.PosY + Enemy.enemyFigure.GetLength(1)))
+        //        {
+        //            return true;
+        //        }
+        //        else if ((this.PosX - Enemy.enemyFigure.GetLength(0) == enemy.PosX && this.PosY == enemy.PosY) ||
+        //            (this.PosX == enemy.PosX && this.PosY == enemy.PosY - Enemy.enemyFigure.GetLength(1)))
+        //        {
+        //            return true;
+        //        }
+        //    }
+        //    return false;
+        //}
 
         public void CollisionWithEnemyCheck()
         {
-            if (CollideWithEnemy() && this.Lives > 0 && this.IsDead)
+            if (CollideWithEnemy() && this.Lives > 0)
             {
                 this.ClearObject(this.PosX, this.PosY);
 
@@ -213,7 +211,7 @@ namespace JaneAusten
                                 case BonusType.gold: Engine.score += 50; break;
                                 case BonusType.diamond: Engine.score += 100; break;
                                 case BonusType.livePotion: this.Lives++; break;
-                                case BonusType.extraDamage: this.Damage++; break;
+                                case BonusType.extraDamage: this.Damage += 10; break;
                             }
                             bonus.Collect();
                         }                    
