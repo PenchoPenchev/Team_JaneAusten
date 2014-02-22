@@ -8,7 +8,7 @@
 
     public class Bullet : MovingObject, IDrawable
     {
-        static string shotgun = @"../../shot.wav";
+        static string shotgun = @"../../Content/shot.wav";
         public static SoundPlayer shotSound = new SoundPlayer(shotgun);
      
         private char bulletSymbol;

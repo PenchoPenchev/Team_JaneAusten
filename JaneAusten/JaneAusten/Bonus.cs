@@ -9,7 +9,7 @@ namespace JaneAusten
 {
     public class Bonus : GameObject, ICollectable, IDrawable
     {
-        static string collect = @"../../collect.wav";
+        static string collect = @"../../Content/collect.wav";
         public static SoundPlayer collectBonus = new SoundPlayer(collect);
 
         public BonusType Type { get; set; }
@@ -42,8 +42,6 @@ namespace JaneAusten
                 case BonusType.livePotion: item = "H"; Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine(item); break;
             }
         }
-
-
 
 
         public void ClearObject()
