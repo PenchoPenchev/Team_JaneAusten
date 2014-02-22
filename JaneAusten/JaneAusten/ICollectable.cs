@@ -7,7 +7,7 @@ namespace JaneAusten
 {
     public interface ICollectable
     {
-        bool isCollected { get; set; }
+        bool IsCollected { get; set; }
 
         void Collect();
     }

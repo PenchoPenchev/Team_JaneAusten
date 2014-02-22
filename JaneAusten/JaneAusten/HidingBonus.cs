@@ -34,12 +34,12 @@ namespace JaneAusten
             {
                 Console.Write(" ");
                 this.IsHided = true;
-                base.isCollected = true;
+                base.IsCollected = true;
             }
             else
             {
                 this.DrawObject();
-                base.isCollected = false;
+                base.IsCollected = false;
                 this.IsHided = false;
             }
         }
