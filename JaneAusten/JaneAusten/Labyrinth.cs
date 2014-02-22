@@ -43,5 +43,11 @@
                 Console.WriteLine("The file {0} can not be found!", mazeFile);
             }
         }
+
+
+        public void ClearObject()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

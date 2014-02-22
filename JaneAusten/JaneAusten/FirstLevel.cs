@@ -1,18 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-
-namespace JaneAusten
+﻿namespace JaneAusten
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    
     public class FirstLevel
     {   
         public static List<FighterEnemy> listOfFighterEnemies = new List<FighterEnemy>()
         {
-            new FighterEnemy(10, 1, false, 50, 1, 5, ConsoleColor.DarkRed, 1),
-            new FighterEnemy(20, 1, false, 50, 1, 5, ConsoleColor.DarkRed, 1),
-            new FighterEnemy(26, 5, false, 50, 1, 5, ConsoleColor.DarkRed, 1)
+            new FighterEnemy(35, 1, 70, 10, ConsoleColor.DarkMagenta, Levels.SecondLevel),
+            new FighterEnemy(3, 9, 50, 5,ConsoleColor.DarkRed, Levels.FirstLevel),
+            new FighterEnemy(26, 5, 70, 10, ConsoleColor.DarkMagenta, Levels.SecondLevel),
+            new FighterEnemy(18, 6, 50, 5, ConsoleColor.DarkRed, Levels.FirstLevel),
+            new FighterEnemy(28, 9, 70, 10, ConsoleColor.DarkMagenta, Levels.SecondLevel)
         };
 
         public static List<Bonus> listOfBonuses = new List<Bonus>()
@@ -30,7 +32,6 @@ namespace JaneAusten
             {
                 if (listOfFighterEnemies[indx].Health <= 0)
                 {
-                    listOfFighterEnemies[indx].IsDead = true;
                     Engine.score += 100;
                     for (int row = 0; row < Enemy.enemyFigure.GetLength(0); row++)
                     {

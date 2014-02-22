@@ -15,14 +15,6 @@
             set { this.bulletSymbol = value; }
         }
 
-        private int speed;
-
-        public int Speed
-        {
-            get { return speed; }
-            set { speed = value; }
-        }
-
         private int range;
 
         public int Range
@@ -40,20 +32,18 @@
         }
         
 
-        public Bullet(int x, int y, char shotSymbol, int speed = 10, int range = 5)
+        public Bullet(int x, int y, char shotSymbol, int range = 5)
             : base(x, y)
         {
             this.BulletSymbol = shotSymbol;
-            this.Speed = speed;
             this.Range = range;
         }
 
-        public Bullet(int x, int y, char shotSymbol, double damage, int speed = 10, int range = 5)
+        public Bullet(int x, int y, char shotSymbol, double damage, int range = 5)
             : base(x, y)
         {
             this.BulletSymbol = shotSymbol;
             this.Damage = damage;
-            this.Speed = speed;
             this.Range = range;
         }
 
@@ -148,14 +138,21 @@
             for (int enemy = 0; enemy < FirstLevel.listOfFighterEnemies.Count; enemy++)
             {
                 //"bullet.PosY - 1" because bullet always hits targets in the middle 
+                //Horizontal checks
                 if (bullet.PosX == FirstLevel.listOfFighterEnemies[enemy].PosX &&
                     bullet.PosY - 1 == FirstLevel.listOfFighterEnemies[enemy].PosY)
                 {
                     return true;
                 }
-                //TEST
                 else if (bullet.PosX == FirstLevel.listOfFighterEnemies[enemy].PosX + Enemy.enemyFigure.GetLength(0) &&
                     bullet.PosY - 1 == FirstLevel.listOfFighterEnemies[enemy].PosY)
+                {
+                    return true;
+                }
+                //Vertical checks
+                else if (bullet.PosX >= FirstLevel.listOfFighterEnemies[enemy].PosX &&
+                        bullet.PosX <= FirstLevel.listOfFighterEnemies[enemy].PosX + Enemy.enemyFigure.GetLength(0) &&
+                        bullet.PosY == FirstLevel.listOfFighterEnemies[enemy].PosY)
                 {
                     return true;
                 }
@@ -182,7 +179,21 @@
                     FighterEnemy.ChangeEnemyColor(FirstLevel.listOfFighterEnemies[enemy]);
                     FirstLevel.RemoveAllDeadEnemies();
                 }
+                else if (bullet.PosX >= FirstLevel.listOfFighterEnemies[enemy].PosX &&
+                        bullet.PosX <= FirstLevel.listOfFighterEnemies[enemy].PosX + Enemy.enemyFigure.GetLength(0) &&
+                        bullet.PosY == FirstLevel.listOfFighterEnemies[enemy].PosY)
+                {
+                    FighterEnemy.DecreaseEnemyHealth(FirstLevel.listOfFighterEnemies[enemy], bullet);
+                    FighterEnemy.ChangeEnemyColor(FirstLevel.listOfFighterEnemies[enemy]);
+                    FirstLevel.RemoveAllDeadEnemies();
+                }
             }
+        }
+
+
+        public void ClearObject()
+        {
+            throw new NotImplementedException();
         }
     }
 }

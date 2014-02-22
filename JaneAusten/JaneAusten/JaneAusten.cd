@@ -11,7 +11,7 @@
   <Class Name="JaneAusten.Bullet" Collapsed="true">
     <Position X="1.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAACIAIAAiAAgAAAAAAABAAIAAQCAAACBAAEAgAA=</HashCode>
+      <HashCode>AAAAAACIAIAAiAAgBAAAAAAAAAIAAACAAACBAAEAgAA=</HashCode>
       <FileName>Bullet.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -19,7 +19,7 @@
   <Class Name="JaneAusten.Creature" Collapsed="true">
     <Position X="5.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAACAAAAAAAAAAAAAAAEAABABIAAQCCAAAAgAAAAAg=</HashCode>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAABAAIAAYCCAAAAgAAAAAg=</HashCode>
       <FileName>Creature.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -49,7 +49,7 @@
   <Class Name="JaneAusten.Hero" Collapsed="true">
     <Position X="7.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ARABgACBAAAAgAAAAAAAAAAAAIIAAKKAAAAAgAQAACA=</HashCode>
+      <HashCode>ARABgACBAAAAgAAAAAAAAAAAAIIAACKAAAAAgAQAACA=</HashCode>
       <FileName>Hero.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -65,9 +65,10 @@
   <Class Name="JaneAusten.ArcherEnemy">
     <Position X="5.5" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ArcherEnemy.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="JaneAusten.JaneAusten" Collapsed="true">
     <Position X="11.5" Y="0.5" Width="1.5" />
@@ -100,17 +101,66 @@
     </TypeIdentifier>
   </Class>
   <Class Name="JaneAusten.FirstLevel" Collapsed="true">
-    <Position X="13.25" Y="1.5" Width="1.5" />
+    <Position X="11.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAQAAAAAAgAAA=</HashCode>
       <FileName>FirstLevel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="JaneAusten.Level">
-    <Position X="13.25" Y="0.5" Width="1.5" />
+  <Class Name="JaneAusten.EasyLevelCreator" Collapsed="true">
+    <Position X="16.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EasyLevelCreator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.EasyLevel" Collapsed="true">
+    <Position X="14.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>EasyLevel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.HardLevel" Collapsed="true">
+    <Position X="14.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>HardLevel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.HardLevelCreator" Collapsed="true">
+    <Position X="16.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HardLevelCreator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.Level" Collapsed="true">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAJAAAAAAAAAAAEAAAAAAAQACAAAgAgA=</HashCode>
       <FileName>Level.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.LevelFactory" Collapsed="true">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LevelFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.MediumLevel" Collapsed="true">
+    <Position X="14.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>MediumLevel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.MediumLevelCreator" Collapsed="true">
+    <Position X="16.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MediumLevelCreator.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="JaneAusten.Point" Collapsed="true">

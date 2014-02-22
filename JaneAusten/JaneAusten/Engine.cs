@@ -20,7 +20,7 @@
             labyrinth.DrawObject();
 
             //HERO
-            Archer archer = new Archer(1, 1, false, 10, ConsoleColor.Cyan);
+            Archer archer = new Archer(1, 1, 10, ConsoleColor.Cyan);
             //Load hero from file
             archer.LoadHero();
             //Draw loaded hero on the console screen with default position row = 1, col = 1
@@ -47,24 +47,21 @@
             while (true)
             {
                 PrintOnPosition(82, 5, "Hero lives: " + archer.Lives);
-
+                PrintOnPosition(82, 7, "Damage: " + archer.Damage);
                 PrintOnPosition(82, 9, "Score: " + score);
                 //Hero move or shoot (keypressed)
                 archer.Move();
+                //Check if some enemy is hitting us
                 archer.CollisionWithEnemyCheck();
+                //Bonus checks
                 archer.PotentialCollideWithBonus();
-
                 // Move all bullets and check for collision
                 BulletsMovement();
-                
                 //Move enemies
-                //Check if some enemy is hitting us
-
-
-                //Redraw playfield
-                //Redraw hero
-                //Redraw left enemies
-
+                foreach (var enemy in FirstLevel.listOfFighterEnemies)
+                {
+                    enemy.Move();
+                }
                 //Slow down rendering speed
                 System.Threading.Thread.Sleep(100);
             }

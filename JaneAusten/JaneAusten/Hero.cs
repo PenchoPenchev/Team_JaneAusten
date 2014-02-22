@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-
-namespace JaneAusten
+﻿namespace JaneAusten
 {
-    public abstract class Hero : Creature, IDrawable
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    
+    public abstract class Hero : Creature
     {
         public readonly char[,] heroFigure = new char[3, 3];
         public readonly char[,] heroCollision = new char[3, 3];
@@ -29,9 +29,9 @@ namespace JaneAusten
 
         }
 
-        public Hero(int x, int y, bool isDead, int speed, ConsoleColor color,
-            int health = 100, int lives = 3, double damage = 10)
-            : base(x, y, health, lives, speed, color, isDead)
+        public Hero(int x, int y, int speed, ConsoleColor color,
+            int health, int lives, double damage)
+            : base(x, y, health, lives, speed, color)
         {
             this.Health = health;
             this.Lives = lives;
@@ -51,6 +51,7 @@ namespace JaneAusten
                         for (int col = 0; col < line.Length; col++)
                         {
                             heroFigure[row, col] = line[col];
+                            //creatureFigure[row, col] = line[col];
                         }
                         row++;
                     }
@@ -62,22 +63,7 @@ namespace JaneAusten
             }
         }
 
-        protected bool CheckHeroHitWall(int heroXPosition, int heroYPosition)
-        {
-            for (int col = 0; col < heroFigure.GetLength(0); col++)
-            {
-                for (int row = 0; row < heroFigure.GetLength(1); row++)
-                {
-                    if (Labyrinth.maze[heroXPosition + col, heroYPosition + row] == 1)
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-
-        public void DrawObject()
+        public override void DrawObject()
         {
             Console.ForegroundColor = this.Color;
 
@@ -93,47 +79,48 @@ namespace JaneAusten
             Console.ForegroundColor = ConsoleColor.White;
         }
 
-        public void ClearObject(int row, int col)
+        protected override bool CheckCreatureHitWall(int heroXPosition, int heroYPosition)
         {
-            for (int i = 0; i < heroFigure.GetLength(0); i++)
+            for (int col = 0; col < heroFigure.GetLength(0); col++)
             {
-                for (int j = 0; j < heroFigure.GetLength(1); j++)
+                for (int row = 0; row < heroFigure.GetLength(1); row++)
                 {
-                    Console.SetCursorPosition(row + i, col + j);
-                    Console.Write(' ');
-                }
-            }
-        }
-
-        private bool CollideWithEnemy()
-        {
-            foreach (var enemy in FirstLevel.listOfFighterEnemies)
-            {
-                if ((this.PosX + Enemy.enemyFigure.GetLength(0) == enemy.PosX && this.PosY == enemy.PosY) ||
-                    (this.PosX == enemy.PosX && this.PosY == enemy.PosY + Enemy.enemyFigure.GetLength(1)))
-                {
-                    this.IsDead = true;
-                    return true;
-                }
-                else if ((this.PosX - Enemy.enemyFigure.GetLength(0) == enemy.PosX && this.PosY == enemy.PosY) ||
-                    (this.PosX == enemy.PosX && this.PosY == enemy.PosY - Enemy.enemyFigure.GetLength(1)))
-                {
-                    this.IsDead = true;
-                    return true;
+                    if (Labyrinth.maze[heroXPosition + col, heroYPosition + row] == 1)
+                    {
+                        return true;
+                    }
                 }
             }
             return false;
         }
 
+        //protected virtual bool CollideWithEnemy()
+        //{
+        //    foreach (var enemy in FirstLevel.listOfFighterEnemies)
+        //    {
+        //        if ((this.PosX + Enemy.enemyFigure.GetLength(0) == enemy.PosX && this.PosY == enemy.PosY) ||
+        //            (this.PosX == enemy.PosX && this.PosY == enemy.PosY + Enemy.enemyFigure.GetLength(1)))
+        //        {
+        //            return true;
+        //        }
+        //        else if ((this.PosX - Enemy.enemyFigure.GetLength(0) == enemy.PosX && this.PosY == enemy.PosY) ||
+        //            (this.PosX == enemy.PosX && this.PosY == enemy.PosY - Enemy.enemyFigure.GetLength(1)))
+        //        {
+        //            return true;
+        //        }
+        //    }
+        //    return false;
+        //}
+
         public void CollisionWithEnemyCheck()
         {
-            if (CollideWithEnemy() && this.Lives > 0 && this.IsDead)
+            if (CollideWithMovingObject(this.PosX, this.PosY) && this.Lives > 0)
             {
-                this.ClearObject(this.PosX, this.PosY);
+                this.ClearObject();
 
                 PrintHeroCollision();
                 System.Threading.Thread.Sleep(500);
-                ClearObject(this.PosX, this.PosY);
+                ClearObject();
 
                 DecreaseHeroLives();
 
@@ -146,7 +133,7 @@ namespace JaneAusten
 
         private void DecreaseHeroLives()
         {
-            if (CollideWithEnemy() && this.Lives > 0)
+            if (CollideWithMovingObject(this.PosX, this.PosY) && this.Lives > 0)
             {
                 this.Lives--;
             }
@@ -213,7 +200,7 @@ namespace JaneAusten
                                 case BonusType.gold: Engine.score += 50; break;
                                 case BonusType.diamond: Engine.score += 100; break;
                                 case BonusType.livePotion: this.Lives++; break;
-                                case BonusType.extraDamage: this.Damage++; break;
+                                case BonusType.extraDamage: this.Damage += 10; break;
                             }
                             bonus.Collect();
                         }                    

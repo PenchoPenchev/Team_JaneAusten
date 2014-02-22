@@ -22,11 +22,10 @@ namespace JaneAusten
 
         }
 
-        public Archer(int x, int y, bool isDead, int speed, ConsoleColor color,
+        public Archer(int x, int y, int speed, ConsoleColor color,
             int health = 100, int lives = 3, int damage = 10)
-            : base(x, y, isDead, speed, color, health, lives, damage)
+            : base(x, y, speed, color, health, lives, damage)
         {
-
         }
 
         public void Move()
@@ -42,9 +41,9 @@ namespace JaneAusten
 
                 if (keyInfo.Key == ConsoleKey.RightArrow)
                 {
-                    if (!CheckHeroHitWall(this.PosX + 1, this.PosY))
+                    if (!CheckCreatureHitWall(this.PosX + 1, this.PosY))
                     {
-                        ClearObject(this.PosX, this.PosY);
+                        ClearObject();
                         this.PosX++;
                         DrawObject();
                         shotDirection = 'R';
@@ -52,9 +51,9 @@ namespace JaneAusten
                 }
                 else if (keyInfo.Key == ConsoleKey.LeftArrow)
                 {
-                    if (!CheckHeroHitWall(this.PosX - 1, this.PosY))
+                    if (!CheckCreatureHitWall(this.PosX - 1, this.PosY))
                     {
-                        ClearObject(this.PosX, this.PosY);
+                        ClearObject();
                         this.PosX--;
                         DrawObject();
                         shotDirection = 'L';
@@ -62,9 +61,9 @@ namespace JaneAusten
                 }
                 else if (keyInfo.Key == ConsoleKey.UpArrow)
                 {
-                    if (!CheckHeroHitWall(this.PosX, this.PosY - 1))
+                    if (!CheckCreatureHitWall(this.PosX, this.PosY - 1))
                     {
-                        ClearObject(this.PosX, this.PosY);
+                        ClearObject();
                         this.PosY--;
                         DrawObject();
                         shotDirection = 'U';
@@ -72,9 +71,9 @@ namespace JaneAusten
                 }
                 else if (keyInfo.Key == ConsoleKey.DownArrow)
                 {
-                    if (!CheckHeroHitWall(this.PosX, this.PosY + 1))
+                    if (!CheckCreatureHitWall(this.PosX, this.PosY + 1))
                     {
-                        ClearObject(this.PosX, this.PosY);
+                        ClearObject();
                         this.PosY++;
                         DrawObject();
                         shotDirection = 'D';

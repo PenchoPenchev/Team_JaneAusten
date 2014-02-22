@@ -5,10 +5,8 @@ using System.Text;
 
 namespace JaneAusten
 {
-    public interface IDrawable
+    public abstract class LevelFactory
     {
-        void DrawObject();
-
-        void ClearObject();
+        public abstract Level GenerateLevel();
     }
 }

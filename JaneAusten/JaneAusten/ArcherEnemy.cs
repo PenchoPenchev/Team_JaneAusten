@@ -1,19 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace JaneAusten
+﻿namespace JaneAusten
 {
-    public class ArcherEnemy : Enemy
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    
+    public class ArcherEnemy : Enemy, IDrawable, IShootable
     {
-        public ArcherEnemy(int x, int y, bool isDead, int health, int lives, int speed, ConsoleColor color, int level = 1)
-            : base(x, y, isDead, health, lives, speed, color)
+        public ArcherEnemy(int x, int y, int health, int speed, ConsoleColor color, Levels level)
+            : base(x, y, health, speed, color, level)
         {
             
         }
 
-        public void Move()
+        public void Shoot()
         {
             throw new NotImplementedException();
         }
