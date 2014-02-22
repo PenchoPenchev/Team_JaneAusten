@@ -48,10 +48,14 @@
     <Compile Include="Bullet.cs" />
     <Compile Include="Creature.cs" />
     <Compile Include="CreatureType.cs" />
+    <Compile Include="EasyLevel.cs" />
+    <Compile Include="EasyLevelCreator.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="FighterEnemy.cs" />
     <Compile Include="FirstLevel.cs" />
+    <Compile Include="HardLevel.cs" />
+    <Compile Include="HardLevelCreator.cs" />
     <Compile Include="Hero.cs" />
     <Compile Include="ICollectable.cs" />
     <Compile Include="IDrawable.cs" />
@@ -62,7 +66,10 @@
     <Compile Include="JaneAusten.cs" />
     <Compile Include="Labyrinth.cs" />
     <Compile Include="Level.cs" />
+    <Compile Include="LevelFactory.cs" />
     <Compile Include="Levels.cs" />
+    <Compile Include="MediumLevel.cs" />
+    <Compile Include="MediumLevelCreator.cs" />
     <Compile Include="MovingObject.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="Point.cs" />
