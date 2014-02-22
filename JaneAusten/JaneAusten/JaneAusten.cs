@@ -13,7 +13,7 @@ namespace JaneAusten
             Console.BufferHeight = Console.WindowHeight = 36;      //Remove scrollbar
             Console.BufferWidth = Console.WindowWidth = 100;        //Remove scrollbar
 
-            Engine.Run();
+            StartMenu.DrawMenu();
         }
 
 

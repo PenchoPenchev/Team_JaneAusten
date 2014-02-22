@@ -5,6 +5,7 @@ using System.Text;
 
 namespace JaneAusten
 {
+     
     public abstract class GameObject
     {
         private int posX;
