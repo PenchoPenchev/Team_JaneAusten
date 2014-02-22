@@ -5,9 +5,13 @@
     using System.IO;
     using System.Linq;
     using System.Text;
+    using System.Media;
     
     public class FirstLevel
-    {   
+    {
+        static string die = @"../../Content/die.wav";
+        public static SoundPlayer dyingSound = new SoundPlayer(die);
+
         public static List<FighterEnemy> listOfFighterEnemies = new List<FighterEnemy>()
         {
             new FighterEnemy(35, 1, 70, 10, ConsoleColor.DarkMagenta, Levels.SecondLevel),
@@ -33,6 +37,7 @@
             {
                 if (listOfFighterEnemies[indx].Health <= 0)
                 {
+                    dyingSound.Play();
                     Engine.score += 100;
                     for (int row = 0; row < Enemy.enemyFigure.GetLength(0); row++)
                     {
