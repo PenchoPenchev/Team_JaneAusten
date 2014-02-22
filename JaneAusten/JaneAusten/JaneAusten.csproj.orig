@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B81E625B-493C-4735-812F-2B142ED71040}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JaneAusten</RootNamespace>
+    <AssemblyName>JaneAusten</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Archer.cs" />
+    <Compile Include="ArcherEnemy.cs" />
+    <Compile Include="Bonus.cs" />
+    <Compile Include="BonusType.cs" />
+    <Compile Include="Bullet.cs" />
+    <Compile Include="Creature.cs" />
+    <Compile Include="CreatureType.cs" />
+    <Compile Include="Cursor.cs" />
+    <Compile Include="EasyLevel.cs" />
+    <Compile Include="EasyLevelCreator.cs" />
+    <Compile Include="Enemy.cs" />
+    <Compile Include="Engine.cs" />
+    <Compile Include="FighterEnemy.cs" />
+    <Compile Include="FirstLevel.cs" />
+<<<<<<< HEAD
+    <Compile Include="GameOver.cs" />
+=======
+>>>>>>> 7604c829c91cb62a89a7b4bdd666bcc0fc8fb5f7
+    <Compile Include="HardLevel.cs" />
+    <Compile Include="HardLevelCreator.cs" />
+    <Compile Include="Hero.cs" />
+    <Compile Include="HidingBonus.cs" />
+    <Compile Include="ICollectable.cs" />
+    <Compile Include="IDrawable.cs" />
+    <Compile Include="IFighter.cs" />
+    <Compile Include="IMovable.cs" />
+    <Compile Include="InvalidCreatureException.cs" />
+    <Compile Include="IShootable.cs" />
+    <Compile Include="JaneAusten.cs" />
+    <Compile Include="Labyrinth.cs" />
+    <Compile Include="Level.cs" />
+    <Compile Include="LevelFactory.cs" />
+    <Compile Include="Levels.cs" />
+    <Compile Include="MediumLevel.cs" />
+    <Compile Include="MediumLevelCreator.cs" />
+    <Compile Include="MovingObject.cs" />
+    <Compile Include="GameObject.cs" />
+    <Compile Include="Point.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StartMenu.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="JaneAusten.cd" />
+  </ItemGroup>
+<<<<<<< HEAD
+  <ItemGroup>
+    <Content Include="collect.wav" />
+    <Content Include="shot.wav" />
+  </ItemGroup>
+=======
+>>>>>>> 7604c829c91cb62a89a7b4bdd666bcc0fc8fb5f7
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
