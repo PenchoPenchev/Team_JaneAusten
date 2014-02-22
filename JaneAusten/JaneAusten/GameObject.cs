@@ -5,6 +5,7 @@ using System.Text;
 
 namespace JaneAusten
 {
+    //София тест   
     public abstract class GameObject
     {
         private int posX;
