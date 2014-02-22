@@ -80,6 +80,7 @@
     <None Include="JaneAusten.cd" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="collect.wav" />
     <Content Include="shot.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
