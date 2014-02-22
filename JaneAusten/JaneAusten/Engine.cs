@@ -63,8 +63,14 @@
                     enemy.Move();
                 }
                 //Slow down rendering speed
+                if (archer.Lives <= 0)
+                {
+                    Console.Clear();
+                    break;
+                }
                 System.Threading.Thread.Sleep(100);
             }
+            GameOver.Display();
         }
 
         public static void PrintOnPosition(int x, int y, string message)

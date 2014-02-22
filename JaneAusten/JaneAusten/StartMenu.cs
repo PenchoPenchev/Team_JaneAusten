@@ -120,6 +120,7 @@ namespace JaneAusten
                         {
                             Console.Clear();
                             Engine.Run();
+                            break;
                         }
                         else if (Cursor.Top == cursorTopHighScores) // Run highScores
                         {

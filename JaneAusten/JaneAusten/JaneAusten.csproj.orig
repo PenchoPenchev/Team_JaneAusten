@@ -55,7 +55,10 @@
     <Compile Include="Engine.cs" />
     <Compile Include="FighterEnemy.cs" />
     <Compile Include="FirstLevel.cs" />
+<<<<<<< HEAD
     <Compile Include="GameOver.cs" />
+=======
+>>>>>>> 7604c829c91cb62a89a7b4bdd666bcc0fc8fb5f7
     <Compile Include="HardLevel.cs" />
     <Compile Include="HardLevelCreator.cs" />
     <Compile Include="Hero.cs" />
@@ -82,6 +85,13 @@
   <ItemGroup>
     <None Include="JaneAusten.cd" />
   </ItemGroup>
+<<<<<<< HEAD
+  <ItemGroup>
+    <Content Include="collect.wav" />
+    <Content Include="shot.wav" />
+  </ItemGroup>
+=======
+>>>>>>> 7604c829c91cb62a89a7b4bdd666bcc0fc8fb5f7
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
