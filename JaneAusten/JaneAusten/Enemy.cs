@@ -8,7 +8,7 @@
     
     public abstract class Enemy : Creature, IDrawable
     {
-        public static readonly char[,] enemyFigure = new char[3, 3];
+        public static readonly char[,] enemyFigure = new char[movingFigure.GetLength(0), movingFigure.GetLength(1)];
 
         private Levels level;
 
@@ -41,14 +41,15 @@
                     for (int col = 0; col < line.Length; col++)
                     {
                         enemyFigure[row, col] = line[col];
+                        //creatureFigure[row, col] = line[col];
                     }
                     row++;
                 }
             }
         }
 
-        public void DrawObject()
-        {   
+        public override void DrawObject()
+        {
             Console.ForegroundColor = this.Color;
 
             for (int i = 0; i < enemyFigure.GetLength(0); i++)
@@ -61,18 +62,6 @@
             }
 
             Console.ForegroundColor = ConsoleColor.White;
-        }
-
-        public void ClearObject()
-        {
-            for (int i = 0; i < enemyFigure.GetLength(0); i++)
-            {
-                for (int j = 0; j < enemyFigure.GetLength(1); j++)
-                {
-                    Console.SetCursorPosition(this.PosX + i, this.PosY + j);
-                    Console.Write(' ');
-                }
-            }
         }
     }
 }

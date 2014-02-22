@@ -39,6 +39,12 @@ namespace JaneAusten
             }
         }
 
-        
+
+
+
+        public void ClearObject()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

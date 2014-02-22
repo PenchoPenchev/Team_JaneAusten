@@ -10,10 +10,11 @@
     {   
         public static List<FighterEnemy> listOfFighterEnemies = new List<FighterEnemy>()
         {
-            new FighterEnemy(35, 1, 50, 5, ConsoleColor.DarkRed, Levels.FirstLevel),
-            new FighterEnemy(3, 9, 50, 5, ConsoleColor.DarkRed, Levels.FirstLevel),
-            new FighterEnemy(26, 5, 50, 5, ConsoleColor.DarkRed, Levels.FirstLevel),
-            new FighterEnemy(18, 6, 50, 5, ConsoleColor.DarkRed, Levels.FirstLevel)
+            new FighterEnemy(35, 1, 70, 10, ConsoleColor.DarkMagenta, Levels.SecondLevel),
+            new FighterEnemy(3, 9, 50, 5,ConsoleColor.DarkRed, Levels.FirstLevel),
+            new FighterEnemy(26, 5, 70, 10, ConsoleColor.DarkMagenta, Levels.SecondLevel),
+            new FighterEnemy(18, 6, 50, 5, ConsoleColor.DarkRed, Levels.FirstLevel),
+            new FighterEnemy(28, 9, 70, 10, ConsoleColor.DarkMagenta, Levels.SecondLevel)
         };
 
         public static List<Bonus> listOfBonuses = new List<Bonus>()

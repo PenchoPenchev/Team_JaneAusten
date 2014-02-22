@@ -58,7 +58,10 @@
                 // Move all bullets and check for collision
                 BulletsMovement();
                 //Move enemies
-
+                foreach (var enemy in FirstLevel.listOfFighterEnemies)
+                {
+                    enemy.Move();
+                }
                 //Slow down rendering speed
                 System.Threading.Thread.Sleep(100);
             }

@@ -189,5 +189,11 @@
                 }
             }
         }
+
+
+        public void ClearObject()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

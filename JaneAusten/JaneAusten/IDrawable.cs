@@ -8,5 +8,7 @@ namespace JaneAusten
     public interface IDrawable
     {
         void DrawObject();
+
+        void ClearObject();
     }
 }
