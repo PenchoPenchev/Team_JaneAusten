@@ -9,7 +9,7 @@
     public class Labyrinth : IDrawable
     {
         private const int consoleWidth = 100;
-        private const int consoleHeight = 35;
+        private const int consoleHeight = 36;
 
         private string mazeFile = @"..\..\Content\MazeLevel2.txt";
 

@@ -42,7 +42,7 @@ namespace JaneAusten
             }
         }
 
-        protected Levels LevelToughness { get; }
+        protected Levels LevelToughness { get; set; }
 
         protected virtual List<Enemy> GenerateEnemiesList(Levels levelToughness)
         {
