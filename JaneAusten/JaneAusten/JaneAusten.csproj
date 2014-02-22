@@ -53,6 +53,7 @@
     <Compile Include="FighterEnemy.cs" />
     <Compile Include="FirstLevel.cs" />
     <Compile Include="Hero.cs" />
+    <Compile Include="HidingBonus.cs" />
     <Compile Include="ICollectable.cs" />
     <Compile Include="IDrawable.cs" />
     <Compile Include="IFighter.cs" />
