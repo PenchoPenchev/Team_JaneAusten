@@ -9,7 +9,6 @@ namespace JaneAusten
     {
         static void Main()
         {
-           
 
             //while (true)
             //{

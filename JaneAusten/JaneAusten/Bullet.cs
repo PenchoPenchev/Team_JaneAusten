@@ -4,9 +4,12 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using System.Media;
 
     public class Bullet : MovingObject, IDrawable
     {
+        static string shotgun = @"../../shot.wav";
+        public static SoundPlayer shotSound = new SoundPlayer(shotgun);
      
         private char bulletSymbol;
         public char BulletSymbol
