@@ -7,23 +7,26 @@ namespace JaneAusten
 {
     public class HidingBonus:Bonus
     {
-        private int waitBeforeHide;
-        protected bool IsHided { get; set; }
-
-        System.Timers.Timer aTimer = new System.Timers.Timer();
+        private System.Timers.Timer aTimer = new System.Timers.Timer();
+        private int waitBeforeHideMs;
+        public bool IsHided { get; private set; }
+        protected bool IsRegeneratable { get; private set; }
         
-        public HidingBonus(int x, int y, BonusType type, int waitBeforeHide) :
+        public HidingBonus(int x, int y, BonusType type, int waitBeforeHideMs, int waitBeforeStartHidingMs = 0, bool isRegeneratable = false) :
             base(x, y, type)
         {
-            this.waitBeforeHide = waitBeforeHide;
+            this.waitBeforeHideMs = waitBeforeHideMs;
+            this.IsRegeneratable = isRegeneratable;
             this.IsHided = true;
+
+            System.Threading.Thread.Sleep(waitBeforeStartHidingMs);
             startTimer();
         }
 
-        public void startTimer()
+        private void startTimer()
         {
             aTimer.Elapsed += new System.Timers.ElapsedEventHandler(OnTimedEvent);
-            aTimer.Interval = waitBeforeHide;
+            aTimer.Interval = waitBeforeHideMs;
             aTimer.Enabled = true;
         }
 
@@ -34,13 +37,16 @@ namespace JaneAusten
             {
                 Console.Write(" ");
                 this.IsHided = true;
-                base.IsCollected = true;
             }
             else
             {
                 this.DrawObject();
-                base.IsCollected = false;
                 this.IsHided = false;
+            }
+
+            if (this.IsCollected && !this.IsRegeneratable)
+            {
+                aTimer.Enabled = false;
             }
         }
     }

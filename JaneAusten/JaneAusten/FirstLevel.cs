@@ -24,6 +24,7 @@
             new Bonus(23,2,BonusType.extraDamage),
             new Bonus(24,6,BonusType.livePotion),
             new HidingBonus(35,12,BonusType.livePotion,10000),
+            //    new HidingBonus(35,12,BonusType.livePotion,10000,2000,true),
         };
 
         public static void RemoveAllDeadEnemies()

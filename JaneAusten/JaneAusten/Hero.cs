@@ -195,6 +195,14 @@
                     {
                         if ((this.PosX + i == bonus.PosX && this.PosY + j == bonus.PosY) && !bonus.IsCollected)
                         {
+                            if (bonus is HidingBonus)
+                            {
+                                if (((HidingBonus)bonus).IsHided)
+                                {
+                                    continue;
+                                }
+                            }
+                        
                             switch (bonus.Type)
                             {
                                 case BonusType.gold: Engine.score += 50; break;
@@ -202,8 +210,8 @@
                                 case BonusType.livePotion: this.Lives++; break;
                                 case BonusType.extraDamage: this.Damage += 10; break;
                             }
-                            bonus.Collect();
-                        }                    
+                           bonus.Collect();
+                        }                 
                     }
                 }
             }

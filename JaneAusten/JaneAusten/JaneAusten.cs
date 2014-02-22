@@ -9,16 +9,10 @@ namespace JaneAusten
     {
         static void Main()
         {
-           
-
-            //while (true)
-            //{
-            //    System.Threading.Thread.Sleep(1000);
-            //}
-
             Console.BufferHeight = Console.WindowHeight = 35;      //Remove scrollbar
-            Console.BufferWidth = Console.WindowWidth = 100;        //Remove scrollbar
-
+            Console.BufferWidth = Console.WindowWidth = 100;       //Remove scrollbar
+            Console.CursorVisible = false;                         // Make cursor invisible 
+            
             Engine.Run();
         }
 
