@@ -11,19 +11,19 @@ namespace JaneAusten
 
         public BonusType Type { get; set; }
 
-        public bool isCollected { get; set; }
+        public bool IsCollected { get; set; }
 
 
         public Bonus(int x, int y, BonusType type)
             : base(x, y)
         {
             Type = type;
-            isCollected = false;
+            IsCollected = false;
         }
 
         public void Collect()
         {
-            this.isCollected = true;
+            this.IsCollected = true;
         }
 
         public void DrawObject()

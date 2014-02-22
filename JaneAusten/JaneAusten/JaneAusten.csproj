@@ -57,6 +57,7 @@
     <Compile Include="HardLevel.cs" />
     <Compile Include="HardLevelCreator.cs" />
     <Compile Include="Hero.cs" />
+    <Compile Include="HidingBonus.cs" />
     <Compile Include="ICollectable.cs" />
     <Compile Include="IDrawable.cs" />
     <Compile Include="IFighter.cs" />
@@ -77,6 +78,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="JaneAusten.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="shot.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

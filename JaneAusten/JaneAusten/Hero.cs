@@ -193,7 +193,7 @@
                 {
                     for (int j = 0; j < 3; j++)
                     {
-                        if ((this.PosX + i == bonus.PosX && this.PosY + j == bonus.PosY) && !bonus.isCollected)
+                        if ((this.PosX + i == bonus.PosX && this.PosY + j == bonus.PosY) && !bonus.IsCollected)
                         {
                             switch (bonus.Type)
                             {
