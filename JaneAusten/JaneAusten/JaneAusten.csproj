@@ -54,6 +54,7 @@
     <Compile Include="Engine.cs" />
     <Compile Include="FighterEnemy.cs" />
     <Compile Include="FirstLevel.cs" />
+    <Compile Include="GameOver.cs" />
     <Compile Include="HardLevel.cs" />
     <Compile Include="HardLevelCreator.cs" />
     <Compile Include="Hero.cs" />

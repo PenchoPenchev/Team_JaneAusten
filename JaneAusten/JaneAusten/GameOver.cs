@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+
+namespace JaneAusten
+{
+    public class GameOver 
+    {
+        public static void Display()
+        {
+            using (StreamReader sr = new StreamReader(@"../../Content/GAME_OVER.txt"))
+            {
+                string text = sr.ReadToEnd().ToString();              
+
+                Console.SetCursorPosition(0, 0);
+                Console.WriteLine(text);
+            }
+        }
+
+    }
+}
