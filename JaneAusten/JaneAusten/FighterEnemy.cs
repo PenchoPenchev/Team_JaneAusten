@@ -45,46 +45,33 @@
 
             if (lastMoveDirection == 'R')
             {
-                if (!CollideWithMovingObject(currentX, currentY))
+                if (!CheckCreatureHitWall(currentX, currentY))
                 {
-                    if (!CheckCreatureHitWall(currentX, currentY))
-                    {
-                        this.PosX++;
-                    }
-                    else
-                    {
-                        lastMoveDirection = 'L';
-                        currentX = this.PosX;
-                    }
+                    this.PosX++;
                 }
                 else
                 {
                     lastMoveDirection = 'L';
                     currentX = this.PosX;
-                }    
+                }
             }
 
             if (lastMoveDirection == 'L')
             {
                 //Move one step left
-                currentX--;
-                //if (!CollideWithMovingObject(currentX, currentY))
-                //{
-                    if (!CheckCreatureHitWall(currentX, currentY))
-                    {
-                        this.PosX--;
-                    }
-                    else
-                    {
-                        lastMoveDirection = 'R';
-                        currentX = this.PosX;
-                    }
-                //}
-                //else
-                //{
-                //    lastMoveDirection = 'R';
-                //    currentX = this.PosX;
-                //}
+                if (currentX > 1)
+                {
+                    currentX--;
+                }
+                if (!CheckCreatureHitWall(currentX, currentY) && this.PosX > 1)
+                {
+                    this.PosX--;
+                }
+                else
+                {
+                    lastMoveDirection = 'R';
+                    currentX = this.PosX;
+                }
             }
 
             //Draw next position

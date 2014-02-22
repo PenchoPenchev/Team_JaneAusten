@@ -74,12 +74,12 @@ namespace JaneAusten
         {
             foreach (var enemy in FirstLevel.listOfFighterEnemies)
             {
-                if ((x + movingFigure.GetLength(0) == enemy.PosX &&
+                if ((x <= enemy.PosX && x + movingFigure.GetLength(0) >= enemy.PosX &&
                     y <= enemy.PosY && y + movingFigure.GetLength(1) >= enemy.PosY))
                 {
                     return true;
                 }
-                else if ((x == enemy.PosX + movingFigure.GetLength(0) &&
+                else if ((x >= enemy.PosX && x <= enemy.PosX + movingFigure.GetLength(0) &&
                         y <= enemy.PosY && y + movingFigure.GetLength(1) >= enemy.PosY))
                 {
                     return true;
