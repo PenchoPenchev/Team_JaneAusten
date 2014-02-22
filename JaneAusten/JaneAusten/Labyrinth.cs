@@ -9,7 +9,7 @@
     public class Labyrinth : IDrawable
     {
         private const int consoleWidth = 100;
-        private const int consoleHeight = 35;
+        private const int consoleHeight = 36;
 
         private string mazeFile = @"..\..\Content\MazeLevel2.txt";
 
@@ -30,6 +30,7 @@
                             if (line[col] != ' ')
                             {
                                 maze[col, row] = 1;
+                                Console.ForegroundColor = ConsoleColor.DarkGreen;
                                 Console.SetCursorPosition(col, row);
                                 Console.Write(line[col]);
                             }

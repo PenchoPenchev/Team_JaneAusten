@@ -83,7 +83,7 @@ namespace JaneAusten
                 {
                     int bulletPosX = 0;
                     int bulletPosY = 0;
-
+                    Bullet.shotSound.Play();
                     switch (shotDirection)
                     {
                         case 'L':

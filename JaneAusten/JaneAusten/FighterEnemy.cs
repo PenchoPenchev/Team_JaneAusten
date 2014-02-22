@@ -68,8 +68,8 @@
             {
                 //Move one step left
                 currentX--;
-                if (!CollideWithMovingObject(currentX, currentY))
-                {
+                //if (!CollideWithMovingObject(currentX, currentY))
+                //{
                     if (!CheckCreatureHitWall(currentX, currentY))
                     {
                         this.PosX--;
@@ -79,12 +79,12 @@
                         lastMoveDirection = 'R';
                         currentX = this.PosX;
                     }
-                }
-                else
-                {
-                    lastMoveDirection = 'R';
-                    currentX = this.PosX;
-                }
+                //}
+                //else
+                //{
+                //    lastMoveDirection = 'R';
+                //    currentX = this.PosX;
+                //}
             }
 
             //Draw next position

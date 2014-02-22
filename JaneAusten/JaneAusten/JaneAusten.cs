@@ -9,10 +9,10 @@ namespace JaneAusten
     {
         static void Main()
         {
-            Console.BufferHeight = Console.WindowHeight = 35;      //Remove scrollbar
-            Console.BufferWidth = Console.WindowWidth = 100;       //Remove scrollbar
-            Console.CursorVisible = false;                         // Make cursor invisible 
-            
+
+            Console.BufferHeight = Console.WindowHeight = 36;      //Remove scrollbar
+            Console.BufferWidth = Console.WindowWidth = 100;        //Remove scrollbar
+
             Engine.Run();
         }
 

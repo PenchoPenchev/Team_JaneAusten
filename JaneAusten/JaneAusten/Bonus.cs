@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Media;
 
 namespace JaneAusten
 {
     public class Bonus : GameObject, ICollectable, IDrawable
     {
+        static string collect = @"../../collect.wav";
+        public static SoundPlayer collectBonus = new SoundPlayer(collect);
 
         public BonusType Type { get; set; }
 
@@ -23,6 +26,7 @@ namespace JaneAusten
 
         public void Collect()
         {
+            collectBonus.Play();
             this.IsCollected = true;
         }
 
