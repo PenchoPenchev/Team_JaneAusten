@@ -20,7 +20,7 @@
             labyrinth.DrawObject();
 
             //HERO
-            Archer archer = new Archer(1, 1, 10, ConsoleColor.Cyan);
+            Hero archer = new Archer(1, 1, 10, ConsoleColor.Cyan);
             //Load hero from file
             archer.LoadHero();
             //Draw loaded hero on the console screen with default position row = 1, col = 1
