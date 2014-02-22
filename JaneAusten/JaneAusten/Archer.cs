@@ -28,7 +28,7 @@ namespace JaneAusten
         {
         }
 
-        public void Move()
+        public override void Move()
         {
             if (Console.KeyAvailable)
             {
