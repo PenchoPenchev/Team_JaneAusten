@@ -7,6 +7,7 @@ namespace JaneAusten
 {
     public class EasyLevel : Level
     {
+        protected Random rand;
         public EasyLevel()
             : base()
         { 
@@ -18,14 +19,25 @@ namespace JaneAusten
         {
          
         }
-        
-        protected override List<Enemy> GenerateEnemiesList(Levels levelToughness)
+
+        public EasyLevel(List<Enemy> enemiesList, List<Bonus> bonusesList, Labyrinth labyrinth)
+            : base(enemiesList, bonusesList, labyrinth)
         {
-            // TODO: Implement this method
-            throw new NotImplementedException();
+
+        }
+        public override List<Enemy> GenerateEnemiesList()
+        {
+            int enemiesNumber = rand.Next(3, 5);
+            var enemies = new List<Enemy>();
+            for (int i = 0; i < enemiesNumber; i++)
+            {
+                enemies.Add(new FighterEnemy());
+            }
+
+            return enemies;
         }
 
-        protected override List<Bonus> GenerateBonusesList(Levels levelToughness)
+        public override List<Bonus> GenerateBonusesList()
         {
             // TODO: Implement this method
             throw new NotImplementedException();

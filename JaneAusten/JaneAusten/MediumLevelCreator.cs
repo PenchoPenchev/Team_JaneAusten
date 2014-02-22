@@ -9,7 +9,10 @@ namespace JaneAusten
     {
         public override Level GenerateLevel()
         {
-            var medium = new MediumLevel();
+            Level medium = new MediumLevel();
+            medium.Labyrinth = new Labyrinth(@"..\..\Content\MazeLevel3.txt");
+            medium.GenerateEnemiesList();
+            medium.GenerateBonusesList();
             return medium;
         }
     }

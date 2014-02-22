@@ -207,7 +207,7 @@
                             {
                                 case BonusType.gold: Engine.score += 50; break;
                                 case BonusType.diamond: Engine.score += 100; break;
-                                case BonusType.livePotion: this.Lives++; break;
+                                case BonusType.lifePotion: this.Lives++; break;
                                 case BonusType.extraDamage: this.Damage += 10; break;
                             }
                            bonus.Collect();

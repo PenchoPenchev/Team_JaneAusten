@@ -7,6 +7,7 @@ namespace JaneAusten
 {
     public class HardLevel : Level
     {
+        protected Random rand;
         public HardLevel() : base()
         { }
 
@@ -14,13 +15,23 @@ namespace JaneAusten
             : base(enemiesList, bonusesList)
         { }
 
-        protected override List<Enemy> GenerateEnemiesList(Levels levelToughness)
+        public HardLevel(List<Enemy> enemiesList, List<Bonus> bonusesList, Labyrinth labyrinth)
+            : base(enemiesList, bonusesList, labyrinth)
         {
-            // TODO: Implement this method
-            throw new NotImplementedException();
+        }
+        public override List<Enemy> GenerateEnemiesList()
+        {
+            int enemiesNumber = rand.Next(11, 20);
+            var enemies = new List<Enemy>();
+            for (int i = 0; i < enemiesNumber; i++)
+            {
+                enemies.Add(new FighterEnemy());
+            }
+
+            return enemies;
         }
 
-        protected override List<Bonus> GenerateBonusesList(Levels levelToughness)
+        public override List<Bonus> GenerateBonusesList()
         {
             // TODO: Implement this method
             throw new NotImplementedException();

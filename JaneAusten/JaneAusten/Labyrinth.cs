@@ -11,9 +11,33 @@
         private const int consoleWidth = 100;
         private const int consoleHeight = 36;
 
-        private string mazeFile = @"..\..\Content\MazeLevel2.txt";
+        private string mazeFile;
 
         public static int[,] maze = new int[consoleWidth, consoleHeight];
+
+
+        public Labyrinth(string mazeFile = @"..\..\Content\MazeLevel2.txt")
+        {
+            this.MazeFile = mazeFile;
+        }
+        public string MazeFile
+        {
+            get
+            {
+                return this.mazeFile;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    value = @"..\..\Content\MazeLevel2.txt";
+                }
+                else
+                {
+                    this.mazeFile = value;
+                }
+            }
+        }
 
         public void DrawObject()
         {

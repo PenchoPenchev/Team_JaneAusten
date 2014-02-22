@@ -8,7 +8,10 @@ namespace JaneAusten
     public abstract class Level
     {
         private List<Enemy> enemiesList;
+       
         private List<Bonus> bonusesList;
+
+        public Labyrinth Labyrinth;
         public Level()
         { }
 
@@ -17,40 +20,46 @@ namespace JaneAusten
             this.EnemiesList = enemiesList;
             this.BonusesList = bonusesList;
         }
+        public Level(List<Enemy> enemiesList, List<Bonus> bonusesList, Labyrinth labyrinth)
+        {
+            this.EnemiesList = enemiesList;
+            this.BonusesList = bonusesList;
+            this.Labyrinth = labyrinth;
+        }
 
-        protected List<Enemy> EnemiesList
+        private List<Enemy> EnemiesList
         {
             get
             {
                 return this.enemiesList;
             }
-            private set
+            set
             {
-                this.enemiesList = GenerateEnemiesList(this.LevelToughness);
+                this.enemiesList = GenerateEnemiesList();
             }
         }
 
-        protected List<Bonus> BonusesList
+        private List<Bonus> BonusesList
         {
             get
             {
                 return this.bonusesList;
             }
-            private set
+            set
             {
-                this.bonusesList = GenerateBonusesList(this.LevelToughness);
+                this.bonusesList = GenerateBonusesList();
             }
         }
 
-        protected Levels LevelToughness { get; set; }
+        private Levels LevelToughness { get; set; }
 
-        protected virtual List<Enemy> GenerateEnemiesList(Levels levelToughness)
+        public virtual List<Enemy> GenerateEnemiesList()
         {
             // TODO: Implement this method
             throw new NotImplementedException();
         }
 
-        protected virtual List<Bonus> GenerateBonusesList(Levels levelToughness)
+        public virtual List<Bonus> GenerateBonusesList()
         {
             // TODO: Implement this method
             throw new NotImplementedException();
