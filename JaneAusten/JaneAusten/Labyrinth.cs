@@ -30,6 +30,7 @@
                             if (line[col] != ' ')
                             {
                                 maze[col, row] = 1;
+                                Console.ForegroundColor = ConsoleColor.DarkGreen;
                                 Console.SetCursorPosition(col, row);
                                 Console.Write(line[col]);
                             }
