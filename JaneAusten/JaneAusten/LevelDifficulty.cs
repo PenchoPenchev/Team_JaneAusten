@@ -11,11 +11,11 @@ namespace JaneAusten
         private const string menuPath = @"..\..\Content\DifficultyMenu.txt";
         private const string enter = "Press enter to selet difficulty";
         private const string escape = "Press escape to go to hero choice";
-        private const int cursorTopMedium = 14;
+        private const int cursorTopMedium = 15;
         private const int cursorMovement = 5;
         private const int initialCursorLeft = 32;
         private const int initialCursorTop = 10;
-        private const int maxCursorTop = 19;
+        private const int maxCursorTop = 20;
         public static StringBuilder ReadComponents()
         {
             StringBuilder component = new StringBuilder();
