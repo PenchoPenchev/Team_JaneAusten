@@ -8,14 +8,14 @@ namespace JaneAusten
 {
     public static class StartMenu
     {
-        private const int initialCursorTop = 20;
-        private const int initialCursorLeft = 24;
-        private const int maxCursorTop = 29;
-        private const int cursorMovement = 3;
-        private const int cursorTopInstructions = 22;
-        private const int cursorTopHighScores = 20;
-        private const string menuPath = @"..\..\Content\StartMenu.txt";
-        public const string gameName = @"
+        private const int INITIAL_CURSOR_TOP = 20;
+        private const int INITIAL_CURSOR_LEFT = 24;
+        private const int MAX_CURSOR_TOP = 29;
+        private const int CURSOR_MOVEMENT = 3;
+        private const int CURSOR_TOP_INSTRUCTIONS = 22;
+        private const int CURSOR_TOP_HIGH_SCORES = 20;
+        private const string MENU_PATH = @"..\..\Content\StartMenu.txt";
+        public const string GAME_NAME = @"
 ══╗ ╔══╝   ║   ▄█    █▄      ▄████████    ▄████████  ▄██████▄     ▄████████ ╔▄████████  ╔════╝  ╚══
   ║ ║      ║  ███    ███    ███    ███   ███    ███ ███    ███   ███    ███ ║███        ║   ╔══════
   ║ ║ ║ ╔═══▀▀███▀▀▀▀███▀╗▀▀███▀▀▀     ▀▀███▀▀▀▀▀   ███    ███ ▀▀███▀▀▀     ║▀███████████   ║ ║   ╔
@@ -29,21 +29,21 @@ namespace JaneAusten
      ║    ║   ║ ╚═███    ███ ▀▀███▀▀▀     ║  ║ ███    ███ ███    ███ ▀█████████▀   ║    ║        
   ═══╝        ╚═══███    ███   ███        ║  ║ ███    ███ ███    ███   ███     ╔══ ║    ║  ╔═══════
                    ▀██████▀    ███        ║  ║   ▀██████▀   ▀██████▀   ████▀   ╚═══╝  ";
-        public const string start = @"
+        public const string START = @"
                                ██  █ ▄▄▄ ▄▄   ▄▄  █▀▀  ▄▄▄▄ ▄▄▄▄▄ ▄▄▄
                                █ █ █ █▄▄  █ ▄ █   █ ▄▄ █▄▄█ █ █ █ █▄▄
                                █  ██ █▄▄  █▄█▄█   █▄▄█ █  █ █ █ █ █▄▄";
-        public const string instructions = @"
+        public const string INSTRUCTIONS = @"
 
                                ▄ ▄▄  ▄ ▄▄▄ ▄▄▄ ▄▄▄ ▄ ▄ ▄▄▄ ▄▄▄ ▄ ▄▄▄ ▄▄  ▄ ▄▄▄   
                                █ █ █ █ █▄▄  █  █▄█ █ █ █    █  █ █ █ █ █ █ █▄▄
                                █ █  ██ ▄▄█  █  █▀▄ █▄█ █▄▄  █  █ █▄█ █  ██ ▄▄█       ";
 
-        public const string highScores = @"
+        public const string HIGH_SCORE = @"
                                ▄  ▄ ▄ ▄▄▄  ▄  ▄ ▄▄▄ ▄▄▄ ▄▄▄ ▄▄▄ ▄▄▄ ▄▄▄
                                █▄▄█ █ █ ▄▄ █▄▄█ █▄▄ █   █ █ █▄█ █▄▄ █▄▄
                                █  █ █ █▄▄█ █  █ ▄▄█ █▄▄ █▄█ █▀▄ █▄▄ ▄▄█      ";
-        public const string exit = @"
+        public const string EXIT = @"
 
                                ▄▄▄         ▄▄▄
                                █▄▄  ▀▄▀  █  █
@@ -59,14 +59,14 @@ namespace JaneAusten
             string readText = default(string);
             try
             {
-                using (StreamReader read = new StreamReader(menuPath))
+                using (StreamReader read = new StreamReader(MENU_PATH))
                 {
                     readText = read.ReadToEnd();
                 }
             }
             catch (FileNotFoundException)
             {
-                Console.WriteLine("The file {0} can not be found!", menuPath);
+                Console.WriteLine("The file {0} can not be found!", MENU_PATH);
             }
 
             string[] components = readText.Split(new char[] { '*' }, StringSplitOptions.RemoveEmptyEntries);
@@ -83,8 +83,8 @@ namespace JaneAusten
         public static void DrawMenu()
         {
             var cursor = new Cursor();
-            cursor.Top = initialCursorTop;
-            cursor.Left = initialCursorLeft;
+            cursor.Top = INITIAL_CURSOR_TOP;
+            cursor.Left = INITIAL_CURSOR_LEFT;
 
             while (true)
             {
@@ -99,50 +99,50 @@ namespace JaneAusten
 
                     if (pressedKey.Key == ConsoleKey.UpArrow)
                     {
-                        if (cursor.Top > initialCursorTop)
+                        if (cursor.Top > INITIAL_CURSOR_TOP)
                         {
-                            cursor.Top -= cursorMovement;
+                            cursor.Top -= CURSOR_MOVEMENT;
 
                         }
                     }
                     else if (pressedKey.Key == ConsoleKey.DownArrow)
                     {
-                        if (cursor.Top < maxCursorTop)
+                        if (cursor.Top < MAX_CURSOR_TOP)
                         {
-                            cursor.Top += cursorMovement;
+                            cursor.Top += CURSOR_MOVEMENT;
 
                         }
                     }
                     else if (pressedKey.Key == ConsoleKey.Enter)
                     {
 
-                        if (cursor.Top == initialCursorTop) // Start new game 
+                        if (cursor.Top == INITIAL_CURSOR_TOP) // Start new game 
                         {
                             Console.Clear();
                            // Engine.Run();
                             var chooseHero = new ArcherMenu();
                             chooseHero.PrintHeroMenu();
                         }
-                        else if (cursor.Top == cursorTopHighScores) // Run highScores
+                        else if (cursor.Top == CURSOR_TOP_HIGH_SCORES) // Run highScores
                         {
 
                         }
-                        else if (cursor.Top == cursorTopInstructions) // Run Instructions 
+                        else if (cursor.Top == CURSOR_TOP_INSTRUCTIONS) // Run Instructions 
                         {
 
                         }
-                        else if (cursor.Top == maxCursorTop) // exit
+                        else if (cursor.Top == MAX_CURSOR_TOP) // exit
                         {
                             Console.SetCursorPosition(0, 35);
                             Environment.Exit(1);
                         }
                     }
                 }
-                StartMenu.DrawComponent(StartMenu.gameName, 15, 0, ConsoleColor.DarkGreen);
-                StartMenu.DrawComponent(StartMenu.start, 18, 18, ConsoleColor.DarkYellow);
-                StartMenu.DrawComponent(StartMenu.highScores, 18, 21, ConsoleColor.DarkYellow);
-                StartMenu.DrawComponent(StartMenu.instructions, 18, 23, ConsoleColor.DarkYellow);
-                StartMenu.DrawComponent(StartMenu.exit, 18, 26, ConsoleColor.DarkYellow);
+                StartMenu.DrawComponent(StartMenu.GAME_NAME, 15, 0, ConsoleColor.DarkGreen);
+                StartMenu.DrawComponent(StartMenu.START, 18, 18, ConsoleColor.DarkYellow);
+                StartMenu.DrawComponent(StartMenu.HIGH_SCORE, 18, 21, ConsoleColor.DarkYellow);
+                StartMenu.DrawComponent(StartMenu.INSTRUCTIONS, 18, 23, ConsoleColor.DarkYellow);
+                StartMenu.DrawComponent(StartMenu.EXIT, 18, 26, ConsoleColor.DarkYellow);
                 StartMenu.DrawComponent(Cursor.body, cursor.Left, cursor.Top, ConsoleColor.DarkYellow);
                 System.Threading.Thread.Sleep(200);
 
