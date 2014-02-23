@@ -36,10 +36,10 @@ namespace JaneAusten
             Console.SetCursorPosition(this.PosX, this.PosY); 
             switch (this.Type)
             {
-                case BonusType.gold: item = "⌂"; Console.ForegroundColor = ConsoleColor.Yellow; Console.WriteLine(item); break;
-                case BonusType.diamond: item = " ♦"; Console.ForegroundColor = ConsoleColor.Cyan; Console.WriteLine(item); break;
+                case BonusType.gold: item = "o"; Console.ForegroundColor = ConsoleColor.Yellow; Console.WriteLine(item); break;
+                case BonusType.diamond: item = "*"; Console.ForegroundColor = ConsoleColor.Cyan; Console.WriteLine(item); break;
                 case BonusType.extraDamage: item = "D"; Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine(item); break;
-                case BonusType.lifePotion: item = "♥"; Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine(item); break;
+                case BonusType.livePotion: item = "H"; Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine(item); break;
             }
         }
 

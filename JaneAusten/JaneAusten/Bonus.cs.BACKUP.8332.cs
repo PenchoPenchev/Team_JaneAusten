@@ -39,7 +39,11 @@ namespace JaneAusten
                 case BonusType.gold: item = "⌂"; Console.ForegroundColor = ConsoleColor.Yellow; Console.WriteLine(item); break;
                 case BonusType.diamond: item = " ♦"; Console.ForegroundColor = ConsoleColor.Cyan; Console.WriteLine(item); break;
                 case BonusType.extraDamage: item = "D"; Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine(item); break;
-                case BonusType.lifePotion: item = "♥"; Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine(item); break;
+<<<<<<< HEAD
+                case BonusType.lifePotion: item = "H"; Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine(item); break;
+=======
+                case BonusType.livePotion: item = "♥"; Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine(item); break;
+>>>>>>> fe3f45e98864cc26d558adfdb63ffd7ef6b34677
             }
         }
 

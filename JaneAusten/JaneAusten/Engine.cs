@@ -15,9 +15,12 @@
         public static void Run()
         {           
             //LABYRINTH
-            Labyrinth labyrinth = new Labyrinth();
+           // Labyrinth labyrinth = new Labyrinth();
             //Draw loaded labyrinth with default parameteres 0, 0
-            labyrinth.DrawObject();
+           // labyrinth.DrawObject();
+
+           LevelFactory level = new EasyLevelCreator();
+           level.GenerateLevel();
 
             //HERO
             Hero archer = new Archer(1, 1, 10, ConsoleColor.Cyan);

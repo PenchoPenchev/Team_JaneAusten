@@ -27,11 +27,11 @@ namespace JaneAusten
         }
         public override List<Enemy> GenerateEnemiesList()
         {
-            int enemiesNumber = rand.Next(3, 5);
+            //int enemiesNumber = rand.Next(3, 5);
             var enemies = new List<Enemy>();
-            for (int i = 0; i < enemiesNumber; i++)
+            for (int i = 0; i < 5; i++)
             {
-                enemies.Add(new FighterEnemy());
+                enemies.Add(new FighterEnemy(35, 1, 70, 10, ConsoleColor.DarkMagenta, Levels.SecondLevel));
             }
 
             return enemies;
@@ -39,8 +39,12 @@ namespace JaneAusten
 
         public override List<Bonus> GenerateBonusesList()
         {
-            // TODO: Implement this method
-            throw new NotImplementedException();
+            var bonuses = new List<Bonus>();
+            for (int i = 0; i < 3; i++)
+            {
+                bonuses.Add(new Bonus(3, 14, BonusType.gold));
+            }
+            return bonuses;
         }
     }
 }
