@@ -78,12 +78,12 @@
             ChangeEnemyColor();
         }
 
-        public static void DecreaseEnemyHealth(FighterEnemy enemy, Bullet bullet)
+        public static void TakeDamage(FighterEnemy enemy, double damage)
         {
-            enemy.Health -= (int)bullet.Damage;
+            enemy.Health -= (int)damage;
         }
 
-        //Change enemy color according hiw own health
+        //Change enemy color according his own health
         public static void ChangeEnemyColor(FighterEnemy fighter)
         {
             if (fighter.Health == 70)

@@ -18,6 +18,14 @@
             set { this.bulletSymbol = value; }
         }
 
+        private double damage;
+
+        public double Damage
+        {
+            get { return damage; }
+            set { damage = value; }
+        }
+
         private int range;
 
         public int Range
@@ -26,28 +34,12 @@
             set { range = value; }
         }
 
-        private double damage;
-
-        public double Damage
-        {
-            get { return damage; }
-            set { damage = value; }
-        }
-        
-
-        public Bullet(int x, int y, char shotSymbol, int range = 5)
+        public Bullet(int x, int y, char shotSymbol, int range, double damage)
             : base(x, y)
         {
             this.BulletSymbol = shotSymbol;
             this.Range = range;
-        }
-
-        public Bullet(int x, int y, char shotSymbol, double damage, int range = 5)
-            : base(x, y)
-        {
-            this.BulletSymbol = shotSymbol;
             this.Damage = damage;
-            this.Range = range;
         }
 
         public void DrawObject()
@@ -56,10 +48,21 @@
             Console.Write(bulletSymbol);
         }
 
+        public void ClearObject()
+        {
+            throw new NotImplementedException();
+        }
+
         public static void ClearObject(int shotXPosition, int shotYPosition)
         {
             Console.SetCursorPosition(shotXPosition, shotYPosition);
             Console.Write(' ');
+        }
+
+        public static void DrawObject(int shotXPosition, int shotYPosition, char bulletSymbol)
+        {
+            Console.SetCursorPosition(shotXPosition, shotYPosition);
+            Console.Write(bulletSymbol);
         }
 
         public override void Move()
@@ -85,28 +88,6 @@
                         this.PosY++;
                         break;
                 }
-            }
-
-            // Collision check - second !CheckShotHitWall(this.PosX, this.PosY) is NOT redundant!
-            if (!CheckShotHitWall(this.PosX, this.PosY))
-            {
-                if (CheckShotHitEnemy(this))
-                {
-                    ModifyEnemy(this);
-                    Engine.listOfBullets.Remove(this);
-                }
-                else if (CheckShotHitBonus(this.PosX, this.PosY))
-                {
-                    Engine.listOfBullets.Remove(this);
-                }
-                else
-                {
-                    DrawObject();
-                }
-            }
-            else
-            {
-                Engine.listOfBullets.Remove(this);
             }
         }
 
@@ -136,7 +117,7 @@
             return false;
         }
 
-        private static bool CheckShotHitEnemy(Bullet bullet)
+        public static bool CheckShotHitEnemy(Bullet bullet)
         {
             for (int enemy = 0; enemy < FirstLevel.listOfFighterEnemies.Count; enemy++)
             {
@@ -164,21 +145,21 @@
             return false;
         }
 
-        private static void ModifyEnemy(Bullet bullet)
+        public static void ModifyEnemy(Bullet bullet, double damage)
         {
             for (int enemy = 0; enemy < FirstLevel.listOfFighterEnemies.Count; enemy++)
             {
                 if (bullet.PosX == FirstLevel.listOfFighterEnemies[enemy].PosX &&
                     bullet.PosY - 1 == FirstLevel.listOfFighterEnemies[enemy].PosY)
                 {
-                    FighterEnemy.DecreaseEnemyHealth(FirstLevel.listOfFighterEnemies[enemy], bullet);
+                    FighterEnemy.TakeDamage(FirstLevel.listOfFighterEnemies[enemy], damage);
                     FighterEnemy.ChangeEnemyColor(FirstLevel.listOfFighterEnemies[enemy]);
                     FirstLevel.RemoveAllDeadEnemies();
                 }
                 else if (bullet.PosX == FirstLevel.listOfFighterEnemies[enemy].PosX + Enemy.enemyFigure.GetLength(0) &&
                     bullet.PosY - 1 == FirstLevel.listOfFighterEnemies[enemy].PosY)
                 {
-                    FighterEnemy.DecreaseEnemyHealth(FirstLevel.listOfFighterEnemies[enemy], bullet);
+                    FighterEnemy.TakeDamage(FirstLevel.listOfFighterEnemies[enemy], damage);
                     FighterEnemy.ChangeEnemyColor(FirstLevel.listOfFighterEnemies[enemy]);
                     FirstLevel.RemoveAllDeadEnemies();
                 }
@@ -186,17 +167,12 @@
                         bullet.PosX <= FirstLevel.listOfFighterEnemies[enemy].PosX + Enemy.enemyFigure.GetLength(0) &&
                         bullet.PosY == FirstLevel.listOfFighterEnemies[enemy].PosY)
                 {
-                    FighterEnemy.DecreaseEnemyHealth(FirstLevel.listOfFighterEnemies[enemy], bullet);
+                    FighterEnemy.TakeDamage(FirstLevel.listOfFighterEnemies[enemy], damage);
                     FighterEnemy.ChangeEnemyColor(FirstLevel.listOfFighterEnemies[enemy]);
                     FirstLevel.RemoveAllDeadEnemies();
                 }
             }
         }
 
-
-        public void ClearObject()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

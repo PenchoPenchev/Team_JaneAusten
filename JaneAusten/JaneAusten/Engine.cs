@@ -46,9 +46,10 @@
             
             while (true)
             {
-                PrintOnPosition(82, 5, "Hero lives: " + archer.Lives);
+                PrintOnPosition(82, 5, "Hero Lifes: " + archer.Lifes);
                 PrintOnPosition(82, 7, "Damage: " + archer.Damage);
-                PrintOnPosition(82, 9, "Score: " + score);
+                PrintOnPosition(82, 9, "Shoot range: " + archer.Range);
+                PrintOnPosition(82, 11, "Score: " + score);
                 //Hero move or shoot (keypressed)
                 archer.Move();
                 //Check if some enemy is hitting us
@@ -56,35 +57,66 @@
                 //Bonus checks
                 archer.PotentialCollideWithBonus();
                 // Move all bullets and check for collision
-                BulletsMovement();
+                BulletsMovement(archer.Damage);
                 //Move enemies
                 foreach (var enemy in FirstLevel.listOfFighterEnemies)
                 {
                     enemy.Move();
                 }
                 //Slow down rendering speed
-                if (archer.Lives <= 0)
+                if (archer.Lifes <= 0)
                 {
                     Console.Clear();
                     break;
                 }
                 System.Threading.Thread.Sleep(100);
             }
-            GameOver.Display();
+            //GameOver.Display();
         }
 
-        public static void PrintOnPosition(int x, int y, string message)
+        private static void PrintOnPosition(int x, int y, string message)
         {
             Console.SetCursorPosition(x, y);
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine(message);
         }
 
-        private static void BulletsMovement()
+        private static void BulletsMovement(double damage)
         {
             for (int bullet = listOfBullets.Count() - 1; bullet >= 0; bullet--)
             {
                 listOfBullets[bullet].Move();
+
+                if (!Bullet.CheckShotHitWall(listOfBullets[bullet].PosX, listOfBullets[bullet].PosY))
+                {
+                    if (Bullet.CheckShotHitEnemy(listOfBullets[bullet]))
+                    {
+                        Bullet.ModifyEnemy(listOfBullets[bullet], damage);
+                        listOfBullets.Remove(listOfBullets[bullet]);
+                    }
+                    else if (Bullet.CheckShotHitBonus(listOfBullets[bullet].PosX, listOfBullets[bullet].PosY))
+                    {
+                        listOfBullets.Remove(listOfBullets[bullet]);
+                    }
+                    else if (listOfBullets[bullet].Range == 0)
+                    {
+                        listOfBullets.Remove(listOfBullets[bullet]);
+                    }
+                    else
+                    {
+                        if (listOfBullets[bullet].Range > 0)
+                        {
+                            listOfBullets[bullet].Range--;
+                        }
+                        
+                        Bullet.DrawObject(listOfBullets[bullet].PosX, listOfBullets[bullet].PosY, 
+                            listOfBullets[bullet].BulletSymbol);
+                    }
+                }
+                else
+                {
+                    listOfBullets.Remove(listOfBullets[bullet]);
+                }
             }
         }
     }

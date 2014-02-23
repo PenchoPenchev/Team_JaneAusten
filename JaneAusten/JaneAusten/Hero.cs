@@ -14,6 +14,14 @@
         private string heroFile = @"..\..\Content\hero.txt";
         private string heroAndEnemyCollideFile = @"..\..\Content\Collision.txt";
 
+        private int range;
+
+        public int Range
+        {
+            get { return range; }
+            set { range = value; }
+        }
+
         private double damage;
 
         public double Damage
@@ -22,7 +30,6 @@
             private set { this.damage = value; }
         }
 
-
         public Hero()
             : base()
         {
@@ -30,14 +37,17 @@
         }
 
         public Hero(int x, int y, int speed, ConsoleColor color,
-            int health, int lives, double damage)
-            : base(x, y, health, lives, speed, color)
+            int health, int lifes, double damage, int range)
+            : base(x, y, health, lifes, speed, color)
         {
             this.Health = health;
-            this.Lives = lives;
+            this.Lifes = lifes;
             this.Damage = damage;
+            this.Range = range;
         }
 
+        public abstract void Move();
+        
         public void LoadHero()
         {
             try
@@ -62,7 +72,7 @@
                 Console.WriteLine("The file {0} can not be found!", heroFile);
             }
         }
-        public abstract void Move();
+        
         public override void DrawObject()
         {
             Console.ForegroundColor = this.Color;
@@ -94,27 +104,9 @@
             return false;
         }
 
-        //protected virtual bool CollideWithEnemy()
-        //{
-        //    foreach (var enemy in FirstLevel.listOfFighterEnemies)
-        //    {
-        //        if ((this.PosX + Enemy.enemyFigure.GetLength(0) == enemy.PosX && this.PosY == enemy.PosY) ||
-        //            (this.PosX == enemy.PosX && this.PosY == enemy.PosY + Enemy.enemyFigure.GetLength(1)))
-        //        {
-        //            return true;
-        //        }
-        //        else if ((this.PosX - Enemy.enemyFigure.GetLength(0) == enemy.PosX && this.PosY == enemy.PosY) ||
-        //            (this.PosX == enemy.PosX && this.PosY == enemy.PosY - Enemy.enemyFigure.GetLength(1)))
-        //        {
-        //            return true;
-        //        }
-        //    }
-        //    return false;
-        //}
-
-        public void CollisionWithEnemyCheck()
+        public virtual void CollisionWithEnemyCheck()
         {
-            if (CollideWithMovingObject(this.PosX, this.PosY) && this.Lives > 0)
+            if (CollideWithMovingObject(this.PosX, this.PosY) && this.Lifes > 0)
             {
                 this.ClearObject();
 
@@ -122,7 +114,7 @@
                 System.Threading.Thread.Sleep(500);
                 ClearObject();
 
-                DecreaseHeroLives();
+                DecreaseHeroLifes();
 
                 this.PosX = 1;
                 this.PosY = 1;
@@ -131,16 +123,15 @@
             }
         }
 
-        private void DecreaseHeroLives()
+        protected void DecreaseHeroLifes()
         {
-            if (CollideWithMovingObject(this.PosX, this.PosY) && this.Lives > 0)
+            if (CollideWithMovingObject(this.PosX, this.PosY) && this.Lifes > 0)
             {
-                this.Lives--;
+                this.Lifes--;
             }
-            if (this.Lives == 0)
+            if (this.Lifes == 0)
             {
                 PrintOnPosition(30, 10, "GAME OVER");
-
             }
         }
 
@@ -168,7 +159,7 @@
             }
         }
 
-        private void PrintHeroCollision()
+        protected void PrintHeroCollision()
         {
             Console.ForegroundColor = ConsoleColor.DarkYellow;
 
@@ -207,8 +198,9 @@
                             {
                                 case BonusType.gold: Engine.score += 50; break;
                                 case BonusType.diamond: Engine.score += 100; break;
-                                case BonusType.lifePotion: this.Lives++; break;
+                                case BonusType.lifePotion: this.Lifes++; break;
                                 case BonusType.extraDamage: this.Damage += 10; break;
+                                case BonusType.longerRange: this.Range++; break;
                             }
                            bonus.Collect();
                         }                 

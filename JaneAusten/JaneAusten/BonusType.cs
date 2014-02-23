@@ -10,6 +10,7 @@ namespace JaneAusten
         gold,
         diamond,
         lifePotion,
-        extraDamage
+        extraDamage,
+        longerRange
     }
 }

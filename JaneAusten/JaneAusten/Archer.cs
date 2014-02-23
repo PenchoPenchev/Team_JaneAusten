@@ -23,8 +23,8 @@ namespace JaneAusten
         }
 
         public Archer(int x, int y, int speed, ConsoleColor color,
-            int health = 100, int lives = 3, int damage = 10)
-            : base(x, y, speed, color, health, lives, damage)
+            int health = 100, int Lifes = 3, int damage = 10, int range = 3)
+            : base(x, y, speed, color, health, Lifes, damage, range)
         {
         }
 
@@ -83,7 +83,9 @@ namespace JaneAusten
                 {
                     int bulletPosX = 0;
                     int bulletPosY = 0;
+
                     Bullet.shotSound.Play();
+
                     switch (shotDirection)
                     {
                         case 'L':
@@ -110,10 +112,28 @@ namespace JaneAusten
 
                     // Add bullet to bullet list
                     Engine.listOfBullets.Add(
-                        new Bullet(bulletPosX, bulletPosY, ShotSymbol, this.Damage));
+                        new Bullet(bulletPosX, bulletPosY, ShotSymbol, this.Range, this.Damage));
                 }
             }
         }
 
+        public override void CollisionWithEnemyCheck()
+        {
+            if (CollideWithMovingObject(this.PosX, this.PosY) && this.Lifes > 0)
+            {
+                this.ClearObject();
+
+                PrintHeroCollision();
+                System.Threading.Thread.Sleep(500);
+                ClearObject();
+
+                DecreaseHeroLifes();
+
+                this.PosX = 1;
+                this.PosY = 1;
+
+                this.DrawObject();
+            }
+        }
     }
 }
