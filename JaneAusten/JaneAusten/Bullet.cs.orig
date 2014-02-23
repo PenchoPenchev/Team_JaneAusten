@@ -44,7 +44,11 @@
         public void ClearObject()
         {
             Console.SetCursorPosition(this.PosX, this.PosY);
+<<<<<<< HEAD
+            Console.Write(' ');
+=======
             Console.Write(' '); 
+>>>>>>> fb419c92c74ba38894173ac491f23bf50d91e43a
         }
 
         public void DrawObject()
