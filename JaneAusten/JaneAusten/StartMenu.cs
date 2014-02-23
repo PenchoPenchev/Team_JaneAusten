@@ -14,7 +14,7 @@ namespace JaneAusten
         private const int cursorMovement = 3;
         private const int cursorTopInstructions = 22;
         private const int cursorTopHighScores = 20;
-        private const string menuPath = @"E:\projects\JaneAustin\JaneAusten\JaneAusten\Content\StartMenu.txt";
+        private const string menuPath = @"..\..\Content\StartMenu.txt";
         public const string gameName = @"
 ══╗ ╔══╝   ║   ▄█    █▄      ▄████████    ▄████████  ▄██████▄     ▄████████ ╔▄████████  ╔════╝  ╚══
   ║ ║      ║  ███    ███    ███    ███   ███    ███ ███    ███   ███    ███ ║███        ║   ╔══════
@@ -82,9 +82,9 @@ namespace JaneAusten
         }
         public static void DrawMenu()
         {
-
-            Cursor.Left = initialCursorLeft;
-            Cursor.Top = initialCursorTop;
+            var cursor = new Cursor();
+            cursor.Top = initialCursorTop;
+            cursor.Left = initialCursorLeft;
 
             while (true)
             {
@@ -99,37 +99,39 @@ namespace JaneAusten
 
                     if (pressedKey.Key == ConsoleKey.UpArrow)
                     {
-                        if (Cursor.Top > initialCursorTop)
+                        if (cursor.Top > initialCursorTop)
                         {
-                            Cursor.Top -= cursorMovement;
+                            cursor.Top -= cursorMovement;
 
                         }
                     }
                     else if (pressedKey.Key == ConsoleKey.DownArrow)
                     {
-                        if (Cursor.Top < maxCursorTop)
+                        if (cursor.Top < maxCursorTop)
                         {
-                            Cursor.Top += cursorMovement;
+                            cursor.Top += cursorMovement;
 
                         }
                     }
                     else if (pressedKey.Key == ConsoleKey.Enter)
                     {
 
-                        if (Cursor.Top == initialCursorTop) // Start new game 
+                        if (cursor.Top == initialCursorTop) // Start new game 
                         {
                             Console.Clear();
-                            Engine.Run();
+                           // Engine.Run();
+                            var chooseHero = new ArcherMenu();
+                            chooseHero.PrintHeroMenu();
                         }
-                        else if (Cursor.Top == cursorTopHighScores) // Run highScores
+                        else if (cursor.Top == cursorTopHighScores) // Run highScores
                         {
 
                         }
-                        else if (Cursor.Top == cursorTopInstructions) // Run Instructions 
+                        else if (cursor.Top == cursorTopInstructions) // Run Instructions 
                         {
 
                         }
-                        else if (Cursor.Top == maxCursorTop) // exit
+                        else if (cursor.Top == maxCursorTop) // exit
                         {
                             Console.SetCursorPosition(0, 35);
                             Environment.Exit(1);
@@ -141,7 +143,7 @@ namespace JaneAusten
                 StartMenu.DrawComponent(StartMenu.highScores, 18, 21, ConsoleColor.DarkYellow);
                 StartMenu.DrawComponent(StartMenu.instructions, 18, 23, ConsoleColor.DarkYellow);
                 StartMenu.DrawComponent(StartMenu.exit, 18, 26, ConsoleColor.DarkYellow);
-                StartMenu.DrawComponent(Cursor.body, Cursor.Left, Cursor.Top, ConsoleColor.DarkYellow);
+                StartMenu.DrawComponent(Cursor.body, cursor.Left, cursor.Top, ConsoleColor.DarkYellow);
                 System.Threading.Thread.Sleep(200);
 
             }
