@@ -22,7 +22,8 @@
 
         private char lastMoveDirection = 'R';
 
-        public void Move()
+ 
+        public override void Move()
         {
             int currentX = this.PosX;
             int currentY = this.PosY;
@@ -78,45 +79,42 @@
             ChangeEnemyColor();
         }
 
-        public static void TakeDamage(FighterEnemy enemy, double damage)
-        {
-            enemy.Health -= (int)damage;
-        }
+       
 
         //Change enemy color according his own health
-        public static void ChangeEnemyColor(FighterEnemy fighter)
-        {
-            if (fighter.Health == 70)
-            {
-                Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            }
-            else if (fighter.Health >= 50)
-            {
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-            }
-            else if (fighter.Health >= 30 && fighter.Health < 50)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-            }
-            else
-            {
-                if (fighter.Health < 30)
-                {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                }
-            }
+        //public static void ChangeEnemyColor(FighterEnemy fighter)
+        //{
+        //    if (fighter.Health == 70)
+        //    {
+        //        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+        //    }
+        //    else if (fighter.Health >= 50)
+        //    {
+        //        Console.ForegroundColor = ConsoleColor.DarkRed;
+        //    }
+        //    else if (fighter.Health >= 30 && fighter.Health < 50)
+        //    {
+        //        Console.ForegroundColor = ConsoleColor.Red;
+        //    }
+        //    else
+        //    {
+        //        if (fighter.Health < 30)
+        //        {
+        //            Console.ForegroundColor = ConsoleColor.Green;
+        //        }
+        //    }
 
-            for (int col = 0; col < enemyFigure.GetLength(1); col++)
-            {
-                for (int row = 0; row < enemyFigure.GetLength(0); row++)
-                {
-                    Console.SetCursorPosition(fighter.PosX + col, fighter.PosY + row);
-                    Console.Write(enemyFigure[row, col]);
-                }
-            }
+        //    for (int col = 0; col < enemyFigure.GetLength(1); col++)
+        //    {
+        //        for (int row = 0; row < enemyFigure.GetLength(0); row++)
+        //        {
+        //            Console.SetCursorPosition(fighter.PosX + col, fighter.PosY + row);
+        //            Console.Write(enemyFigure[row, col]);
+        //        }
+        //    }
 
-            Console.ForegroundColor = ConsoleColor.White;
-        }
+        //    Console.ForegroundColor = ConsoleColor.White;
+        //}
 
         public void ChangeEnemyColor()
         {

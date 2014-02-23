@@ -114,24 +114,24 @@
 
         public static bool CheckShotHitEnemy(Bullet bullet)
         {
-            for (int enemy = 0; enemy < FirstLevel.listOfFighterEnemies.Count; enemy++)
+            for (int enemy = 0; enemy < FirstLevel.listOfEnemies.Count; enemy++)
             {
                 //"bullet.PosY - 1" because bullet always hits targets in the middle 
                 //Horizontal checks
-                if (bullet.PosX == FirstLevel.listOfFighterEnemies[enemy].PosX &&
-                    bullet.PosY - 1 == FirstLevel.listOfFighterEnemies[enemy].PosY)
+                if (bullet.PosX == FirstLevel.listOfEnemies[enemy].PosX &&
+                    bullet.PosY - 1 == FirstLevel.listOfEnemies[enemy].PosY)
                 {
                     return true;
                 }
-                else if (bullet.PosX == FirstLevel.listOfFighterEnemies[enemy].PosX + Enemy.enemyFigure.GetLength(0) &&
-                    bullet.PosY - 1 == FirstLevel.listOfFighterEnemies[enemy].PosY)
+                else if (bullet.PosX == FirstLevel.listOfEnemies[enemy].PosX + Enemy.enemyFigure.GetLength(0) &&
+                    bullet.PosY - 1 == FirstLevel.listOfEnemies[enemy].PosY)
                 {
                     return true;
                 }
                 //Vertical checks
-                else if (bullet.PosX >= FirstLevel.listOfFighterEnemies[enemy].PosX &&
-                        bullet.PosX <= FirstLevel.listOfFighterEnemies[enemy].PosX + Enemy.enemyFigure.GetLength(0) &&
-                        bullet.PosY == FirstLevel.listOfFighterEnemies[enemy].PosY)
+                else if (bullet.PosX >= FirstLevel.listOfEnemies[enemy].PosX &&
+                        bullet.PosX <= FirstLevel.listOfEnemies[enemy].PosX + Enemy.enemyFigure.GetLength(0) &&
+                        bullet.PosY == FirstLevel.listOfEnemies[enemy].PosY)
                 {
                     return true;
                 }
@@ -142,28 +142,28 @@
 
         public static void ModifyEnemy(Bullet bullet, double damage)
         {
-            for (int enemy = 0; enemy < FirstLevel.listOfFighterEnemies.Count; enemy++)
+            for (int enemy = 0; enemy < FirstLevel.listOfEnemies.Count; enemy++)
             {
-                if (bullet.PosX == FirstLevel.listOfFighterEnemies[enemy].PosX &&
-                    bullet.PosY - 1 == FirstLevel.listOfFighterEnemies[enemy].PosY)
+                if (bullet.PosX == FirstLevel.listOfEnemies[enemy].PosX &&
+                    bullet.PosY - 1 == FirstLevel.listOfEnemies[enemy].PosY)
                 {
-                    FighterEnemy.TakeDamage(FirstLevel.listOfFighterEnemies[enemy], damage);
-                    FighterEnemy.ChangeEnemyColor(FirstLevel.listOfFighterEnemies[enemy]);
+                    Enemy.TakeDamage(FirstLevel.listOfEnemies[enemy], damage);
+                    Enemy.ChangeEnemyColor(FirstLevel.listOfEnemies[enemy]);
                     FirstLevel.RemoveAllDeadEnemies();
                 }
-                else if (bullet.PosX == FirstLevel.listOfFighterEnemies[enemy].PosX + Enemy.enemyFigure.GetLength(0) &&
-                    bullet.PosY - 1 == FirstLevel.listOfFighterEnemies[enemy].PosY)
+                else if (bullet.PosX == FirstLevel.listOfEnemies[enemy].PosX + Enemy.enemyFigure.GetLength(0) &&
+                    bullet.PosY - 1 == FirstLevel.listOfEnemies[enemy].PosY)
                 {
-                    FighterEnemy.TakeDamage(FirstLevel.listOfFighterEnemies[enemy], damage);
-                    FighterEnemy.ChangeEnemyColor(FirstLevel.listOfFighterEnemies[enemy]);
+                    FighterEnemy.TakeDamage(FirstLevel.listOfEnemies[enemy], damage);
+                    FighterEnemy.ChangeEnemyColor(FirstLevel.listOfEnemies[enemy]);
                     FirstLevel.RemoveAllDeadEnemies();
                 }
-                else if (bullet.PosX >= FirstLevel.listOfFighterEnemies[enemy].PosX &&
-                        bullet.PosX <= FirstLevel.listOfFighterEnemies[enemy].PosX + Enemy.enemyFigure.GetLength(0) &&
-                        bullet.PosY == FirstLevel.listOfFighterEnemies[enemy].PosY)
+                else if (bullet.PosX >= FirstLevel.listOfEnemies[enemy].PosX &&
+                        bullet.PosX <= FirstLevel.listOfEnemies[enemy].PosX + Enemy.enemyFigure.GetLength(0) &&
+                        bullet.PosY == FirstLevel.listOfEnemies[enemy].PosY)
                 {
-                    FighterEnemy.TakeDamage(FirstLevel.listOfFighterEnemies[enemy], damage);
-                    FighterEnemy.ChangeEnemyColor(FirstLevel.listOfFighterEnemies[enemy]);
+                    FighterEnemy.TakeDamage(FirstLevel.listOfEnemies[enemy], damage);
+                    FighterEnemy.ChangeEnemyColor(FirstLevel.listOfEnemies[enemy]);
                     FirstLevel.RemoveAllDeadEnemies();
                 }
             }

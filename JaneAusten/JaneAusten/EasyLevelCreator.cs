@@ -13,16 +13,16 @@ namespace JaneAusten
             easy.Labyrinth = new Labyrinth(@"..\..\Content\MazeLevel2.txt");
             easy.Labyrinth.DrawObject();
             var enemies = easy.GenerateEnemiesList();
-            //foreach (var enemy in enemies)
-            //{
-            //    enemy.LoadEnemy();
-            //    enemy.DrawObject();
-            //}
+            foreach (var enemy in enemies)
+            {
+                enemy.LoadEnemy();
+                enemy.DrawObject();
+            }
             var bonuses = easy.GenerateBonusesList();
-            //foreach (var bonus in bonuses)
-            //{
-            //    bonus.DrawObject();
-            //}
+            foreach (var bonus in bonuses)
+            {
+                bonus.DrawObject();
+            }
             return easy;
         }
     }

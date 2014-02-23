@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
     
-    public class Archer : Hero, IMovable, IDrawable
+    public class Archer : Hero, IMovable, IDrawable, IShootable
     {
         private char shotDirection = 'R';
         private char shotSybmol = '→';
@@ -81,38 +81,7 @@
                 }
                 else if (keyInfo.Key == ConsoleKey.Spacebar)
                 {
-                    int bulletPosX = 0;
-                    int bulletPosY = 0;
-
-                    Bullet.shotSound.Play();
-
-                    switch (shotDirection)
-                    {
-                        case 'L':
-                            shotSybmol = '←';
-                            bulletPosX = this.PosX - 1;
-                            bulletPosY = this.PosY + heroFigure.GetLength(1) / 2;
-                            break;
-                        case 'R':
-                            shotSybmol = '→';
-                            bulletPosX = this.PosX + heroFigure.GetLength(0);
-                            bulletPosY = this.PosY + heroFigure.GetLength(1) / 2;
-                            break;
-                        case 'U':
-                            shotSybmol = '↑';
-                            bulletPosX = this.PosX + heroFigure.GetLength(0) / 2;
-                            bulletPosY = this.PosY - 1;
-                            break;
-                        case 'D':
-                            shotSybmol = '↓';
-                            bulletPosX = this.PosX + heroFigure.GetLength(0) / 2;
-                            bulletPosY = this.PosY + heroFigure.GetLength(1);
-                            break;
-                    }
-
-                    //// Add bullet to bullet list
-                    Engine.listOfBullets.Add(
-                        new Bullet(bulletPosX, bulletPosY, ShotSymbol, this.Range, this.Damage));
+                    Shoot();
                 }
             }
         }

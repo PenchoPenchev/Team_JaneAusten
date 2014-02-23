@@ -33,7 +33,7 @@
 
             //ENEMIES
             //TEST - Load all enemies
-            foreach (var enemy in FirstLevel.listOfFighterEnemies)
+            foreach (var enemy in FirstLevel.listOfEnemies)
             {
                 enemy.LoadEnemy();
                 enemy.DrawObject();
@@ -62,7 +62,7 @@
                 // Move all bullets and check for collision
                 BulletsMovement(archer.Damage);
                 //Move enemies
-                foreach (var enemy in FirstLevel.listOfFighterEnemies)
+                foreach (var enemy in FirstLevel.listOfEnemies)
                 {
                     enemy.Move();
                 }

@@ -72,7 +72,7 @@ namespace JaneAusten
 
         public virtual bool CollideWithMovingObject(int x, int y)
         {
-            foreach (var enemy in FirstLevel.listOfFighterEnemies)
+            foreach (var enemy in FirstLevel.listOfEnemies)
             {
                 if ((x <= enemy.PosX && x + movingFigure.GetLength(0) >= enemy.PosX &&
                     y <= enemy.PosY && y + movingFigure.GetLength(1) >= enemy.PosY))

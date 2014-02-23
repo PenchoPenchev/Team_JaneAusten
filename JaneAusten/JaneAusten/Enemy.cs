@@ -29,7 +29,46 @@
         {
             this.Level = level;
         }
+        public static void TakeDamage(Enemy enemy, double damage)
+            {
+            enemy.Health -= (int)damage;
+            }
 
+        public static void ChangeEnemyColor(Enemy enemy)
+        {
+            if (enemy.Health >= 100)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            }
+            else if (enemy.Health >= 50)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+            }
+            else if (enemy.Health >= 30 && enemy.Health < 50)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+            }
+            else
+            {
+                if (enemy.Health < 30)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                }
+            }
+
+            for (int col = 0; col < enemyFigure.GetLength(1); col++)
+            {
+                for (int row = 0; row < enemyFigure.GetLength(0); row++)
+                {
+                    Console.SetCursorPosition(enemy.PosX + col, enemy.PosY + row);
+                    Console.Write(enemyFigure[row, col]);
+                }
+            }
+
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        public abstract void Move();
         public void LoadEnemy()
         {
             using (StreamReader sr = new StreamReader(@"..\..\Content\monster.txt"))
