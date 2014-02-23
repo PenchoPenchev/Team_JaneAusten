@@ -15,62 +15,26 @@ namespace JaneAusten
         private const int cursorTopInstructions = 22;
         private const int cursorTopHighScores = 20;
         private const string menuPath = @"..\..\Content\StartMenu.txt";
-        public const string gameName = @"
-══╗ ╔══╝   ║   ▄█    █▄      ▄████████    ▄████████  ▄██████▄     ▄████████ ╔▄████████  ╔════╝  ╚══
-  ║ ║      ║  ███    ███    ███    ███   ███    ███ ███    ███   ███    ███ ║███        ║   ╔══════
-  ║ ║ ║ ╔═══▀▀███▀▀▀▀███▀╗▀▀███▀▀▀     ▀▀███▀▀▀▀▀   ███    ███ ▀▀███▀▀▀     ║▀███████████   ║ ║   ╔
-  ║   ║ ║   ║ ███    ███ ║ ║███    █▄  ▀███████████ ███    ███   ███    █▄  ║         ███   ║ ║   ║
-  ║   ║ ║   ║ ███    █▀  ║ ║██████████   ███    ███  ▀██████▀    ██████████ ║ ▄████████▀    ║ ║   ║
-══╝         ╚════════════╝ ╚═════════════███    ███═════════════════════════╝ ╚═════════════╝     ║                            
-              
-═══╝     ═════╗ ╔═════════════════════════╗  ╔═════════════════════════════════════╗         ║    ║
-═════╗  ╔═══╗ ║ ║  ▄██████▄     ▄████████ ║  ║  ▄██████▄   ▄██████▄     ▄███████▄  ║    ╔════╝    ║
-     ║        ║ ║ ███    ███   ███    ███ ║  ║ ███    ███ ███    ███   ███    ███  ║    ║      ║  ║
-     ║    ║   ║ ╚═███    ███ ▀▀███▀▀▀     ║  ║ ███    ███ ███    ███ ▀█████████▀   ║    ║        
-  ═══╝        ╚═══███    ███   ███        ║  ║ ███    ███ ███    ███   ███     ╔══ ║    ║  ╔═══════
-                   ▀██████▀    ███        ║  ║   ▀██████▀   ▀██████▀   ████▀   ╚═══╝  ";
-        public const string START = @"
-                               ██  █ ▄▄▄ ▄▄   ▄▄  █▀▀  ▄▄▄▄ ▄▄▄▄▄ ▄▄▄
-                               █ █ █ █▄▄  █ ▄ █   █ ▄▄ █▄▄█ █ █ █ █▄▄
-                               █  ██ █▄▄  █▄█▄█   █▄▄█ █  █ █ █ █ █▄▄";
-        public const string INSTRUCTIONS = @"
-
-                               ▄ ▄▄  ▄ ▄▄▄ ▄▄▄ ▄▄▄ ▄ ▄ ▄▄▄ ▄▄▄ ▄ ▄▄▄ ▄▄  ▄ ▄▄▄   
-                               █ █ █ █ █▄▄  █  █▄█ █ █ █    █  █ █ █ █ █ █ █▄▄
-                               █ █  ██ ▄▄█  █  █▀▄ █▄█ █▄▄  █  █ █▄█ █  ██ ▄▄█       ";
-
-        public const string HIGH_SCORE = @"
-                               ▄  ▄ ▄ ▄▄▄  ▄  ▄ ▄▄▄ ▄▄▄ ▄▄▄ ▄▄▄ ▄▄▄ ▄▄▄
-                               █▄▄█ █ █ ▄▄ █▄▄█ █▄▄ █   █ █ █▄█ █▄▄ █▄▄
-                               █  █ █ █▄▄█ █  █ ▄▄█ █▄▄ █▄█ █▀▄ █▄▄ ▄▄█      ";
-        public const string EXIT = @"
-
-                               ▄▄▄         ▄▄▄
-                               █▄▄  ▀▄▀  █  █
-                               █▄▄  ▄▀▄  █  █
-                                 
-
-                            ";
-
-
-        public static string[] ReadComponents()
+    
+        public static StringBuilder ReadComponents()
         {
-
-            string readText = default(string);
+            StringBuilder component = new StringBuilder();
             try
             {
-                using (StreamReader read = new StreamReader(menuPath))
+                using (StreamReader sr = new StreamReader(menuPath))
                 {
-                    readText = read.ReadToEnd();
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        component.AppendLine(line);
+                    }
                 }
             }
             catch (FileNotFoundException)
             {
                 Console.WriteLine("The file {0} can not be found!", menuPath);
             }
-
-            string[] components = readText.Split(new char[] { '*' }, StringSplitOptions.RemoveEmptyEntries);
-            return components;
+            return component;
         }
 
         public static void DrawComponent(string obj, int left, int top, ConsoleColor color)
@@ -138,11 +102,7 @@ namespace JaneAusten
                         }
                     }
                 }
-                StartMenu.DrawComponent(StartMenu.gameName, 15, 0, ConsoleColor.DarkGreen);
-                StartMenu.DrawComponent(StartMenu.START, 18, 18, ConsoleColor.DarkYellow);
-                StartMenu.DrawComponent(StartMenu.HIGH_SCORE, 18, 21, ConsoleColor.DarkYellow);
-                StartMenu.DrawComponent(StartMenu.INSTRUCTIONS, 18, 23, ConsoleColor.DarkYellow);
-                StartMenu.DrawComponent(StartMenu.EXIT, 18, 26, ConsoleColor.DarkYellow);
+                StartMenu.DrawComponent(StartMenu.ReadComponents().ToString(), 0, 0, ConsoleColor.DarkGreen);
                 StartMenu.DrawComponent(Cursor.body, cursor.Left, cursor.Top, ConsoleColor.DarkYellow);
                 System.Threading.Thread.Sleep(200);
 
