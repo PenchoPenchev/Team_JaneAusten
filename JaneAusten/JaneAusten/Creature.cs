@@ -11,13 +11,13 @@ namespace JaneAusten
         
         private ConsoleColor color;
         private int health;
-        private int lives;
+        private int lifes;
         private int speed;
 
-        public int Lives
+        public int Lifes
         {
-            get { return lives; }
-            set { lives = value; }
+            get { return lifes; }
+            set { lifes = value; }
         }
 
         public ConsoleColor Color 
@@ -52,20 +52,20 @@ namespace JaneAusten
             this.Color = color;
         }
 
-        public Creature(int x, int y, int health, int lives, int speed, ConsoleColor color)
+        public Creature(int x, int y, int health, int lifes, int speed, ConsoleColor color)
             : base(x, y)
         {
             this.Health = health;
-            this.Lives = lives;
+            this.Lifes = lifes;
             this.Speed = speed;
             this.Color = color;
         }
 
-        public Creature(Point point, int health, int lives, int speed, ConsoleColor color)
+        public Creature(Point point, int health, int lifes, int speed, ConsoleColor color)
             : base(point)
         {
             this.Health = health;
-            this.Lives = lives;
+            this.Lifes = lifes;
             this.Speed = speed;
             this.Color = color;
         }

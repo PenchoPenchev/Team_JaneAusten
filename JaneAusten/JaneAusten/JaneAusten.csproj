@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Archer.cs" />
     <Compile Include="ArcherEnemy.cs" />
+    <Compile Include="ArcherMenu.cs" />
     <Compile Include="Bonus.cs" />
     <Compile Include="BonusType.cs" />
     <Compile Include="Bullet.cs" />
@@ -55,10 +56,10 @@
     <Compile Include="Engine.cs" />
     <Compile Include="FighterEnemy.cs" />
     <Compile Include="FirstLevel.cs" />
-    <Compile Include="GameOver.cs" />
     <Compile Include="HardLevel.cs" />
     <Compile Include="HardLevelCreator.cs" />
     <Compile Include="Hero.cs" />
+    <Compile Include="HeroMenu.cs" />
     <Compile Include="HidingBonus.cs" />
     <Compile Include="ICollectable.cs" />
     <Compile Include="IDrawable.cs" />
@@ -68,7 +69,9 @@
     <Compile Include="IShootable.cs" />
     <Compile Include="JaneAusten.cs" />
     <Compile Include="Labyrinth.cs" />
+    <Compile Include="LadyKillerMenu.cs" />
     <Compile Include="Level.cs" />
+    <Compile Include="LevelDifficulty.cs" />
     <Compile Include="LevelFactory.cs" />
     <Compile Include="Levels.cs" />
     <Compile Include="MediumLevel.cs" />

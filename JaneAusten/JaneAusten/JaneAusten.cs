@@ -14,7 +14,6 @@ namespace JaneAusten
             Console.BufferWidth = Console.WindowWidth = 100;        //Remove scrollbar
 
             Console.CursorVisible = false;
-
             StartMenu.DrawMenu();
         }
 

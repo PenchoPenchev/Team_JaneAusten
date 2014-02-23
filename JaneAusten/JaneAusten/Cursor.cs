@@ -5,34 +5,35 @@ using System.Text;
 
 namespace JaneAusten
 {
-    public static class Cursor
-    {
-        private const int minCursorTop = 17;
-        private const int maxCursorTop = 29;
+    public class Cursor
+    { 
         public const string body = "══";
-        private static int left;
-        public static int top;
-        public static int Left
+        private  int left;
+        private  int top;
+        public int Left
         {
-            get { return left; }
+            get{return this.left;}
             set
             {
                 if (value > 0 && value < Console.WindowWidth)
                 {
                     left = value;
                 }
+                else { throw new ArgumentException("Invalid coordinates!"); }
             }
         }
-        public static int Top
+        public int Top
         {
-            get { return top; }
+            get { return this.top; }
             set
             {
-                if (value > 0 && value >= minCursorTop && value <= maxCursorTop)
+                if (value > 0)
                 {
                     top = value;
                 }
+                else { throw new ArgumentException("Invalid coordinates!"); }
             }
         }
+        
     }
 }

@@ -28,6 +28,9 @@
             new Bonus(23,2,BonusType.extraDamage),
             new Bonus(24,6,BonusType.lifePotion),
             new HidingBonus(35,12,BonusType.lifePotion,10000),
+            new Bonus(26,2,BonusType.longerRange),
+            new Bonus(56,7,BonusType.longerRange),
+            new Bonus(25,16,BonusType.longerRange)
             //    new HidingBonus(35,12,BonusType.livePotion,10000,2000,true),
         };
 
