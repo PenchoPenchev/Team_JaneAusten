@@ -9,8 +9,6 @@
     
     public class FirstLevel
     {
-        static string die = @"../../Content/die.wav";
-        public static SoundPlayer dyingSound = new SoundPlayer(die);
 
         public static List<Enemy> listOfEnemies = new List<Enemy>()
         {
@@ -50,7 +48,7 @@
             {
                 if (listOfEnemies[indx].Health <= 0)
                 {
-                    dyingSound.Play();
+                    Sound.dyingSound.Play();
                     Engine.score += 100;
                     for (int row = 0; row < Enemy.enemyFigure.GetLength(0); row++)
                     {

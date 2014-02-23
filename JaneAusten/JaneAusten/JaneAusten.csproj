@@ -80,6 +80,7 @@
     <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shooter.cs" />
+    <Compile Include="Sound.cs" />
     <Compile Include="StartMenu.cs" />
   </ItemGroup>
   <ItemGroup>

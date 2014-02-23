@@ -9,8 +9,6 @@
     
     public class Bonus : GameObject, ICollectable, IDrawable
     {
-        static string collect = @"../../Content/collect.wav";
-        public static SoundPlayer collectBonus = new SoundPlayer(collect);
 
         public BonusType Type { get; set; }
 
@@ -26,7 +24,7 @@
 
         public void Collect()
         {
-            collectBonus.Play();
+            Sound.collectBonus.Play();
             this.IsCollected = true;
         }
 

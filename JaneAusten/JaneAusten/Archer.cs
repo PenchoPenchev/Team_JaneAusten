@@ -91,7 +91,7 @@
             int bulletPosX = 0;
             int bulletPosY = 0;
 
-            Bullet.shotSound.Play();
+            Sound.shotSound.Play();
 
             switch (shotDirection)
             {
