@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -7,41 +8,37 @@ namespace JaneAusten
 {
     class LadyKillerMenu : HeroMenu
     {
+        private const string menuPath = @"..\..\Content\LadyKillerMenu.txt";
         private const int shooterInfoLeft = 63;
         private const int shooterInfoTop = 7;
-        private const string typeHero = @" 
-                                                                ▄▄▄ ▄  ▄ ▄▄▄ ▄▄▄ ▄▄▄ ▄▄▄ ▄▄▄
-                                                                █▄▄ █▄▄█ █ █ █ █  █  █▄▄ █▄█
-                                                                ▄▄█ █  █ █▄█ █▄█  █  █▄▄ █▀▄
-                                ";
-        private const string shooter = @"
-
-       _)\____________________________________/7_
-    (//   )))))                                   `\||
-     /   (((((                                      )`
-    (______________________________________________/
-     \   ________ ______________________________/
-      ) /#######/ )\  /     )/
-     / /##(\)##/ /  \(            ******       ******
-    / /#######( (\______.ad     **********   **********
-   / /#########) )------``    ************* *************
-  / /#########/ /            *****************************
- / /###(/)###/ /             *****************************
-( (#########/ (              *****************************        
- \____/_______\)              ***************************        
-                                ***********************        
-                                  *******************        
-                                    ***************        
-                                      ***********        
-                                        *******        
-                                          ***        
-                                           *         ";
+       
         public LadyKillerMenu()
         {
             this.Damage = "DAMAGE: 30";
             this.Name = " NAME: Lady X";
             this.Weapon = "WEAPON: Pistol";
             this.InitialNumberLifes = "LIFES: 2";
+            this.Range = "SHOOT RANGE: ?";
+        }
+        public override StringBuilder ReadHeroMenu(string path)
+        {
+            StringBuilder component = new StringBuilder();
+            try
+            {
+                using (StreamReader sr = new StreamReader(path))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        component.AppendLine(line);
+                    }
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("The file {0} can not be found!", menuPath);
+            }
+            return component;
         }
         public override void PrintHeroMenu()
         {
@@ -74,18 +71,20 @@ namespace JaneAusten
                         StartMenu.DrawMenu();
                     }
                 }
-                StartMenu.DrawComponent(typeHero, 15, 0, ConsoleColor.DarkGreen);
-                StartMenu.DrawComponent(shooter, 0, 8, ConsoleColor.DarkYellow);
-                StartMenu.DrawComponent(Name, shooterInfoLeft, shooterInfoTop, ConsoleColor.DarkGreen);
-                StartMenu.DrawComponent(Weapon, shooterInfoLeft, shooterInfoTop + 3, ConsoleColor.DarkGreen);
-                StartMenu.DrawComponent(Damage, shooterInfoLeft, shooterInfoTop + 6, ConsoleColor.DarkGreen);
-                StartMenu.DrawComponent(InitialNumberLifes, shooterInfoLeft, shooterInfoTop + 9, ConsoleColor.DarkGreen);
-                StartMenu.DrawComponent(pressArrows, shooterInfoLeft, shooterInfoTop + 21, ConsoleColor.DarkYellow);
-                StartMenu.DrawComponent(pressEnter, shooterInfoLeft, shooterInfoTop + 23, ConsoleColor.DarkYellow);
-                StartMenu.DrawComponent(pressEsc, shooterInfoLeft, shooterInfoTop + 25, ConsoleColor.DarkYellow);
+                var ladyhero = new LadyKillerMenu();
+                StartMenu.DrawComponent(ladyhero.ReadHeroMenu(menuPath).ToString(), 0, 0, ConsoleColor.DarkYellow);
+                StartMenu.DrawComponent(Name, shooterInfoLeft, shooterInfoTop, ConsoleColor.DarkYellow);
+                StartMenu.DrawComponent(Weapon, shooterInfoLeft, shooterInfoTop + 3, ConsoleColor.DarkYellow);
+                StartMenu.DrawComponent(Damage, shooterInfoLeft, shooterInfoTop + 6, ConsoleColor.DarkYellow);
+                StartMenu.DrawComponent(InitialNumberLifes, shooterInfoLeft, shooterInfoTop + 9, ConsoleColor.DarkYellow);
+                StartMenu.DrawComponent(Range, shooterInfoLeft, shooterInfoTop + 12, ConsoleColor.DarkYellow);
+                StartMenu.DrawComponent(pressArrows, shooterInfoLeft, shooterInfoTop + 22, ConsoleColor.DarkGreen);
+                StartMenu.DrawComponent(pressEnter, shooterInfoLeft, shooterInfoTop + 24, ConsoleColor.DarkGreen);
+                StartMenu.DrawComponent(pressEsc, shooterInfoLeft, shooterInfoTop + 26, ConsoleColor.DarkGreen);
 
                 System.Threading.Thread.Sleep(200);
             }
         }
+        
     }
 }

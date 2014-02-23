@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -7,35 +8,34 @@ namespace JaneAusten
 {
     public static class LevelDifficulty
     {
+        private const string menuPath = @"..\..\Content\DifficultyMenu.txt";
         private const string enter = "Press enter to selet difficulty";
         private const string escape = "Press escape to go to hero choice";
         private const int cursorTopMedium = 14;
         private const int cursorMovement = 5;
         private const int initialCursorLeft = 32;
-        private const int initialCursorTop = 9;
+        private const int initialCursorTop = 10;
         private const int maxCursorTop = 19;
-        private const string enterDifficulty = @"
-
-                     ▄▄▄ ▄  ▄ ▄▄▄ ▄▄▄ ▄▄▄ ▄▄▄    ▄ ▄ ▄▄▄ ▄▄▄ ▄ ▄▄▄ ▄ ▄ ▄  ▄▄▄ ▄  ▄ ▄
-                     █   █▄▄█ █ █ █ █ █▄▄ █▄▄  ▄▄█ █ █▄  █▄  █ █   █ █ █   █   ▀█  
-                     █▄▄ █  █ █▄█ █▄█ ▄▄█ █▄▄  █▄█ █ █   █   █ █▄▄ █▄█ █▄▄ █   █   ▄  ";
-        private const string easy = @"
-
-                                         ▄▄▄ ▄▄▄▄ ▄▄▄ ▄  ▄  
-                                         █▄▄ █▄▄█ █▄▄  ▀█ 
-                                         █▄▄ █  █ ▄▄█  █  ";
-        private const string medium = @"
-
-                                     ▄▄▄▄▄ ▄▄▄   ▄ ▄ ▄ ▄ ▄▄▄▄▄
-                                     █ █ █ █▄▄ ▄▄█ █ █ █ █ █ █
-                                     █ █ █ █▄▄ █▄█ █ █▄█ █ █ █  ";
-        private const string hard = @"
-
-                                        ▄  ▄ ▄▄▄▄ ▄▄▄   ▄
-                                        █▄▄█ █▄▄█ █▄█ ▄▄█
-                                        █  █ █  █ █▀▄ █▄█   ";
-
-
+        public static StringBuilder ReadComponents()
+        {
+            StringBuilder component = new StringBuilder();
+            try
+            {
+                using (StreamReader sr = new StreamReader(menuPath))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        component.AppendLine(line);
+                    }
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("The file {0} can not be found!", menuPath);
+            }
+            return component;
+        }
         public static void DrawDifficulty()
         {
             var cursor = new Cursor();
@@ -98,13 +98,10 @@ namespace JaneAusten
                         }
                     }
                 }
-                StartMenu.DrawComponent(enterDifficulty, 30, 0, ConsoleColor.DarkGreen);
-                StartMenu.DrawComponent(easy, 30, 6, ConsoleColor.DarkYellow);
-                StartMenu.DrawComponent(medium, 30, 11, ConsoleColor.DarkYellow);
-                StartMenu.DrawComponent(hard, 30, 16, ConsoleColor.DarkYellow);
+                StartMenu.DrawComponent(LevelDifficulty.ReadComponents().ToString(), 0, 0, ConsoleColor.DarkGreen);
                 StartMenu.DrawComponent(Cursor.body, cursor.Left, cursor.Top, ConsoleColor.DarkYellow);
-                StartMenu.DrawComponent(escape, 63, 30, ConsoleColor.DarkGreen);
-                StartMenu.DrawComponent(enter, 63, 32, ConsoleColor.DarkGreen);
+                StartMenu.DrawComponent(escape, 63, 31, ConsoleColor.DarkYellow);
+                StartMenu.DrawComponent(enter, 63, 33, ConsoleColor.DarkYellow);
                 System.Threading.Thread.Sleep(200);
 
             }
