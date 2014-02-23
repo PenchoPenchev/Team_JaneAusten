@@ -70,17 +70,17 @@ namespace JaneAusten
             this.Color = color;
         }
 
-        public virtual bool CollideWithMovingObject(int x, int y)
+        public virtual bool CollideWithMovingObject(Level level)
         {
-            foreach (var enemy in FirstLevel.listOfEnemies)
+            foreach (var enemy in level.EnemiesList)
             {
-                if ((x <= enemy.PosX && x + movingFigure.GetLength(0) >= enemy.PosX &&
-                    y <= enemy.PosY && y + movingFigure.GetLength(1) >= enemy.PosY))
+                if ((this.PosX <= enemy.PosX && this.PosX + movingFigure.GetLength(0) >= enemy.PosX &&
+                    this.PosY <= enemy.PosY && this.PosY + movingFigure.GetLength(1) >= enemy.PosY))
                 {
                     return true;
                 }
-                else if ((x >= enemy.PosX && x <= enemy.PosX + movingFigure.GetLength(0) &&
-                        y <= enemy.PosY && y + movingFigure.GetLength(1) >= enemy.PosY))
+                else if ((this.PosX >= enemy.PosX && this.PosX <= enemy.PosX + movingFigure.GetLength(0) &&
+                        this.PosY <= enemy.PosY && this.PosY + movingFigure.GetLength(1) >= enemy.PosY))
                 {
                     return true;
                 }

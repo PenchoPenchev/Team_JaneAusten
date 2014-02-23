@@ -27,7 +27,7 @@ namespace JaneAusten
             this.Labyrinth = labyrinth;
         }
 
-        private List<Enemy> EnemiesList
+        public List<Enemy> EnemiesList
         {
             get
             {
@@ -39,7 +39,7 @@ namespace JaneAusten
             }
         }
 
-        private List<Bonus> BonusesList
+        public List<Bonus> BonusesList
         {
             get
             {
@@ -86,6 +86,18 @@ namespace JaneAusten
             }
         }
 
+        public void RemoveBonus(Bonus bonus)
+        {
+            BonusesList.Remove(bonus);
+        }
 
+        //public List<Enemy> GetLevelEnemies()
+        //{
+        //    return enemiesList;
+        //}
+        //public List<Bonus> GetLevelBonuses()
+        //{
+        //    return bonusesList;
+        //}
     }
 }

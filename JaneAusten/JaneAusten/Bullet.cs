@@ -42,33 +42,22 @@
             this.Damage = damage;
         }
 
-        public void DrawObject()
-        {
-            Console.SetCursorPosition(this.PosX, this.PosY);
-            Console.Write(bulletSymbol);
-        }
-
         public void ClearObject()
         {
-            throw new NotImplementedException();
-        }
-
-        public static void ClearObject(int shotXPosition, int shotYPosition)
-        {
-            Console.SetCursorPosition(shotXPosition, shotYPosition);
+            Console.SetCursorPosition(this.PosX, this.PosY);
             Console.Write(' ');
         }
 
-        public static void DrawObject(int shotXPosition, int shotYPosition, char bulletSymbol)
+        public void DrawObject()
         {
-            Console.SetCursorPosition(shotXPosition, shotYPosition);
-            Console.Write(bulletSymbol);
+            Console.SetCursorPosition(this.PosX, this.PosY);
+            Console.Write(this.BulletSymbol);
         }
 
         public override void Move()
         {
             // Clear bullet
-            if (!CheckShotHitWall(this.PosX, this.PosY))
+            if (!CheckShotHitWall())
             {
                 Console.SetCursorPosition(this.PosX, this.PosY);
                 Console.Write(' ');
@@ -91,24 +80,25 @@
             }
         }
 
-        public static bool CheckShotHitWall(int bulletXposition, int bulletYposition)
+        public bool CheckShotHitWall()
         {
-            if (Labyrinth.maze[bulletXposition, bulletYposition] == 1)
+            if (Labyrinth.maze[this.PosX, this.PosY] == 1)
             {
                 return true;
             }
             return false;
         }
 
-        public static bool CheckShotHitBonus(int bulletXposition, int bulletYposition)
+        public bool CheckShotHitBonus(Level level)
         {
-            foreach (var bonus in FirstLevel.listOfBonuses)
+            List<Bonus> levelBonuses = level.BonusesList;
+            foreach (var bonus in levelBonuses)
             {
-                if (bulletXposition == bonus.PosX && bulletYposition == bonus.PosY)
+                if (this.PosX == bonus.PosX && this.PosY == bonus.PosY)
                 {
                     Console.SetCursorPosition(bonus.PosX, bonus.PosY);
                     Console.Write(' ');
-                    FirstLevel.listOfBonuses.Remove(bonus);
+                    level.RemoveBonus(bonus);
 
                     return true;
                 }
@@ -117,26 +107,27 @@
             return false;
         }
 
-        public static bool CheckShotHitEnemy(Bullet bullet)
+        public bool CheckShotHitEnemy(Level level)
         {
-            for (int enemy = 0; enemy < FirstLevel.listOfEnemies.Count; enemy++)
+            List<Enemy> levelEnemies = level.EnemiesList;
+            for (int enemy = 0; enemy < levelEnemies.Count; enemy++)
             {
                 //"bullet.PosY - 1" because bullet always hits targets in the middle 
                 //Horizontal checks
-                if (bullet.PosX == FirstLevel.listOfEnemies[enemy].PosX &&
-                    bullet.PosY - 1 == FirstLevel.listOfEnemies[enemy].PosY)
+                if (this.PosX == levelEnemies[enemy].PosX &&
+                    this.PosY - 1 == levelEnemies[enemy].PosY)
                 {
                     return true;
                 }
-                else if (bullet.PosX == FirstLevel.listOfEnemies[enemy].PosX + Enemy.enemyFigure.GetLength(0) &&
-                    bullet.PosY - 1 == FirstLevel.listOfEnemies[enemy].PosY)
+                else if (this.PosX == levelEnemies[enemy].PosX + Enemy.enemyFigure.GetLength(0) &&
+                    this.PosY - 1 == levelEnemies[enemy].PosY)
                 {
                     return true;
                 }
                 //Vertical checks
-                else if (bullet.PosX >= FirstLevel.listOfEnemies[enemy].PosX &&
-                        bullet.PosX <= FirstLevel.listOfEnemies[enemy].PosX + Enemy.enemyFigure.GetLength(0) &&
-                        bullet.PosY == FirstLevel.listOfEnemies[enemy].PosY)
+                else if (this.PosX >= levelEnemies[enemy].PosX &&
+                        this.PosX <= levelEnemies[enemy].PosX + Enemy.enemyFigure.GetLength(0) &&
+                        this.PosY == levelEnemies[enemy].PosY)
                 {
                     return true;
                 }
@@ -145,31 +136,71 @@
             return false;
         }
 
-        public static void ModifyEnemy(Bullet bullet, double damage)
+        public void ModifyEnemy(Level level, double damage)
         {
-            for (int enemy = 0; enemy < FirstLevel.listOfEnemies.Count; enemy++)
+            List<Enemy> levelEnemies = level.EnemiesList;
+            for (int enemy = 0; enemy < levelEnemies.Count; enemy++)
             {
-                if (bullet.PosX == FirstLevel.listOfEnemies[enemy].PosX &&
-                    bullet.PosY - 1 == FirstLevel.listOfEnemies[enemy].PosY)
+                Enemy currentEnemy = levelEnemies[enemy];
+                if (this.PosX == currentEnemy.PosX &&
+                    this.PosY - 1 == currentEnemy.PosY)
                 {
-                    Enemy.TakeDamage(FirstLevel.listOfEnemies[enemy], damage);
-                    Enemy.ChangeEnemyColor(FirstLevel.listOfEnemies[enemy]);
-                    FirstLevel.RemoveAllDeadEnemies();
+                    currentEnemy.TakeDamage(damage);
+                    currentEnemy.ChangeEnemyColor();
+                    level.RemoveAllDeadEnemies();
                 }
-                else if (bullet.PosX == FirstLevel.listOfEnemies[enemy].PosX + Enemy.enemyFigure.GetLength(0) &&
-                    bullet.PosY - 1 == FirstLevel.listOfEnemies[enemy].PosY)
+                else if (this.PosX == currentEnemy.PosX + Enemy.enemyFigure.GetLength(0) &&
+                    this.PosY - 1 == currentEnemy.PosY)
                 {
-                    FighterEnemy.TakeDamage(FirstLevel.listOfEnemies[enemy], damage);
-                    FighterEnemy.ChangeEnemyColor(FirstLevel.listOfEnemies[enemy]);
-                    FirstLevel.RemoveAllDeadEnemies();
+                    currentEnemy.TakeDamage(damage);
+                    currentEnemy.ChangeEnemyColor();
+                    level.RemoveAllDeadEnemies();
                 }
-                else if (bullet.PosX >= FirstLevel.listOfEnemies[enemy].PosX &&
-                        bullet.PosX <= FirstLevel.listOfEnemies[enemy].PosX + Enemy.enemyFigure.GetLength(0) &&
-                        bullet.PosY == FirstLevel.listOfEnemies[enemy].PosY)
+                else if (this.PosX >= currentEnemy.PosX &&
+                        this.PosX <= currentEnemy.PosX + Enemy.enemyFigure.GetLength(0) &&
+                        this.PosY == currentEnemy.PosY)
                 {
-                    FighterEnemy.TakeDamage(FirstLevel.listOfEnemies[enemy], damage);
-                    FighterEnemy.ChangeEnemyColor(FirstLevel.listOfEnemies[enemy]);
-                    FirstLevel.RemoveAllDeadEnemies();
+                    currentEnemy.TakeDamage(damage);
+                    currentEnemy.ChangeEnemyColor();
+                    level.RemoveAllDeadEnemies();
+                }
+            }
+        }
+
+        public static void BulletsMovement(List<Bullet> listOfBullets, double damage, Level level)
+        {
+            for (int bullet = listOfBullets.Count() - 1; bullet >= 0; bullet--)
+            {
+                Bullet currentBullet = listOfBullets[bullet];
+                currentBullet.Move();
+
+                if (!currentBullet.CheckShotHitWall())
+                {
+                    if (currentBullet.CheckShotHitEnemy(level))
+                    {
+                        currentBullet.ModifyEnemy(level, damage);
+                        listOfBullets.Remove(listOfBullets[bullet]);
+                    }
+                    else if (currentBullet.CheckShotHitBonus(level))
+                    {
+                        listOfBullets.Remove(listOfBullets[bullet]);
+                    }
+                    else if (listOfBullets[bullet].Range == 0)
+                    {
+                        listOfBullets.Remove(listOfBullets[bullet]);
+                    }
+                    else
+                    {
+                        if (listOfBullets[bullet].Range > 0)
+                        {
+                            listOfBullets[bullet].Range--;
+                        }
+                        currentBullet.DrawObject();
+                    }
+                }
+                else
+                {
+                    listOfBullets.Remove(listOfBullets[bullet]);
                 }
             }
         }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace JaneAusten
 {
-    public abstract class LevelFactory
+    public abstract class LevelFactory : Level
     {
         public abstract Level GenerateLevel();
     }

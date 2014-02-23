@@ -116,38 +116,5 @@
         //    Console.ForegroundColor = ConsoleColor.White;
         //}
 
-        public void ChangeEnemyColor()
-        {
-            if (this.Health == 70)
-            {
-                Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            }
-            else if (this.Health >= 50)
-            {
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-            }
-            else if (this.Health >= 30 && this.Health < 50)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-            }
-            else
-            {
-                if (this.Health < 30)
-                {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                }
-            }
-
-            for (int col = 0; col < enemyFigure.GetLength(1); col++)
-            {
-                for (int row = 0; row < enemyFigure.GetLength(0); row++)
-                {
-                    Console.SetCursorPosition(this.PosX + col, this.PosY + row);
-                    Console.Write(enemyFigure[row, col]);
-                }
-            }
-
-            Console.ForegroundColor = ConsoleColor.White;
-        }
     }
 }
