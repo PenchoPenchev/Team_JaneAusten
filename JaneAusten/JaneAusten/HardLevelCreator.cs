@@ -11,8 +11,20 @@ namespace JaneAusten
         {
             Level hard = new HardLevel();
             hard.Labyrinth = new Labyrinth(@"..\..\Content\MazeLevel4.txt");
-            hard.GenerateEnemiesList();
-            hard.GenerateBonusesList();
+            hard.Labyrinth.DrawObject();
+            var enemies = hard.GenerateEnemiesList();
+            hard.EnemiesList = enemies;
+            foreach (var enemy in enemies)
+            {
+                enemy.LoadEnemy();
+                enemy.DrawObject();
+            }
+            var bonuses = hard.GenerateBonusesList();
+            hard.BonusesList = bonuses;
+            foreach (var bonus in bonuses)
+            {
+                bonus.DrawObject();
+            }
             return hard;
         }
     }

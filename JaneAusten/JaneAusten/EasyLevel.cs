@@ -29,17 +29,17 @@ namespace JaneAusten
         public override List<Enemy> GenerateEnemiesList()
         {
             var enemies = new List<Enemy>() {
-                new FighterEnemy(35, 1, 50, 10, ConsoleColor.DarkRed, Levels.FirstLevel),
+                new FighterEnemy(35, 1, 50, 5, ConsoleColor.DarkRed, Levels.FirstLevel),
                 new FighterEnemy(3, 9, 50, 5,ConsoleColor.DarkRed, Levels.FirstLevel),
-                new FighterEnemy(26, 5, 50, 10, ConsoleColor.DarkRed, Levels.FirstLevel),
+                new FighterEnemy(26, 5, 50, 5, ConsoleColor.DarkRed, Levels.FirstLevel),
                 new FighterEnemy(18, 6, 50, 5, ConsoleColor.DarkRed, Levels.FirstLevel),
-                new FighterEnemy(28, 9, 50, 10, ConsoleColor.DarkRed, Levels.FirstLevel),
-                new FighterEnemy(23, 17, 50, 10, ConsoleColor.DarkRed, Levels.FirstLevel),
-                new FighterEnemy(18, 17, 50, 10, ConsoleColor.DarkRed, Levels.FirstLevel),
-                new FighterEnemy(28, 17, 50, 10, ConsoleColor.DarkRed, Levels.FirstLevel),
-                new FighterEnemy(60, 17, 70, 10, ConsoleColor.DarkMagenta, Levels.SecondLevel),
-                new FighterEnemy(25, 21, 50, 10, ConsoleColor.DarkRed, Levels.FirstLevel),
-                new FighterEnemy(27, 30, 50, 10, ConsoleColor.DarkRed, Levels.FirstLevel)
+                new FighterEnemy(28, 9, 50, 5, ConsoleColor.DarkRed, Levels.FirstLevel),
+                new FighterEnemy(23, 17, 50, 5, ConsoleColor.DarkRed, Levels.FirstLevel),
+                new FighterEnemy(18, 17, 50, 5, ConsoleColor.DarkRed, Levels.FirstLevel),
+                new FighterEnemy(28, 17, 50, 5, ConsoleColor.DarkRed, Levels.FirstLevel),
+                new FighterEnemy(60, 17, 70, 5, ConsoleColor.DarkMagenta, Levels.SecondLevel),
+                new FighterEnemy(25, 21, 50, 5, ConsoleColor.DarkRed, Levels.FirstLevel),
+                new FighterEnemy(27, 30, 50, 5, ConsoleColor.DarkRed, Levels.FirstLevel)
             };
             
             return enemies;

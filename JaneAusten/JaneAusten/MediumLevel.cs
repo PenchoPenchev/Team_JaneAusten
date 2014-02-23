@@ -25,12 +25,12 @@ namespace JaneAusten
         {
             var enemies = new List<Enemy>() {
                 new FighterEnemy(50, 1, 70, 10, ConsoleColor.DarkMagenta, Levels.SecondLevel), 
-                new FighterEnemy(3, 5, 100, 15, ConsoleColor.DarkYellow, Levels.ThirdLevel), 
+                new FighterEnemy(3, 5, 100, 20, ConsoleColor.DarkYellow, Levels.ThirdLevel), 
                 new FighterEnemy(26, 4, 70, 10, ConsoleColor.DarkMagenta, Levels.SecondLevel), 
-                new FighterEnemy(18, 7, 70, 5, ConsoleColor.DarkMagenta, Levels.SecondLevel), 
+                new FighterEnemy(18, 7, 70, 10, ConsoleColor.DarkMagenta, Levels.SecondLevel), 
                 new FighterEnemy(3, 16, 70, 10, ConsoleColor.DarkMagenta, Levels.SecondLevel),
-                new FighterEnemy(65, 16, 100, 15, ConsoleColor.DarkYellow, Levels.ThirdLevel), 
-                new FighterEnemy(45, 20, 100, 15, ConsoleColor.DarkYellow, Levels.ThirdLevel),
+                new FighterEnemy(65, 16, 100, 20, ConsoleColor.DarkYellow, Levels.ThirdLevel), 
+                new FighterEnemy(45, 20, 100, 20, ConsoleColor.DarkYellow, Levels.ThirdLevel),
                 new FighterEnemy(3, 20, 70, 10, ConsoleColor.DarkRed, Levels.SecondLevel), 
                 new FighterEnemy(18, 24, 70, 10, ConsoleColor.DarkMagenta, Levels.SecondLevel), 
                 new FighterEnemy(65, 24, 70, 10, ConsoleColor.DarkMagenta, Levels.SecondLevel), 
