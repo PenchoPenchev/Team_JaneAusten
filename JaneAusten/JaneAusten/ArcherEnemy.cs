@@ -13,6 +13,18 @@
             
         }
 
+        public void TakeDamage(ArcherEnemy enemy, double damage)
+        {
+            enemy.Health -= (int)damage;
+        }
+
+        public override void Move()
+        {
+            throw new NotImplementedException();
+        }
+
+       
+
         public void Shoot()
         {
             throw new NotImplementedException();
