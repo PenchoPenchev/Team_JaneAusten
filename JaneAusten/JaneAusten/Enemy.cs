@@ -29,28 +29,36 @@
         {
             this.Level = level;
         }
-        public static void TakeDamage(Enemy enemy, double damage)
+        public void TakeDamage(double damage)
             {
-            enemy.Health -= (int)damage;
+            this.Health -= (int)damage;
             }
 
-        public static void ChangeEnemyColor(Enemy enemy)
+        public void ChangeEnemyColor()
         {
-            if (enemy.Health >= 100)
+            if (this.Health >= 200)
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else if (this.Health >= 100)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+            }  
+            else if (this.Health >= 70)
             {
                 Console.ForegroundColor = ConsoleColor.DarkMagenta;
             }
-            else if (enemy.Health >= 50)
+            else if (this.Health >= 50)
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
             }
-            else if (enemy.Health >= 30 && enemy.Health < 50)
+            else if (this.Health >= 30 && this.Health < 50)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
             }
             else
             {
-                if (enemy.Health < 30)
+                if (this.Health < 30)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
                 }
@@ -60,7 +68,7 @@
             {
                 for (int row = 0; row < enemyFigure.GetLength(0); row++)
                 {
-                    Console.SetCursorPosition(enemy.PosX + col, enemy.PosY + row);
+                    Console.SetCursorPosition(this.PosX + col, this.PosY + row);
                     Console.Write(enemyFigure[row, col]);
                 }
             }

@@ -85,7 +85,7 @@
             int bulletPosX = 0;
             int bulletPosY = 0;
 
-            Bullet.shotSound.Play();
+            Sound.shotSound.Play();
 
             switch (shotDirection)
             {
@@ -116,9 +116,9 @@
                 new Bullet(bulletPosX, bulletPosY, ShotSymbol, this.Range, this.Damage));
         }
 
-        public override void CollisionWithEnemyCheck()
+        public override void CollisionWithEnemyCheck(Level level)
         {
-            if (CollideWithMovingObject(this.PosX, this.PosY) && this.Lifes > 0)
+            if (CollideWithMovingObject(level) && this.Lifes > 0)
             {
                 this.ClearObject();
 
@@ -126,7 +126,7 @@
                 System.Threading.Thread.Sleep(500);
                 ClearObject();
 
-                DecreaseHeroLifes();
+                DecreaseHeroLifes(level);
 
                 this.PosX = 1;
                 this.PosY = 1;

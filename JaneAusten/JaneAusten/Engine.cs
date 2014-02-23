@@ -12,15 +12,43 @@
 
         public static List<Bullet> listOfBullets = new List<Bullet>();
 
-        public static void Run()
+        public static void Run(int selectedLevel)
         {           
             //LABYRINTH
            // Labyrinth labyrinth = new Labyrinth();
             //Draw loaded labyrinth with default parameteres 0, 0
            // labyrinth.DrawObject();
 
-           LevelFactory level = new EasyLevelCreator();
-           level.GenerateLevel();
+            Level level;
+            switch(selectedLevel)
+            {
+                case 1:
+                {
+                    LevelFactory l = new EasyLevelCreator();
+                    level = l.GenerateLevel();
+                    break;
+                }
+                case 2:
+                {
+                    LevelFactory l = new MediumLevelCreator();
+                    level = l.GenerateLevel();
+                    break;
+                }
+                case 3:
+                {
+                    LevelFactory l = new HardLevelCreator();
+                    level = l.GenerateLevel();
+                    break;
+                }
+                default:
+                {
+                    LevelFactory l = new EasyLevelCreator();
+                    level = l.GenerateLevel();
+                    break;   
+                }
+            }
+           //LevelFactory l = new EasyLevelCreator();
+           //Level level = l.GenerateLevel();
 
             //HERO
             Hero archer = new Archer(1, 1, 10, ConsoleColor.Cyan);
@@ -33,18 +61,21 @@
 
             //ENEMIES
             //TEST - Load all enemies
-            foreach (var enemy in FirstLevel.listOfEnemies)
-            {
-                enemy.LoadEnemy();
-                enemy.DrawObject();
-            }
+            
+            //List<Enemy> levelEnemies = level.EnemiesList;
+            //List<Bonus> firstLevelBonuses = level.BonusesList;
+            //foreach (var enemy in levelEnemies)
+            //{
+            //    enemy.LoadEnemy();
+            //    enemy.DrawObject();
+            //}
 
             //BNUSES
             //TEST = Load all bonuses
-            foreach (var bonus in FirstLevel.listOfBonuses)
-            {
-                bonus.DrawObject();
-            }
+            //foreach (var bonus in firstLevelBonuses)
+            //{
+            //    bonus.DrawObject();
+            //}
 
             
             while (true)
@@ -56,13 +87,13 @@
                 //Hero move or shoot (keypressed)
                 archer.Move();
                 //Check if some enemy is hitting us
-                archer.CollisionWithEnemyCheck();
+                archer.CollisionWithEnemyCheck(level);
                 //Bonus checks
-                archer.PotentialCollideWithBonus();
+                archer.PotentialCollideWithBonus(level);
                 // Move all bullets and check for collision
-                BulletsMovement(archer.Damage);
+                Bullet.BulletsMovement(listOfBullets, archer.Damage, level);
                 //Move enemies
-                foreach (var enemy in FirstLevel.listOfEnemies)
+                foreach (var enemy in level.EnemiesList)
                 {
                     enemy.Move();
                 }
@@ -84,43 +115,6 @@
             Console.WriteLine(message);
         }
 
-        private static void BulletsMovement(double damage)
-        {
-            for (int bullet = listOfBullets.Count() - 1; bullet >= 0; bullet--)
-            {
-                listOfBullets[bullet].Move();
-
-                if (!Bullet.CheckShotHitWall(listOfBullets[bullet].PosX, listOfBullets[bullet].PosY))
-                {
-                    if (Bullet.CheckShotHitEnemy(listOfBullets[bullet]))
-                    {
-                        Bullet.ModifyEnemy(listOfBullets[bullet], damage);
-                        listOfBullets.Remove(listOfBullets[bullet]);
-                    }
-                    else if (Bullet.CheckShotHitBonus(listOfBullets[bullet].PosX, listOfBullets[bullet].PosY))
-                    {
-                        listOfBullets.Remove(listOfBullets[bullet]);
-                    }
-                    else if (listOfBullets[bullet].Range == 0)
-                    {
-                        listOfBullets.Remove(listOfBullets[bullet]);
-                    }
-                    else
-                    {
-                        if (listOfBullets[bullet].Range > 0)
-                        {
-                            listOfBullets[bullet].Range--;
-                        }
-                        
-                        Bullet.DrawObject(listOfBullets[bullet].PosX, listOfBullets[bullet].PosY, 
-                            listOfBullets[bullet].BulletSymbol);
-                    }
-                }
-                else
-                {
-                    listOfBullets.Remove(listOfBullets[bullet]);
-                }
-            }
-        }
+        
     }
 }

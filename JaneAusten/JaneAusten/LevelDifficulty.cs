@@ -81,19 +81,19 @@ namespace JaneAusten
                         if (cursor.Top == initialCursorTop) 
                         {
                             Console.Clear();
-                            Engine.Run();
+                            Engine.Run(1);
                             break;
                         }
                         else if (cursor.Top == cursorTopMedium) 
                         {
                             Console.Clear();
-                            Engine.Run();
+                            Engine.Run(2);
                             break;
                         }
                         else if (cursor.Top == maxCursorTop) 
                         {
                             Console.Clear();
-                            Engine.Run();
+                            Engine.Run(3);
                             break;
                         }
                     }

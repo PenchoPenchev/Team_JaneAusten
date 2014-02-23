@@ -103,9 +103,9 @@
             return false;
         }
 
-        public virtual void CollisionWithEnemyCheck()
+        public virtual void CollisionWithEnemyCheck(Level level)
         {
-            if (CollideWithMovingObject(this.PosX, this.PosY) && this.Lifes > 0)
+            if (CollideWithMovingObject(level) && this.Lifes > 0)
             {
                 this.ClearObject();
 
@@ -113,7 +113,7 @@
                 System.Threading.Thread.Sleep(500);
                 ClearObject();
 
-                DecreaseHeroLifes();
+                DecreaseHeroLifes(level);
 
                 this.PosX = 1;
                 this.PosY = 1;
@@ -122,9 +122,9 @@
             }
         }
 
-        protected void DecreaseHeroLifes()
+        protected void DecreaseHeroLifes(Level level)
         {
-            if (CollideWithMovingObject(this.PosX, this.PosY) && this.Lifes > 0)
+            if (CollideWithMovingObject(level) && this.Lifes > 0)
             {
                 this.Lifes--;
             }
@@ -174,9 +174,10 @@
             Console.ForegroundColor = ConsoleColor.White;
         }
 
-        public void PotentialCollideWithBonus()
+        public void PotentialCollideWithBonus(Level level)
         {
-            foreach (var bonus in FirstLevel.listOfBonuses)
+            List<Bonus> levelBonuses = level.BonusesList;
+            foreach (var bonus in levelBonuses)
             {
 
                 for (int i = 0; i < 3; i++)

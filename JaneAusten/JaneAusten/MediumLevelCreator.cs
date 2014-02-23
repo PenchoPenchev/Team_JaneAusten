@@ -11,8 +11,21 @@ namespace JaneAusten
         {
             Level medium = new MediumLevel();
             medium.Labyrinth = new Labyrinth(@"..\..\Content\MazeLevel3.txt");
-            medium.GenerateEnemiesList();
-            medium.GenerateBonusesList();
+            medium.Labyrinth.DrawObject();
+            var enemies = medium.GenerateEnemiesList();
+            medium.EnemiesList = enemies;
+            foreach (var enemy in enemies)
+            {
+                enemy.LoadEnemy();
+                enemy.DrawObject();
+            }
+            var bonuses = medium.GenerateBonusesList();
+            medium.BonusesList = bonuses;
+            foreach (var bonus in bonuses)
+            {
+                bonus.DrawObject();
+            }
+            
             return medium;
         }
     }
