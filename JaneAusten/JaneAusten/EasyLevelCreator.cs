@@ -16,8 +16,16 @@ namespace JaneAusten
             easy.EnemiesList = enemies;
             foreach (var enemy in enemies)
             {
-                enemy.LoadEnemy();
-                enemy.DrawObject();
+                if (enemy.Level.Equals(Levels.ThirdLevel))
+                {
+                    throw new InvalidCreatureException("A creature intended for hard levels cannot be included in Easy levels.");
+                }
+                else
+                {
+                    enemy.LoadEnemy();
+                    enemy.DrawObject();
+                }
+             
             }
             var bonuses = easy.GenerateBonusesList();
             easy.BonusesList = bonuses;
