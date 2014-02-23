@@ -61,7 +61,6 @@
                         for (int col = 0; col < line.Length; col++)
                         {
                             heroFigure[row, col] = line[col];
-                            //creatureFigure[row, col] = line[col];
                         }
                         row++;
                     }
@@ -129,10 +128,10 @@
             {
                 this.Lifes--;
             }
-            if (this.Lifes == 0)
-            {
-                PrintOnPosition(30, 10, "GAME OVER");
-            }
+            //if (this.Lifes == 0)
+            //{
+            //    PrintOnPosition(30, 10, "GAME OVER");
+            //}
         }
 
         public void LoadHeroCollision()
@@ -188,7 +187,7 @@
                         {
                             if (bonus is HidingBonus)
                             {
-                                if (((HidingBonus)bonus).IsHided)
+                                if (((HidingBonus)bonus).IsHidden)
                                 {
                                     continue;
                                 }
