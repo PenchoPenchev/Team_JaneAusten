@@ -26,8 +26,8 @@
             new Bonus(8,6,BonusType.diamond),
             new Bonus(3,14,BonusType.gold),
             new Bonus(23,2,BonusType.extraDamage),
-            new Bonus(24,6,BonusType.livePotion),
-            new HidingBonus(35,12,BonusType.livePotion,10000),
+            new Bonus(24,6,BonusType.lifePotion),
+            new HidingBonus(35,12,BonusType.lifePotion,10000),
             //    new HidingBonus(35,12,BonusType.livePotion,10000,2000,true),
         };
 

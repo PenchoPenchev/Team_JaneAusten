@@ -6,7 +6,7 @@
     using System.Linq;
     using System.Text;
     
-    public abstract class Hero : Creature
+    public abstract class Hero : Creature, IMovable
     {
         public readonly char[,] heroFigure = new char[3, 3];
         public readonly char[,] heroCollision = new char[3, 3];
@@ -62,7 +62,7 @@
                 Console.WriteLine("The file {0} can not be found!", heroFile);
             }
         }
-
+        public abstract void Move();
         public override void DrawObject()
         {
             Console.ForegroundColor = this.Color;
@@ -207,7 +207,7 @@
                             {
                                 case BonusType.gold: Engine.score += 50; break;
                                 case BonusType.diamond: Engine.score += 100; break;
-                                case BonusType.livePotion: this.Lives++; break;
+                                case BonusType.lifePotion: this.Lives++; break;
                                 case BonusType.extraDamage: this.Damage += 10; break;
                             }
                            bonus.Collect();

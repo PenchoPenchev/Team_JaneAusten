@@ -20,7 +20,7 @@
             labyrinth.DrawObject();
 
             //HERO
-            Archer archer = new Archer(1, 1, 10, ConsoleColor.Cyan);
+            Hero archer = new Archer(1, 1, 10, ConsoleColor.Cyan);
             //Load hero from file
             archer.LoadHero();
             //Draw loaded hero on the console screen with default position row = 1, col = 1
@@ -63,8 +63,14 @@
                     enemy.Move();
                 }
                 //Slow down rendering speed
+                if (archer.Lives <= 0)
+                {
+                    Console.Clear();
+                    break;
+                }
                 System.Threading.Thread.Sleep(100);
             }
+            GameOver.Display();
         }
 
         public static void PrintOnPosition(int x, int y, string message)

@@ -9,7 +9,7 @@ namespace JaneAusten
     {
         gold,
         diamond,
-        livePotion,
+        lifePotion,
         extraDamage
     }
 }
