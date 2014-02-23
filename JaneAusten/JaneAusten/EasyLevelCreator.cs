@@ -10,7 +10,7 @@ namespace JaneAusten
         public override Level GenerateLevel()
         {
             Level easy = new EasyLevel();
-            easy.Labyrinth = new Labyrinth(@"..\..\Content\MazeLevel4.txt");
+            easy.Labyrinth = new Labyrinth(@"..\..\Content\MazeLevel2.txt");
             easy.Labyrinth.DrawObject();
             var enemies = easy.GenerateEnemiesList();
             //foreach (var enemy in enemies)
