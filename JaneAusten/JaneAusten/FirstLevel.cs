@@ -18,7 +18,13 @@
             new FighterEnemy(3, 9, 50, 5,ConsoleColor.DarkRed, Levels.FirstLevel),
             new FighterEnemy(26, 5, 70, 10, ConsoleColor.DarkMagenta, Levels.SecondLevel),
             new FighterEnemy(18, 6, 50, 5, ConsoleColor.DarkRed, Levels.FirstLevel),
-            new FighterEnemy(28, 9, 70, 10, ConsoleColor.DarkMagenta, Levels.SecondLevel)
+            new FighterEnemy(28, 9, 70, 10, ConsoleColor.DarkMagenta, Levels.SecondLevel),
+            new FighterEnemy(23, 17, 70, 10, ConsoleColor.DarkMagenta, Levels.SecondLevel),
+            new FighterEnemy(18, 17, 70, 10, ConsoleColor.DarkMagenta, Levels.SecondLevel),
+            new FighterEnemy(28, 17, 50, 10, ConsoleColor.DarkRed, Levels.FirstLevel),
+            new FighterEnemy(60, 17, 70, 10, ConsoleColor.DarkMagenta, Levels.SecondLevel),
+            new FighterEnemy(25, 21, 50, 10, ConsoleColor.DarkRed, Levels.FirstLevel),
+            new FighterEnemy(27, 30, 70, 10, ConsoleColor.DarkMagenta, Levels.SecondLevel)
         };
 
         public static List<Bonus> listOfBonuses = new List<Bonus>()
@@ -30,7 +36,10 @@
             new HidingBonus(35,12,BonusType.lifePotion,10000),
             new Bonus(26,2,BonusType.longerRange),
             new Bonus(56,7,BonusType.longerRange),
-            new Bonus(25,16,BonusType.longerRange)
+            new Bonus(25,16,BonusType.longerRange),
+            new Bonus(58,27,BonusType.extraDamage),
+            new Bonus(35,26,BonusType.extraDamage),
+            new Bonus(5,25,BonusType.longerRange),
             //    new HidingBonus(35,12,BonusType.livePotion,10000,2000,true),
         };
 

@@ -11,7 +11,7 @@
         public readonly char[,] heroFigure = new char[3, 3];
         public readonly char[,] heroCollision = new char[3, 3];
 
-        private string heroFile = @"..\..\Content\hero.txt";
+        private string heroFile = @"..\..\Content\Archer.txt";
         private string heroAndEnemyCollideFile = @"..\..\Content\Collision.txt";
 
         private int range;
