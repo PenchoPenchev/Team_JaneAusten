@@ -39,7 +39,6 @@ namespace JaneAusten
             }
             return component;
         }
-
         public override void PrintHeroMenu()
         {
             while (true)
@@ -87,7 +86,3 @@ namespace JaneAusten
         }
     }
 }
-
-        
-    
-
