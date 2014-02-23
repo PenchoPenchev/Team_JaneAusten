@@ -33,7 +33,7 @@
             get { return range; }
             set { range = value; }
         }
-
+        
         public Bullet(int x, int y, char shotSymbol, int range, double damage)
             : base(x, y)
         {
@@ -50,13 +50,8 @@
 
         public void ClearObject()
         {
-            throw new NotImplementedException();
-        }
-
-        public static void ClearObject(int shotXPosition, int shotYPosition)
-        {
-            Console.SetCursorPosition(shotXPosition, shotYPosition);
-            Console.Write(' ');
+            Console.SetCursorPosition(this.PosX, this.PosY);
+            Console.Write(' '); 
         }
 
         public static void DrawObject(int shotXPosition, int shotYPosition, char bulletSymbol)
