@@ -1,12 +1,12 @@
-﻿namespace JaneAusten
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Media;
+
+namespace JaneAusten
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading;
-    using System.Media;
-    
     public class Bonus : GameObject, ICollectable, IDrawable
     {
         static string collect = @"../../Content/collect.wav";
@@ -39,7 +39,11 @@
                 case BonusType.gold: item = "⌂"; Console.ForegroundColor = ConsoleColor.Yellow; Console.WriteLine(item); break;
                 case BonusType.diamond: item = " ♦"; Console.ForegroundColor = ConsoleColor.Cyan; Console.WriteLine(item); break;
                 case BonusType.extraDamage: item = "D"; Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine(item); break;
-                case BonusType.lifePotion: item = "♥"; Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine(item); break;
+<<<<<<< HEAD
+                case BonusType.lifePotion: item = "H"; Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine(item); break;
+=======
+                case BonusType.livePotion: item = "♥"; Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine(item); break;
+>>>>>>> fe3f45e98864cc26d558adfdb63ffd7ef6b34677
             }
         }
 

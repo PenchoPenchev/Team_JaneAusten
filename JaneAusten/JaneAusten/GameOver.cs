@@ -29,7 +29,7 @@ namespace JaneAusten
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
 
                 Console.WriteLine(text);
-                Console.WriteLine("\t\t\t\tYour Score: {0}", Engine.score);
+                Console.WriteLine("\t\t\tYour Score: {0}", Engine.score);
 
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.WriteLine(bunny);
