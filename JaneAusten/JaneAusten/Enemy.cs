@@ -36,7 +36,15 @@
 
         public void ChangeEnemyColor()
         {
-            if (this.Health >= 70)
+            if (this.Health >= 200)
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else if (this.Health >= 100)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+            }  
+            else if (this.Health >= 70)
             {
                 Console.ForegroundColor = ConsoleColor.DarkMagenta;
             }
