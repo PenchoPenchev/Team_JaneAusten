@@ -14,7 +14,9 @@ namespace JaneAusten
         public string InitialNumberLifes { get; set; }
         public string Weapon { get; set; }
         public string Damage { get; set; }
-        
+        public string Range { get; set; } 
+
+        public abstract StringBuilder ReadHeroMenu(string path);
         public abstract void PrintHeroMenu();
     }
 }

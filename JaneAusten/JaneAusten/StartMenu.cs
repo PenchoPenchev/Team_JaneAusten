@@ -8,6 +8,8 @@ namespace JaneAusten
 {
     public static class StartMenu
     {
+        
+        
         private const int initialCursorTop = 20;
         private const int initialCursorLeft = 24;
         private const int maxCursorTop = 29;
@@ -15,62 +17,26 @@ namespace JaneAusten
         private const int cursorTopInstructions = 22;
         private const int cursorTopHighScores = 20;
         private const string menuPath = @"..\..\Content\StartMenu.txt";
-        public const string gameName = @"
-══╗ ╔══╝   ║   ▄█    █▄      ▄████████    ▄████████  ▄██████▄     ▄████████ ╔▄████████  ╔════╝  ╚══
-  ║ ║      ║  ███    ███    ███    ███   ███    ███ ███    ███   ███    ███ ║███        ║   ╔══════
-  ║ ║ ║ ╔═══▀▀███▀▀▀▀███▀╗▀▀███▀▀▀     ▀▀███▀▀▀▀▀   ███    ███ ▀▀███▀▀▀     ║▀███████████   ║ ║   ╔
-  ║   ║ ║   ║ ███    ███ ║ ║███    █▄  ▀███████████ ███    ███   ███    █▄  ║         ███   ║ ║   ║
-  ║   ║ ║   ║ ███    █▀  ║ ║██████████   ███    ███  ▀██████▀    ██████████ ║ ▄████████▀    ║ ║   ║
-══╝         ╚════════════╝ ╚═════════════███    ███═════════════════════════╝ ╚═════════════╝     ║                            
-              
-═══╝     ═════╗ ╔═════════════════════════╗  ╔═════════════════════════════════════╗         ║    ║
-═════╗  ╔═══╗ ║ ║  ▄██████▄     ▄████████ ║  ║  ▄██████▄   ▄██████▄     ▄███████▄  ║    ╔════╝    ║
-     ║        ║ ║ ███    ███   ███    ███ ║  ║ ███    ███ ███    ███   ███    ███  ║    ║      ║  ║
-     ║    ║   ║ ╚═███    ███ ▀▀███▀▀▀     ║  ║ ███    ███ ███    ███ ▀█████████▀   ║    ║        
-  ═══╝        ╚═══███    ███   ███        ║  ║ ███    ███ ███    ███   ███     ╔══ ║    ║  ╔═══════
-                   ▀██████▀    ███        ║  ║   ▀██████▀   ▀██████▀   ████▀   ╚═══╝  ";
-        public const string start = @"
-                               ██  █ ▄▄▄ ▄▄   ▄▄  █▀▀  ▄▄▄▄ ▄▄▄▄▄ ▄▄▄
-                               █ █ █ █▄▄  █ ▄ █   █ ▄▄ █▄▄█ █ █ █ █▄▄
-                               █  ██ █▄▄  █▄█▄█   █▄▄█ █  █ █ █ █ █▄▄";
-        public const string instructions = @"
-
-                               ▄ ▄▄  ▄ ▄▄▄ ▄▄▄ ▄▄▄ ▄ ▄ ▄▄▄ ▄▄▄ ▄ ▄▄▄ ▄▄  ▄ ▄▄▄   
-                               █ █ █ █ █▄▄  █  █▄█ █ █ █    █  █ █ █ █ █ █ █▄▄
-                               █ █  ██ ▄▄█  █  █▀▄ █▄█ █▄▄  █  █ █▄█ █  ██ ▄▄█       ";
-
-        public const string highScores = @"
-                               ▄  ▄ ▄ ▄▄▄  ▄  ▄ ▄▄▄ ▄▄▄ ▄▄▄ ▄▄▄ ▄▄▄ ▄▄▄
-                               █▄▄█ █ █ ▄▄ █▄▄█ █▄▄ █   █ █ █▄█ █▄▄ █▄▄
-                               █  █ █ █▄▄█ █  █ ▄▄█ █▄▄ █▄█ █▀▄ █▄▄ ▄▄█      ";
-        public const string exit = @"
-
-                               ▄▄▄         ▄▄▄
-                               █▄▄  ▀▄▀  █  █
-                               █▄▄  ▄▀▄  █  █
-                                 
-
-                            ";
-
-
-        public static string[] ReadComponents()
+       
+        public static StringBuilder ReadComponents()
         {
-
-            string readText = default(string);
+            StringBuilder component = new StringBuilder();
             try
             {
-                using (StreamReader read = new StreamReader(menuPath))
+                using (StreamReader sr = new StreamReader(menuPath))
                 {
-                    readText = read.ReadToEnd();
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        component.AppendLine(line);
+                    }
                 }
             }
             catch (FileNotFoundException)
             {
                 Console.WriteLine("The file {0} can not be found!", menuPath);
             }
-
-            string[] components = readText.Split(new char[] { '*' }, StringSplitOptions.RemoveEmptyEntries);
-            return components;
+            return component;
         }
 
         public static void DrawComponent(string obj, int left, int top, ConsoleColor color)
@@ -119,7 +85,6 @@ namespace JaneAusten
                         if (cursor.Top == initialCursorTop) // Start new game 
                         {
                             Console.Clear();
-                           // Engine.Run();
                             var chooseHero = new ArcherMenu();
                             chooseHero.PrintHeroMenu();
                         }
@@ -138,13 +103,9 @@ namespace JaneAusten
                         }
                     }
                 }
-                StartMenu.DrawComponent(StartMenu.gameName, 15, 0, ConsoleColor.DarkGreen);
-                StartMenu.DrawComponent(StartMenu.start, 18, 18, ConsoleColor.DarkYellow);
-                StartMenu.DrawComponent(StartMenu.highScores, 18, 21, ConsoleColor.DarkYellow);
-                StartMenu.DrawComponent(StartMenu.instructions, 18, 23, ConsoleColor.DarkYellow);
-                StartMenu.DrawComponent(StartMenu.exit, 18, 26, ConsoleColor.DarkYellow);
+                StartMenu.DrawComponent(StartMenu.ReadComponents().ToString(), 0, 1, ConsoleColor.DarkGreen);
                 StartMenu.DrawComponent(Cursor.body, cursor.Left, cursor.Top, ConsoleColor.DarkYellow);
-                System.Threading.Thread.Sleep(200);
+                System.Threading.Thread.Sleep(300);
 
             }
         }
