@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Media;
-
-namespace JaneAusten
+﻿namespace JaneAusten
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading;
+    using System.Media;
+    
     public class Bonus : GameObject, ICollectable, IDrawable
     {
         static string collect = @"../../Content/collect.wav";

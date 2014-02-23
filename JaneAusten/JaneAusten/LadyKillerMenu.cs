@@ -13,7 +13,7 @@ namespace JaneAusten
                                                                 ▄▄▄ ▄  ▄ ▄▄▄ ▄▄▄ ▄▄▄ ▄▄▄ ▄▄▄
                                                                 █▄▄ █▄▄█ █ █ █ █  █  █▄▄ █▄█
                                                                 ▄▄█ █  █ █▄█ █▄█  █  █▄▄ █▀▄
-                                ";                              
+                                ";
         private const string shooter = @"
 
        _)\____________________________________/7_
@@ -36,9 +36,9 @@ namespace JaneAusten
                                         *******        
                                           ***        
                                            *         ";
-         public LadyKillerMenu()
+        public LadyKillerMenu()
         {
-            this.Damage = "DAMAGE: 40";
+            this.Damage = "DAMAGE: 30";
             this.Name = " NAME: Lady X";
             this.Weapon = "WEAPON: Pistol";
             this.InitialNumberLifes = "LIFES: 2";
@@ -87,5 +87,5 @@ namespace JaneAusten
                 System.Threading.Thread.Sleep(200);
             }
         }
-    }   
+    }
 }

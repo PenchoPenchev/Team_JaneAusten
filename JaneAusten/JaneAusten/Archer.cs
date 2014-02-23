@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace JaneAusten
+﻿namespace JaneAusten
 {
-    public class Archer : Hero, IMovable
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    
+    public class Archer : Hero, IMovable, IDrawable
     {
         private char shotDirection = 'R';
         private char shotSybmol = '→';
@@ -23,7 +23,7 @@ namespace JaneAusten
         }
 
         public Archer(int x, int y, int speed, ConsoleColor color,
-            int health = 100, int Lifes = 3, int damage = 10, int range = 3)
+            int health = 100, int Lifes = 3, int damage = 10, int range = 5)
             : base(x, y, speed, color, health, Lifes, damage, range)
         {
         }
@@ -110,11 +110,47 @@ namespace JaneAusten
                             break;
                     }
 
-                    // Add bullet to bullet list
+                    //// Add bullet to bullet list
                     Engine.listOfBullets.Add(
                         new Bullet(bulletPosX, bulletPosY, ShotSymbol, this.Range, this.Damage));
                 }
             }
+        }
+
+        public void Shoot()
+        {
+            int bulletPosX = 0;
+            int bulletPosY = 0;
+
+            Bullet.shotSound.Play();
+
+            switch (shotDirection)
+            {
+                case 'L':
+                    shotSybmol = '←';
+                    bulletPosX = this.PosX - 1;
+                    bulletPosY = this.PosY + heroFigure.GetLength(1) / 2;
+                    break;
+                case 'R':
+                    shotSybmol = '→';
+                    bulletPosX = this.PosX + heroFigure.GetLength(0);
+                    bulletPosY = this.PosY + heroFigure.GetLength(1) / 2;
+                    break;
+                case 'U':
+                    shotSybmol = '↑';
+                    bulletPosX = this.PosX + heroFigure.GetLength(0) / 2;
+                    bulletPosY = this.PosY - 1;
+                    break;
+                case 'D':
+                    shotSybmol = '↓';
+                    bulletPosX = this.PosX + heroFigure.GetLength(0) / 2;
+                    bulletPosY = this.PosY + heroFigure.GetLength(1);
+                    break;
+            }
+
+            // Add bullet to bullet list
+            Engine.listOfBullets.Add(
+                new Bullet(bulletPosX, bulletPosY, ShotSymbol, this.Range, this.Damage));
         }
 
         public override void CollisionWithEnemyCheck()
