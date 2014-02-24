@@ -54,6 +54,7 @@
     <Compile Include="EasyLevelCreator.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Engine.cs" />
+    <Compile Include="EnterName.cs" />
     <Compile Include="FighterEnemy.cs" />
     <Compile Include="HardLevel.cs" />
     <Compile Include="HardLevelCreator.cs" />

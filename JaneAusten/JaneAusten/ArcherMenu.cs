@@ -62,8 +62,8 @@ namespace JaneAusten
                     else if (pressedKey.Key == ConsoleKey.Enter)
                     {
                         Console.Clear();
-                        ArcherMenu archer = new ArcherMenu();
-                        LevelDifficulty.DrawDifficulty(archer);
+                        var archer = new ArcherMenu();
+                        EnterName.DrawNameChoice(archer);
                     }
                     else if (pressedKey.Key == ConsoleKey.Escape)
                     {

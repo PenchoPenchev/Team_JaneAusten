@@ -83,7 +83,6 @@ namespace JaneAusten
                         if (cursor.Top == initialCursorTop) // Start new game 
                         {
                             Console.Clear();
-                           // Engine.Run();
                             var chooseHero = new ArcherMenu();
                             chooseHero.PrintHeroMenu();
                         }

@@ -67,7 +67,7 @@
             }
             catch (FileNotFoundException)
             {
-                Console.WriteLine("The file {0} can not be found!", heroFile);
+                Console.WriteLine("The file {0} can not be found!");
             }
         }
         
