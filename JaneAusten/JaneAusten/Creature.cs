@@ -5,7 +5,7 @@ using System.Text;
 
 namespace JaneAusten
 {
-    public abstract class Creature : GameObject
+    public abstract class Creature : GameObject, ICreature
     {
         protected static char[,] movingFigure = new char[3, 3];
         
