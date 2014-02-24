@@ -12,6 +12,9 @@
 
         public static List<Bullet> listOfBullets = new List<Bullet>();
 
+        private static int hidingBonusesMaxValue = 50;
+        private static int hidingBonusesValue = 0;
+
         public static void Run(HeroMenu hero, int selectedLevel)
         {
             //HERO
@@ -57,7 +60,7 @@
                         break;
                     }
             }
-        
+            
             while (true)
             {
                 PrintOnPosition(82, 5, "Hero Lifes: " + choosenHero.Lifes);
@@ -77,6 +80,15 @@
                 {
                     enemy.Move();
                 }
+
+                hidingBonusesValue++;
+
+                if (hidingBonusesValue == hidingBonusesMaxValue)
+                {
+                    hidingBonusesValue = 0;
+                    ToggleHidingBonuses(level);
+                }
+                
                 //Slow down rendering speed
                 if (choosenHero.Lifes <= 0)
                 {
@@ -86,6 +98,31 @@
                 System.Threading.Thread.Sleep(100);
             }
             //GameOver.Display();
+        }
+
+        private static void ToggleHidingBonuses(Level level)
+        {
+            for (int i = 0; i < level.BonusesList.Count; i++)
+            {
+                if (level.BonusesList[i] is HidingBonus)
+                {
+                    if (!level.BonusesList[i].IsCollected)
+                    {
+                        if (((HidingBonus)level.BonusesList[i]).IsHidden)
+                        {
+                            ((HidingBonus)level.BonusesList[i]).IsHidden = false;
+                            Console.SetCursorPosition(level.BonusesList[i].PosX, level.BonusesList[i].PosY);
+                            level.BonusesList[i].DrawObject();
+                        }
+                        else
+                        {
+                            ((HidingBonus)level.BonusesList[i]).IsHidden = true;
+                            Console.SetCursorPosition(level.BonusesList[i].PosX, level.BonusesList[i].PosY);
+                            Console.Write(" ");
+                        }
+                    }
+                }
+            }
         }
 
         private static void PrintOnPosition(int x, int y, string message)
