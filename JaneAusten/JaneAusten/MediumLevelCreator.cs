@@ -13,19 +13,29 @@ namespace JaneAusten
             medium.Labyrinth = new Labyrinth(@"..\..\Content\MazeLevel3.txt");
             medium.Labyrinth.DrawObject();
             var enemies = medium.GenerateEnemiesList();
-            medium.EnemiesList = enemies;
-            foreach (var enemy in enemies)
+            var checkEnemies = (from en in enemies where en.Level.Equals(Levels.SecondLevel) select en).ToArray();
+            if (checkEnemies.Length == 0)
             {
-                enemy.LoadEnemy();
-                enemy.DrawObject();
+                throw new InvalidCreatureException("The medium level must contain at least one SecondLevel creature!");
             }
+            else
+            {
+                checkEnemies.Count();
+                medium.EnemiesList = enemies;
+                foreach (var enemy in enemies)
+                {
+                    enemy.LoadEnemy();
+                    enemy.DrawObject();
+                }
+            }
+
             var bonuses = medium.GenerateBonusesList();
             medium.BonusesList = bonuses;
             foreach (var bonus in bonuses)
             {
                 bonus.DrawObject();
             }
-            
+
             return medium;
         }
     }

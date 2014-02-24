@@ -63,7 +63,8 @@ namespace JaneAusten
                     else if (pressedKey.Key == ConsoleKey.Enter)
                     {
                         Console.Clear();
-                        LevelDifficulty.DrawDifficulty();
+                        LadyKillerMenu lady = new LadyKillerMenu();
+                        LevelDifficulty.DrawDifficulty(lady);
                     }
                     else if (pressedKey.Key == ConsoleKey.Escape)
                     {

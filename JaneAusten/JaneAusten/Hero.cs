@@ -11,7 +11,6 @@
         public readonly char[,] heroFigure = new char[3, 3];
         public readonly char[,] heroCollision = new char[3, 3];
 
-        private string heroFile = @"..\..\Content\Archer.txt";
         private string heroAndEnemyCollideFile = @"..\..\Content\Collision.txt";
 
         private int range;
@@ -48,11 +47,11 @@
 
         public abstract void Move();
         
-        public void LoadHero()
+        public void LoadHero(string heroName)
         {
             try
             {
-                using (StreamReader sr = new StreamReader(heroFile))
+                using (StreamReader sr = new StreamReader(@"..\..\Content\" + heroName + ".txt"))
                 {
                     string line;
                     int row = 0;
@@ -128,10 +127,6 @@
             {
                 this.Lifes--;
             }
-            //if (this.Lifes == 0)
-            //{
-            //    PrintOnPosition(30, 10, "GAME OVER");
-            //}
         }
 
         public void LoadHeroCollision()
