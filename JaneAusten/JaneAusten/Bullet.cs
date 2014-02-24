@@ -8,8 +8,6 @@
 
     public class Bullet : MovingObject, IDrawable
     {
-        
-     
         private char bulletSymbol;
         public char BulletSymbol
         {

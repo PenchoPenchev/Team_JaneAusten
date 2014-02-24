@@ -7,6 +7,7 @@ namespace JaneAusten
 {
     class JaneAusten
     {
+        event EventHandler OnPKeyPressed;
         static void Main()
         {
 
@@ -15,6 +16,9 @@ namespace JaneAusten
 
             Console.CursorVisible = false;
             StartMenu.DrawMenu();
+
+            
+
         }
 
 

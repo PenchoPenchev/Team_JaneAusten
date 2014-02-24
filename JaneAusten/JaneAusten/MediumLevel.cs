@@ -50,7 +50,7 @@ namespace JaneAusten
                             new Bonus(67,14,BonusType.extraDamage), 
                             new Bonus(10,14,BonusType.extraDamage),
                             new Bonus(45,2,BonusType.lifePotion), 
-                            new HidingBonus(32,29,BonusType.extraDamage,10000), 
+                            new HidingBonus(32,29,BonusType.extraDamage), 
                             new Bonus(26,2,BonusType.longerRange), 
                             new Bonus(67,2,BonusType.longerRange), 
                             new Bonus(25,13,BonusType.longerRange), 
