@@ -11,7 +11,7 @@
   <Class Name="JaneAusten.ArcherEnemy" Collapsed="true">
     <Position X="5.25" Y="11" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAABAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>ArcherEnemy.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -19,14 +19,14 @@
   <Class Name="JaneAusten.ArcherMenu" Collapsed="true">
     <Position X="10.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAFAEAAAAAAAAAAAAQ=</HashCode>
+      <HashCode>AgAAAAAAAAAAAAAAAIAAAAAAAAAFAEAAAAAAAAAAAAA=</HashCode>
       <FileName>ArcherMenu.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="JaneAusten.Bonus" Collapsed="true">
     <Position X="3" Y="8" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAQAAACAAAAAgAAAAAAAAAAAAIAAQCAAQAAAAAAAAA=</HashCode>
+      <HashCode>AAAQAAAAAAAAAgAAAAAAAAAAAAIAAACAAQAAAAAAAAA=</HashCode>
       <FileName>Bonus.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -34,7 +34,7 @@
   <Class Name="JaneAusten.Bullet" Collapsed="true">
     <Position X="0.75" Y="9.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAICIAIAAiAAgBAAAAAAAAAIAAACABACBAAEAgAA=</HashCode>
+      <HashCode>AAQAAACIAIAAiAAgBAAAAAAAAAIAAACAAACBAAEAgAA=</HashCode>
       <FileName>Bullet.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -45,6 +45,7 @@
       <HashCode>AAAACAAAAAAAAAAAAAAAAAAjAAIAAQCGAAAAgAAAAAg=</HashCode>
       <FileName>Creature.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="JaneAusten.Cursor" Collapsed="true">
     <Position X="14.5" Y="0.75" Width="1.5" />
@@ -70,7 +71,7 @@
   <Class Name="JaneAusten.Enemy" Collapsed="true">
     <Position X="6.25" Y="9.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAABABAAAMAAAABAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAABIAAAAAAAAAABABAAAMAAAABAAAAgAAAAAA=</HashCode>
       <FileName>Enemy.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -78,14 +79,14 @@
   <Class Name="JaneAusten.Engine" Collapsed="true">
     <Position X="16.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAABAAAAAAAAAAAIAAIAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <HashCode>AAAAAAABAAAAAAAAAAAIAAIAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>Engine.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="JaneAusten.FighterEnemy" Collapsed="true">
     <Position X="7.5" Y="11" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAQABIAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <HashCode>AAAAAAQAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FighterEnemy.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -121,7 +122,7 @@
   <Class Name="JaneAusten.Hero" Collapsed="true">
     <Position X="10.75" Y="9.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ARABAACJAIAAiAAAAAAAAAACAIIAACKAAAAAgAQAACA=</HashCode>
+      <HashCode>ARABAACJAIAAiAAAAAAAAAACAIIAACKAAAAAgAQAAAA=</HashCode>
       <FileName>Hero.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -129,14 +130,14 @@
   <Class Name="JaneAusten.HeroMenu" Collapsed="true">
     <Position X="9.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAQCAAAAQAAAAAAABAAQAAAAAAEgAAAQAAAAAAAA=</HashCode>
+      <HashCode>AAAAAQCAAAAQCAAAAIABAAQAAAAAAEgAAAQAAAAAAAA=</HashCode>
       <FileName>HeroMenu.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="JaneAusten.HidingBonus" Collapsed="true">
     <Position X="3" Y="9.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIAAAAAAgAAAAAAAAAAAEAAAAIAAACAAAAAAAAAAQ=</HashCode>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAEAAAAIAAACAAAAAAAAEAQ=</HashCode>
       <FileName>HidingBonus.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -165,21 +166,21 @@
   <Class Name="JaneAusten.LadyKillerMenu" Collapsed="true">
     <Position X="8.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAQAAACAAACAgAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAAAAAAAAAAAAIAAACAgAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>LadyKillerMenu.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="JaneAusten.Level" Collapsed="true">
     <Position X="2.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAgAAAAJAAAAEAAAAAAEAAAAAAAQACAAAgAgA=</HashCode>
+      <HashCode>AAAAAAAAgAAAAJAAAAEAAAIAAEAAAAAAAQACAAAgAgA=</HashCode>
       <FileName>Level.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="JaneAusten.LevelDifficulty" Collapsed="true">
     <Position X="14.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AyQAAAAAAAAAAACgAAAAGBAAAAAAAAAABAAAAACAAAA=</HashCode>
+      <HashCode>AwAAAAAAAAAIAACAAAAAGBAAAAAAAAAABAAAAAAAAAA=</HashCode>
       <FileName>LevelDifficulty.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -215,7 +216,7 @@
   <Class Name="JaneAusten.Shooter" Collapsed="true">
     <Position X="12" Y="11" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAIAAAAAAAgAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAABAIAAAAAAAgAAIAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Shooter.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -223,7 +224,7 @@
   <Class Name="JaneAusten.StartMenu" Collapsed="true">
     <Position X="16.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AwAABAAIAEAIAAAgAAAAMAAAAAAAACAATAAAACAAAAA=</HashCode>
+      <HashCode>AwAAAAAIAEAIAAAAAAAAMAAAAAAAAAAARAAAAAAAAAA=</HashCode>
       <FileName>StartMenu.cs</FileName>
     </TypeIdentifier>
   </Class>

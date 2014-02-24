@@ -61,6 +61,7 @@
     <Compile Include="HeroMenu.cs" />
     <Compile Include="HidingBonus.cs" />
     <Compile Include="ICollectable.cs" />
+    <Compile Include="ICreature.cs" />
     <Compile Include="IDrawable.cs" />
     <Compile Include="IMovable.cs" />
     <Compile Include="InvalidCreatureException.cs" />
