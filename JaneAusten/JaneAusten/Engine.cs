@@ -12,93 +12,73 @@
 
         public static List<Bullet> listOfBullets = new List<Bullet>();
 
-        public static void Run(int selectedLevel)
-        {           
-            //LABYRINTH
-           // Labyrinth labyrinth = new Labyrinth();
-            //Draw loaded labyrinth with default parameteres 0, 0
-           // labyrinth.DrawObject();
+        public static void Run(HeroMenu hero, int selectedLevel)
+        {
+            //HERO
+            Hero choosenHero = new Archer(1, 1, 10, ConsoleColor.Cyan);
+            
+            if (hero is LadyKillerMenu)
+            {
+                choosenHero = new Shooter(1, 1, 10, ConsoleColor.Magenta);
+            }
+
+            //Load hero from file
+            choosenHero.LoadHero(choosenHero.GetType().Name);
+            //Draw loaded hero on the console screen with default position row = 1, col = 1
+            choosenHero.DrawObject();
+            //Load hero collision
+            choosenHero.LoadHeroCollision();
 
             Level level;
-            switch(selectedLevel)
+            switch (selectedLevel)
             {
                 case 1:
-                {
-                    LevelFactory l = new EasyLevelCreator();
-                    level = l.GenerateLevel();
-                    break;
-                }
+                    {
+                        LevelFactory l = new EasyLevelCreator();
+                        level = l.GenerateLevel();
+                        break;
+                    }
                 case 2:
-                {
-                    LevelFactory l = new MediumLevelCreator();
-                    level = l.GenerateLevel();
-                    break;
-                }
+                    {
+                        LevelFactory l = new MediumLevelCreator();
+                        level = l.GenerateLevel();
+                        break;
+                    }
                 case 3:
-                {
-                    LevelFactory l = new HardLevelCreator();
-                    level = l.GenerateLevel();
-                    break;
-                }
+                    {
+                        LevelFactory l = new HardLevelCreator();
+                        level = l.GenerateLevel();
+                        break;
+                    }
                 default:
-                {
-                    LevelFactory l = new EasyLevelCreator();
-                    level = l.GenerateLevel();
-                    break;   
-                }
+                    {
+                        LevelFactory l = new EasyLevelCreator();
+                        level = l.GenerateLevel();
+                        break;
+                    }
             }
-           //LevelFactory l = new EasyLevelCreator();
-           //Level level = l.GenerateLevel();
-
-            //HERO
-            Hero archer = new Archer(1, 1, 10, ConsoleColor.Cyan);
-            //Load hero from file
-            archer.LoadHero();
-            //Draw loaded hero on the console screen with default position row = 1, col = 1
-            archer.DrawObject();
-            //Load hero collision
-            archer.LoadHeroCollision();
-
-            //ENEMIES
-            //TEST - Load all enemies
-            
-            //List<Enemy> levelEnemies = level.EnemiesList;
-            //List<Bonus> firstLevelBonuses = level.BonusesList;
-            //foreach (var enemy in levelEnemies)
-            //{
-            //    enemy.LoadEnemy();
-            //    enemy.DrawObject();
-            //}
-
-            //BNUSES
-            //TEST = Load all bonuses
-            //foreach (var bonus in firstLevelBonuses)
-            //{
-            //    bonus.DrawObject();
-            //}
-
-            
+        
             while (true)
             {
-                PrintOnPosition(82, 5, "Hero Lifes: " + archer.Lifes);
-                PrintOnPosition(82, 7, "Damage: " + archer.Damage);
-                PrintOnPosition(82, 9, "Shoot range: " + archer.Range);
+                PrintOnPosition(82, 5, "Hero Lifes: " + choosenHero.Lifes);
+                PrintOnPosition(82, 7, "Damage: " + choosenHero.Damage);
+                PrintOnPosition(82, 9, "Shoot range: " + choosenHero.Range);
                 PrintOnPosition(82, 11, "Score: " + score);
                 //Hero move or shoot (keypressed)
-                archer.Move();
+                choosenHero.Move();
                 //Check if some enemy is hitting us
-                archer.CollisionWithEnemyCheck(level);
+                choosenHero.CollisionWithEnemyCheck(level);
                 //Bonus checks
-                archer.PotentialCollideWithBonus(level);
+                choosenHero.PotentialCollideWithBonus(level);
                 // Move all bullets and check for collision
-                Bullet.BulletsMovement(listOfBullets, archer.Damage, level);
+                Bullet.BulletsMovement(listOfBullets, choosenHero.Damage, level);
                 //Move enemies
                 foreach (var enemy in level.EnemiesList)
                 {
                     enemy.Move();
                 }
                 //Slow down rendering speed
-                if (archer.Lifes <= 0)
+                if (choosenHero.Lifes <= 0)
                 {
                     Console.Clear();
                     break;

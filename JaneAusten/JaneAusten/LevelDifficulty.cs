@@ -36,7 +36,7 @@ namespace JaneAusten
             }
             return component;
         }
-        public static void DrawDifficulty()
+        public static void DrawDifficulty(HeroMenu hero)
         {
             var cursor = new Cursor();
             cursor.Left = initialCursorLeft;
@@ -81,19 +81,19 @@ namespace JaneAusten
                         if (cursor.Top == initialCursorTop) 
                         {
                             Console.Clear();
-                            Engine.Run(1);
+                            Engine.Run(hero, 1);
                             break;
                         }
                         else if (cursor.Top == cursorTopMedium) 
                         {
                             Console.Clear();
-                            Engine.Run(2);
+                            Engine.Run(hero, 2);
                             break;
                         }
                         else if (cursor.Top == maxCursorTop) 
                         {
                             Console.Clear();
-                            Engine.Run(3);
+                            Engine.Run(hero, 3);
                             break;
                         }
                     }
