@@ -69,6 +69,7 @@
     <Compile Include="InvalidCreatureException.cs" />
     <Compile Include="IShootable.cs" />
     <Compile Include="JaneAusten.cs" />
+    <Compile Include="KillEventArgs.cs" />
     <Compile Include="Labyrinth.cs" />
     <Compile Include="LadyKillerMenu.cs" />
     <Compile Include="Level.cs" />

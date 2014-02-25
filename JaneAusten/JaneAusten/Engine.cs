@@ -8,7 +8,9 @@
 
     public class Engine
     {
-        public static int score = 0;
+        // public static int score = 0;
+
+        private static Hero choosenHero;
 
         public static List<Bullet> listOfBullets = new List<Bullet>();
 
@@ -23,7 +25,7 @@
 
             Console.CancelKeyPress += new ConsoleCancelEventHandler(Console_CancelKeyPress);
             //HERO
-            Hero choosenHero = new Archer(1, 1, 10, ConsoleColor.Cyan);
+            choosenHero = new Archer(1, 1, 10, ConsoleColor.Cyan);
             
             if (hero is LadyKillerMenu)
             {
@@ -66,6 +68,9 @@
                     }
             }
             
+            //Event Subscriber
+            level.OnKill += levelOnKill;
+
             while (true)
             {
                 if (stopGame)
@@ -75,7 +80,7 @@
                 PrintOnPosition(82, 5, "Hero Lifes: " + choosenHero.Lifes);
                 PrintOnPosition(82, 7, "Damage: " + choosenHero.Damage);
                 PrintOnPosition(82, 9, "Shoot range: " + choosenHero.Range);
-                PrintOnPosition(82, 11, "Score: " + score);
+                PrintOnPosition(82, 11, "Score: " + choosenHero.Score);
                 //Hero move or shoot (keypressed)
                 choosenHero.Move();
                 //Check if some enemy is hitting us
@@ -144,6 +149,12 @@
                     }
                 }
             }
+        }
+
+        //Event
+        private static void levelOnKill(object sender, KillEventArgs e)
+        {
+            choosenHero.Score += 100;
         }
 
         private static void PrintOnPosition(int x, int y, string message)

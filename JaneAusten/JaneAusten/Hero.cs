@@ -29,6 +29,14 @@
             private set { this.damage = value; }
         }
 
+        private int score;
+
+        public int Score
+        {
+            get { return this.score; }
+            set { this.score = value; }
+        }
+
         public Hero()
             : base()
         {
@@ -36,13 +44,14 @@
         }
 
         public Hero(int x, int y, int speed, ConsoleColor color,
-            int health, int lifes, double damage, int range)
+            int health, int lifes, double damage, int range, int score)
             : base(x, y, health, lifes, speed, color)
         {
             this.Health = health;
             this.Lifes = lifes;
             this.Damage = damage;
             this.Range = range;
+            this.Score = score;
         }
 
         public abstract void Move();
@@ -191,8 +200,8 @@
                         
                             switch (bonus.Type)
                             {
-                                case BonusType.gold: Engine.score += 50; break;
-                                case BonusType.diamond: Engine.score += 100; break;
+                                case BonusType.gold: this.Score += 50; break;
+                                case BonusType.diamond: this.Score += 100; break;
                                 case BonusType.lifePotion: this.Lifes++; break;
                                 case BonusType.extraDamage: this.Damage += 10; break;
                                 case BonusType.longerRange: this.Range++; break;

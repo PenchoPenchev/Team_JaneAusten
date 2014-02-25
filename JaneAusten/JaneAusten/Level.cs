@@ -7,11 +7,15 @@ namespace JaneAusten
 {
     public abstract class Level
     {
+        private const int points = 100;
+
         private List<Enemy> enemiesList;
        
         private List<Bonus> bonusesList;
 
         public Labyrinth Labyrinth;
+
+        public event EventHandler<KillEventArgs> OnKill;
         public Level()
         { }
 
@@ -67,11 +71,16 @@ namespace JaneAusten
 
         public void RemoveAllDeadEnemies()
         {
+            EventHandler<KillEventArgs> handler = OnKill;
             for (int indx = 0; indx < this.EnemiesList.Count; indx++)
             {
                 if (this.EnemiesList[indx].Health <= 0)
                 {
-                    Engine.score += 100;
+                    if (handler != null)
+                    {
+                        handler(this, new KillEventArgs(points));
+                    }
+                    //Engine.score += 100;
                     for (int row = 0; row < Enemy.enemyFigure.GetLength(0); row++)
                     {
                         for (int col = 0; col < Enemy.enemyFigure.GetLength(1); col++)

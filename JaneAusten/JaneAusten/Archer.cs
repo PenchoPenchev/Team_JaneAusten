@@ -23,8 +23,8 @@
         }
 
         public Archer(int x, int y, int speed, ConsoleColor color,
-            int health = 100, int Lifes = 3, int damage = 10, int range = 5)
-            : base(x, y, speed, color, health, Lifes, damage, range)
+            int health = 100, int Lifes = 3, int damage = 10, int range = 5, int score = 0)
+            : base(x, y, speed, color, health, Lifes, damage, range, score)
         {
         }
 

@@ -17,8 +17,8 @@
         }
         
         public Shooter(int x, int y, int speed, ConsoleColor color,
-            int health = 100, int Lifes = 2, int damage = 20, int range = 3)
-            : base(x, y, speed, color, health, Lifes, damage, range)
+            int health = 100, int Lifes = 2, int damage = 20, int range = 3, int score = 0)
+            : base(x, y, speed, color, health, Lifes, damage, range, score)
         {
         }
 
