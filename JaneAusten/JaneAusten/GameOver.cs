@@ -8,27 +8,18 @@ namespace JaneAusten
 {
     public class GameOver
     {
+        private const string gameoverText = @"../../Content/GameOverText.txt";
         public static void Display()
         {
             using (StreamReader sr = new StreamReader(@"../../Content/GAME_OVER.txt"))
             {
-                string text =
-@"
-██████╗  █████╗ ███╗   ███╗███████╗     ██████╗ ██╗   ██╗███████╗██████╗ 
-██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ██╔═══██╗██║   ██║██╔════╝██╔══██╗
-██║  ███╗███████║██╔████╔██║█████╗      ██║   ██║██║   ██║█████╗  ██████╔╝
-██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██║   ██║╚██╗ ██╔╝██╔══╝  ██╔══██╗
-╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ╚██████╔╝ ╚████╔╝ ███████╗██║  ██║
- ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝     ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝
-"
-                    ;
-
                 string bunny = sr.ReadToEnd().ToString();
 
                 Console.SetCursorPosition(0, 0);
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
 
-                Console.WriteLine(text);
+                ;
+                Console.WriteLine(StartMenu.ReadComponents(gameoverText).ToString());
                 Console.WriteLine("\t\t\t\tYour Score: {0}", Engine.score);
 
                 Console.ForegroundColor = ConsoleColor.DarkGreen;

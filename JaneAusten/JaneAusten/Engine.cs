@@ -101,9 +101,10 @@
                 //Slow down rendering speed
                 if (choosenHero.Lifes <= 0)
                 {
+                    
+                    Console.Clear();
                     GameOver.Display();
-                    //Console.Clear();
-                    //break;
+                    break;
                 }
                 System.Threading.Thread.Sleep(100);
             }
