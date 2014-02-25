@@ -15,8 +15,11 @@
         private static int hidingBonusesMaxValue = 50;
         private static int hidingBonusesValue = 0;
 
+        private static bool stopGame = false;
         public static void Run(HeroMenu hero, int selectedLevel)
         {
+
+            Console.CancelKeyPress += new ConsoleCancelEventHandler(Console_CancelKeyPress);
             //HERO
             Hero choosenHero = new Archer(1, 1, 10, ConsoleColor.Cyan);
             
@@ -63,6 +66,10 @@
             
             while (true)
             {
+                if (stopGame)
+                {
+                    return;
+                }
                 PrintOnPosition(82, 5, "Hero Lifes: " + choosenHero.Lifes);
                 PrintOnPosition(82, 7, "Damage: " + choosenHero.Damage);
                 PrintOnPosition(82, 9, "Shoot range: " + choosenHero.Range);
@@ -100,6 +107,16 @@
             //GameOver.Display();
         }
 
+        private static void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e)
+        {
+            
+            stopGame = true;
+            Console.Clear();
+            StringBuilder sb = StartMenu.ReadComponents(@"..\..\Content\GoodBye.txt");
+            StartMenu.DrawComponent(sb.ToString(), 10, 0, ConsoleColor.DarkGreen);
+            Environment.Exit(0);
+        }
+
         private static void ToggleHidingBonuses(Level level)
         {
             for (int i = 0; i < level.BonusesList.Count; i++)
@@ -131,6 +148,8 @@
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine(message);
         }
+
+
 
         
     }

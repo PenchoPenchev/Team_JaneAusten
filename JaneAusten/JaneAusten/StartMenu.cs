@@ -16,12 +16,12 @@ namespace JaneAusten
         private const int cursorTopHighScores = 20;
         private const string menuPath = @"..\..\Content\StartMenu.txt";
     
-        public static StringBuilder ReadComponents()
+        public static StringBuilder ReadComponents(string path)
         {
             StringBuilder component = new StringBuilder();
             try
             {
-                using (StreamReader sr = new StreamReader(menuPath))
+                using (StreamReader sr = new StreamReader(path))
                 {
                     string line;
                     while ((line = sr.ReadLine()) != null)
@@ -101,7 +101,7 @@ namespace JaneAusten
                         }
                     }
                 }
-                StartMenu.DrawComponent(StartMenu.ReadComponents().ToString(), 0, 0, ConsoleColor.DarkGreen);
+                StartMenu.DrawComponent(StartMenu.ReadComponents(menuPath).ToString(), 0, 0, ConsoleColor.DarkGreen);
                 StartMenu.DrawComponent(Cursor.body, cursor.Left, cursor.Top, ConsoleColor.DarkYellow);
                 System.Threading.Thread.Sleep(200);
 
