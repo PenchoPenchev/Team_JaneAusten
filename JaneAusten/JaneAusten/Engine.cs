@@ -15,6 +15,8 @@
         private static int hidingBonusesMaxValue = 50;
         private static int hidingBonusesValue = 0;
 
+        private const string goodByePath = @"..\..\Content\GoodBye.txt";
+
         private static bool stopGame = false;
         public static void Run(HeroMenu hero, int selectedLevel)
         {
@@ -112,7 +114,7 @@
             
             stopGame = true;
             Console.Clear();
-            StringBuilder sb = StartMenu.ReadComponents(@"..\..\Content\GoodBye.txt");
+            StringBuilder sb = StartMenu.ReadComponents(goodByePath);
             StartMenu.DrawComponent(sb.ToString(), 10, 0, ConsoleColor.DarkGreen);
             Environment.Exit(0);
         }
