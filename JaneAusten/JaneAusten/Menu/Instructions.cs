@@ -8,16 +8,15 @@ namespace JaneAusten.Menu
 {
     public class Instructions
     {
-        private static const string fileName = @"..\..\Content\Instructions.txt";
+        private const string fileName = @"..\..\Content\Instructions.txt";
 
         public static void DisplayInstructions()
         {
             StreamReader reader = new StreamReader(fileName);
             using (reader)
             {
-                reader.ReadToEnd();
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
-                Console.WriteLine(reader.ToString());
+                Console.WriteLine(reader.ReadToEnd().ToString());
             }
 
             while (true)

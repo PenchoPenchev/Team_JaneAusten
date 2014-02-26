@@ -13,7 +13,7 @@ namespace JaneAusten
         private const int initialCursorLeft = 24;
         private const int maxCursorTop = 29;
         private const int cursorMovement = 3;
-        private const int cursorTopInstructions = 22;
+        private const int cursorTopInstructions = 26;
         private const int cursorTopHighScores = 20;
         private const string menuPath = @"..\..\Content\StartMenu.txt";
     
@@ -92,7 +92,7 @@ namespace JaneAusten
                         {
                             
                         }
-                        else if (cursor.Top == cursorTopInstructions) // Run Instructions 
+                        else if (cursor.Top != initialCursorTop) // Run Instructions 
                         {
                             Console.Clear();
                             Instructions.DisplayInstructions();
