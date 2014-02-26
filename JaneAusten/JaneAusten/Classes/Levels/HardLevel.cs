@@ -69,7 +69,8 @@ namespace JaneAusten
                             new Bonus(42,10,BonusType.gold), 
                             new Bonus(67,14,BonusType.extraDamage), 
                             new Bonus(3,14,BonusType.extraDamage), 
-                            new HidingBonus(43,29,BonusType.lifePotion)               
+                            new HidingBonus(43,29,BonusType.lifePotion),
+                            new HidingBonus(43,24,BonusType.extraDamage),
             };
             return bonuses;
         }

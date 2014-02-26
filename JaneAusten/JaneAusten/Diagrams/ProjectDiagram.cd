@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="JaneAusten.Archer" Collapsed="true">
+    <Position X="7.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAABAIAAAAAAAgAAIAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Classes\Heroes\Archer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="JaneAusten.ArcherEnemy" Collapsed="true">
+    <Position X="3.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAABAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Classes\Enemies\ArcherEnemy.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="JaneAusten.Bonus" Collapsed="true">
+    <Position X="1" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAgAAAAAAAAAAAAIAAACAAQAAAAAAAAA=</HashCode>
+      <FileName>Classes\Bonus.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="JaneAusten.Bullet" Collapsed="true">
+    <Position X="12.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACIAIAAiAAgBAAAAAAAAAIAAACAAACBAAEAgAA=</HashCode>
+      <FileName>Classes\Bullet.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="JaneAusten.Creature" Collapsed="true">
+    <Position X="6.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAjAAIAAQCGAAAAgAAAAAg=</HashCode>
+      <FileName>Classes\Creature.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="JaneAusten.Cursor" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAQAIAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Cursor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.EasyLevel" Collapsed="true">
+    <Position X="12.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAEAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Classes\Levels\EasyLevel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.EasyLevelCreator" Collapsed="true">
+    <Position X="3.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Factory\EasyLevelCreator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.Enemy" Collapsed="true">
+    <Position X="4.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABIAAAAAAAAAABABAAAMAAAABAAAAgAAAAAA=</HashCode>
+      <FileName>Classes\Enemy.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="JaneAusten.Engine" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABABAARAAQEAAAAAIAAAAAAAAAIAAAIAAAAAI=</HashCode>
+      <FileName>Classes\Engine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.EnterName" Collapsed="true">
+    <Position X="18.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAIAAAAAAAgQAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\EnterName.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.FighterEnemy" Collapsed="true">
+    <Position X="5.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Enemies\FighterEnemy.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="JaneAusten.GameObject" Collapsed="true">
+    <Position X="6.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAwAAAAAAAAAAAAAAAwAAAAAA=</HashCode>
+      <FileName>Classes\GameObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.GameOver" Collapsed="true">
+    <Position X="20" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\GameOver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.HardLevel" Collapsed="true">
+    <Position X="1" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAEAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Classes\Levels\HardLevel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.HardLevelCreator" Collapsed="true">
+    <Position X="5.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Factory\HardLevelCreator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.Hero" Collapsed="true">
+    <Position X="8.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARABAACJAIAAiAgAAAAIAAACAIIAACKAAAAAgAQAAAA=</HashCode>
+      <FileName>Classes\Hero.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="JaneAusten.HidingBonus" Collapsed="true">
+    <Position X="1" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Classes\HidingBonus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.InvalidCreatureException" Collapsed="true">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\InvalidCreatureException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.JaneAusten" Collapsed="true">
+    <Position X="16.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Classes\JaneAusten.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.KillEventArgs" Collapsed="true">
+    <Position X="18.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\KillEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.Labyrinth" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAABAAAAIQQACAAgAAAAAAAAA=</HashCode>
+      <FileName>Classes\Labyrinth.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="JaneAusten.Level" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAgAAAAJAAAAEAAAIAAEAAAAAEAQACAAAgAgA=</HashCode>
+      <FileName>Classes\Level.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.LevelDifficulty" Collapsed="true">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AwAAAAAAAAAIAACAAAAAGBAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Levels\LevelDifficulty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.LevelFactory" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Factory\LevelFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.MediumLevel" Collapsed="true">
+    <Position X="10" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAEAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Classes\Levels\MediumLevel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.MediumLevelCreator" Collapsed="true">
+    <Position X="7.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Factory\MediumLevelCreator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.ArcherMenu" Collapsed="true">
+    <Position X="0.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAIAAAAAAAAAFAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Menu\ArcherMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.HeroMenu" Collapsed="true">
+    <Position X="1.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQCAAAAQCAAAAIABAAQAAAAAAEgAAAQAAAAAAAA=</HashCode>
+      <FileName>Menu\HeroMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.LadyKillerMenu" Collapsed="true">
+    <Position X="2.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAIAAACAgAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Menu\LadyKillerMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.StartMenu" Collapsed="true">
+    <Position X="18.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AwAAAAAIAEAIAAAAAAAAMAAAAAAAAAAARAAAAAAAAAA=</HashCode>
+      <FileName>Menu\StartMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JaneAusten.MovingObject" Collapsed="true">
+    <Position X="12.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\MovingObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="JaneAusten.Shooter" Collapsed="true">
+    <Position X="10" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAABAIAAAAAAAgAAIAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Classes\Heroes\Shooter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="JaneAusten.Sound" Collapsed="true">
+    <Position X="16.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIACACAAAAAAAAAAAAAAAAAAAUAABAAAAAAAAAA=</HashCode>
+      <FileName>AudioClasses\Sound.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="JaneAusten.Point" Collapsed="true">
+    <Position X="14.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAA=</HashCode>
+      <FileName>Classes\Point.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="JaneAusten.ICollectable" Collapsed="true">
+    <Position X="14.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ICollectable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="JaneAusten.ICreature" Collapsed="true">
+    <Position X="16.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAABAAAAAAAGAAAAgAAAAAA=</HashCode>
+      <FileName>Interfaces\ICreature.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="JaneAusten.IDrawable" Collapsed="true">
+    <Position X="18.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IDrawable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="JaneAusten.IMovable" Collapsed="true">
+    <Position X="20" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IMovable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="JaneAusten.IShootable" Collapsed="true">
+    <Position X="14.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IShootable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="JaneAusten.BonusType" Collapsed="true">
+    <Position X="14.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAAQCAAAIEAAAAAAA=</HashCode>
+      <FileName>Enums\BonusType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="JaneAusten.CreatureType" Collapsed="true">
+    <Position X="16.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\CreatureType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="JaneAusten.Levels" Collapsed="true">
+    <Position X="18.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAACAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\Levels.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

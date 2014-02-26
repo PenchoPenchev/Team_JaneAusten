@@ -45,10 +45,10 @@
     <Compile Include="ArcherEnemy.cs" />
     <Compile Include="ArcherMenu.cs" />
     <Compile Include="Bonus.cs" />
-    <Compile Include="BonusType.cs" />
+    <Compile Include="Enums\BonusType.cs" />
     <Compile Include="Bullet.cs" />
     <Compile Include="Creature.cs" />
-    <Compile Include="CreatureType.cs" />
+    <Compile Include="Enums\CreatureType.cs" />
     <Compile Include="Cursor.cs" />
     <Compile Include="EasyLevel.cs" />
     <Compile Include="EasyLevelCreator.cs" />
