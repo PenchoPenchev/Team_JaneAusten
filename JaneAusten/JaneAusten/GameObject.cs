@@ -15,7 +15,7 @@ namespace JaneAusten
         public int PosX
         {
             get { return posX; }
-            protected set 
+            set 
             {
                 if (value >= 0)
                 {
@@ -27,7 +27,7 @@ namespace JaneAusten
         public int PosY
         {
             get { return posY; }
-            protected set 
+            set 
             {
                 if (PosY >= 0)
                 {

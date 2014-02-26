@@ -34,86 +34,108 @@
 
             //Load hero from file
             choosenHero.LoadHero(choosenHero.GetType().Name);
-            //Draw loaded hero on the console screen with default position row = 1, col = 1
-            choosenHero.DrawObject();
-            //Load hero collision
-            choosenHero.LoadHeroCollision();
 
-            Level level;
-            switch (selectedLevel)
-            {
-                case 1:
-                    {
-                        LevelFactory l = new EasyLevelCreator();
-                        level = l.GenerateLevel();
-                        break;
-                    }
-                case 2:
-                    {
-                        LevelFactory l = new MediumLevelCreator();
-                        level = l.GenerateLevel();
-                        break;
-                    }
-                case 3:
-                    {
-                        LevelFactory l = new HardLevelCreator();
-                        level = l.GenerateLevel();
-                        break;
-                    }
-                default:
-                    {
-                        LevelFactory l = new EasyLevelCreator();
-                        level = l.GenerateLevel();
-                        break;
-                    }
-            }
             
-            //Event Subscriber
-            level.OnKill += levelOnKill;
-
             while (true)
             {
-                if (stopGame)
-                {
-                    return;
-                }
-                PrintOnPosition(82, 5, "Hero Lifes: " + choosenHero.Lifes);
-                PrintOnPosition(82, 7, "Damage: " + choosenHero.Damage);
-                PrintOnPosition(82, 9, "Shoot range: " + choosenHero.Range);
-                PrintOnPosition(82, 11, "Score: " + choosenHero.Score);
-                //Hero move or shoot (keypressed)
-                choosenHero.Move();
-                //Check if some enemy is hitting us
-                choosenHero.CollisionWithEnemyCheck(level);
-                //Bonus checks
-                choosenHero.PotentialCollideWithBonus(level);
-                // Move all bullets and check for collision
-                Bullet.BulletsMovement(listOfBullets, choosenHero.Damage, level);
-                //Move enemies
-                foreach (var enemy in level.EnemiesList)
-                {
-                    enemy.Move();
-                }
-
-                hidingBonusesValue++;
-
-                if (hidingBonusesValue == hidingBonusesMaxValue)
-                {
-                    hidingBonusesValue = 0;
-                    ToggleHidingBonuses(level);
-                }
                 
-                //Slow down rendering speed
-                if (choosenHero.Lifes <= 0)
+                //Draw loaded hero on the console screen with default position row = 1, col = 1
+                choosenHero.DrawObject();
+                //Load hero collision
+                choosenHero.LoadHeroCollision();
+
+                Level level;
+                switch (selectedLevel)
                 {
-                    
-                    Console.Clear();
-                    GameOver.Display();
+                    case 1:
+                        {
+                            LevelFactory l = new EasyLevelCreator();
+                            level = l.GenerateLevel();
+                            break;
+                        }
+                    case 2:
+                        {
+                            LevelFactory l = new MediumLevelCreator();
+                            level = l.GenerateLevel();
+                            break;
+                        }
+                    case 3:
+                        {
+                            LevelFactory l = new HardLevelCreator();
+                            level = l.GenerateLevel();
+                            break;
+                        }
+                    default:
+                        {
+                            LevelFactory l = new EasyLevelCreator();
+                            level = l.GenerateLevel();
+                            break;
+                        }
+                }
+
+                //Event Subscriber
+                level.OnKill += levelOnKill;
+
+                while (true)
+                {
+                    if (stopGame)
+                    {
+                        return;
+                    }
+                    PrintOnPosition(82, 5, "Hero Lifes: " + choosenHero.Lifes);
+                    PrintOnPosition(82, 7, "Damage: " + choosenHero.Damage);
+                    PrintOnPosition(82, 9, "Shoot range: " + choosenHero.Range);
+                    PrintOnPosition(82, 11, "Score: " + choosenHero.Score);
+                    //Hero move or shoot (keypressed)
+                    choosenHero.Move();
+                    //Check if some enemy is hitting us
+                    choosenHero.CollisionWithEnemyCheck(level);
+                    //Bonus checks
+                    choosenHero.PotentialCollideWithBonus(level);
+                    // Move all bullets and check for collision
+                    Bullet.BulletsMovement(listOfBullets, choosenHero.Damage, level);
+                    //Move enemies
+                    foreach (var enemy in level.EnemiesList)
+                    {
+                        enemy.Move();
+                    }
+
+                    // Go to next level
+                    if (level.EnemiesList.Count == 0)
+                    {
+                        break;
+                    }
+
+                    hidingBonusesValue++;
+
+                    if (hidingBonusesValue == hidingBonusesMaxValue)
+                    {
+                        hidingBonusesValue = 0;
+                        ToggleHidingBonuses(level);
+                    }
+
+                    if (choosenHero.Lifes <= 0)
+                    {
+
+                        Console.Clear();
+                        GameOver.Display();
+                        break;
+                    }
+                    //Slow down rendering speed
+                    System.Threading.Thread.Sleep(100);
+                }
+                selectedLevel++;
+
+                choosenHero.PosX = 1;
+                choosenHero.PosY = 1;
+                Console.Clear();
+                // Game over
+                if (selectedLevel > 3)
+                {
                     break;
                 }
-                System.Threading.Thread.Sleep(100);
             }
-            //GameOver.Display();
+            GameOver.Display();
         }
 
         private static void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e)
