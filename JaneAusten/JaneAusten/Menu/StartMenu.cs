@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JaneAusten.Menu;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -85,14 +86,16 @@ namespace JaneAusten
                             Console.Clear();
                             var chooseHero = new ArcherMenu();
                             chooseHero.PrintHeroMenu();
-                        }
+                            
+                        }                        
                         else if (cursor.Top == cursorTopHighScores) // Run highScores
                         {
-
+                            
                         }
                         else if (cursor.Top == cursorTopInstructions) // Run Instructions 
                         {
-
+                            Console.Clear();
+                            Instructions.DisplayInstructions();
                         }
                         else if (cursor.Top == maxCursorTop) // exit
                         {
