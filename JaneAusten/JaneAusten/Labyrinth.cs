@@ -47,6 +47,7 @@
                 {
                     string line;
                     int row = 0;
+                    maze = new int[consoleWidth, consoleHeight];
                     while ((line = sr.ReadLine()) != null)
                     {
                         for (int col = 0; col < line.Length; col++)
