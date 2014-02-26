@@ -73,6 +73,7 @@
     <Compile Include="Classes\Point.cs" />
     <Compile Include="Enums\BonusType.cs" />
     <Compile Include="Enums\CreatureType.cs" />
+    <Compile Include="Enums\Levels.cs" />
     <Compile Include="Interfaces\ICollectable.cs" />
     <Compile Include="Interfaces\ICreature.cs" />
     <Compile Include="Interfaces\IDrawable.cs" />
