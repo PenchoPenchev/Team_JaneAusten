@@ -92,7 +92,7 @@ namespace JaneAusten
                         {
                             
                         }
-                        else if (cursor.Top != initialCursorTop) // Run Instructions 
+                        else if (cursor.Top == cursorTopInstructions) // Run Instructions 
                         {
                             Console.Clear();
                             Instructions.DisplayInstructions();
